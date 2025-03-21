@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Switch, Redirect, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './components/Navbar.css'
 import './components/Banner.css'
 import './components/GymClass.css'
@@ -23,11 +23,8 @@ import HomeNav from "./routes/HomeNav";
 import AboutNav from "./routes/AboutNav";
 import FeaturesNav from "./routes/FeaturesNav";
 import ContactNav from "./routes/ContactNav";
-
 import LoginNav from "./routes/LoginNav";
 import Footer from './components/Footer';
-
-
 
 function App() {
   return (
@@ -35,9 +32,7 @@ function App() {
       <Navbar />
 
       <Switch>
-
         <Route exact path="/" component={HomeNav}></Route>
-        {/* <Redirect exact from="/Gym-Website/" to="/home" /> */}
         <Route exact path="/about" component={AboutNav}></Route>
         <Route exact path="/features" component={FeaturesNav}></Route>
         <Route exact path="/contact" component={ContactNav}></Route>
@@ -50,4 +45,3 @@ function App() {
 }
 
 export default App;
-
