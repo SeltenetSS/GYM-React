@@ -16,7 +16,7 @@ import './components/PageHeader.css'
 import './components/Features.css'
 import './components/Services.css'
 import './components/Contact.css'
-import './components/SignIn.css'
+import './components/Auth.css'
 
 import './responsive.css'
 
