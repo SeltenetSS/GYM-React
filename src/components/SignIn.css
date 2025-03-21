@@ -1,0 +1,109 @@
+/* Genel stildeki ayarlamalar */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* SignIn Formu */
+  .sign-in-form {
+    max-width: 400px;
+    width: 100%;
+    background-color: white;
+    padding: 30px;
+    margin: 100px auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Başlık */
+  .sign-in-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Input alanları */
+  .sign-in-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  .sign-in-form input:focus {
+    border-color: #4e7a9b;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(72, 144, 197, 0.5);
+  }
+  
+  /* Error mesajları */
+  .error {
+    color: #d9534f;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+  
+  /* Sign In butonu */
+  .sign-in-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4e7a9b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sign-in-form button:disabled {
+    background-color: #ddd;
+  }
+  
+  .sign-in-form button:hover:not(:disabled) {
+    background-color: #366a8a;
+  }
+  
+  /* Sign-up linkler */
+  .sign-up-links {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .sign-up-links button {
+    background: none;
+    border: none;
+    color: #4e7a9b;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .sign-up-links p {
+    margin: 5px 0;
+  }
+  
+  /* Mobil uyumlu */
+  @media (max-width: 500px) {
+    .sign-in-form {
+      margin: 20px;
+      padding: 20px;
+    }
+  
+    .sign-in-form h2 {
+      font-size: 20px;
+    }
+  
+    .sign-in-form input,
+    .sign-in-form button {
+      font-size: 14px;
+    }
+  }
+  

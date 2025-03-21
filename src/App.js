@@ -16,6 +16,7 @@ import './components/PageHeader.css'
 import './components/Features.css'
 import './components/Services.css'
 import './components/Contact.css'
+import './components/SignIn.css'
 
 import './responsive.css'
 
@@ -29,6 +30,8 @@ import AdminDashboard from './components/AdminDashboard'; // AdminDashboard comp
 import TrainerDashboard from './components/TrainerDashboard'; // TrainerDashboard componenti
 import UserDashboard from './components/UserDashboard'; // UserDashboard componenti
 import SignIn from "./components/SignIn";
+import SignUp from"./components/Signup"
+import SignUpAdmin from "./components/AdminSignUp"
 
 
 
@@ -43,7 +46,9 @@ function App() {
         <Route exact path="/about" component={AboutNav}></Route>
         <Route exact path="/features" component={FeaturesNav}></Route>
         <Route exact path="/contact" component={ContactNav}></Route>
-        <Route exact path="/login" component={SignIn} />
+        <Route exact path="/login" component={SignIn} ></Route>
+        <Route exact path="/sign-up" component={SignUp} ></Route>
+        <Route exact path="/admin-sign-up" component={SignUpAdmin} ></Route>
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/trainer-dashboard" element={<TrainerDashboard />} />
         <Route path="/user-dashboard" element={<UserDashboard />} />

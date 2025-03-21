@@ -1,10 +1,11 @@
 /* NavBar  */
 
 #navBar {
-  z-index: 3;
+  z-index: 999;
   background-color: transparent;
   opacity: 1;
   width: 100%;
+  position: relative;
 }
 
 #gym {
