@@ -1,11 +1,10 @@
 import React from "react";
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
 import Login from "../components/Login";
 
 export default function LoginNav() {
   const location = useLocation();
-  const history = useHistory();
   const queryParams = new URLSearchParams(location.search);
   const role = queryParams.get("role") || "user";
   const type = queryParams.get("type") || "signin"; 

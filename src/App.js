@@ -1,3 +1,4 @@
+
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './components/Navbar.css'
@@ -36,7 +37,7 @@ function App() {
         <Route exact path="/about" component={AboutNav}></Route>
         <Route exact path="/features" component={FeaturesNav}></Route>
         <Route exact path="/contact" component={ContactNav}></Route>
-        <Route exact path="/login" component={LoginNav}></Route>
+        <Route exact path="/login" component={LoginNav}></Route> {/* Düzgün URL */}
       </Switch>
 
       <Footer />
@@ -45,3 +46,4 @@ function App() {
 }
 
 export default App;
+
