@@ -25,13 +25,16 @@ import HomeNav from "./routes/HomeNav";
 import AboutNav from "./routes/AboutNav";
 import FeaturesNav from "./routes/FeaturesNav";
 import ContactNav from "./routes/ContactNav";
+import SignInNav from "./routes/SignInNav";
+import SignUpNav from "./routes/SignUpNav";
+import AdminSignUpNav from "./routes/AdminSignUpNav";
 import Footer from './components/Footer';
 import AdminDashboard from './components/AdminDashboard'; // AdminDashboard componenti
 import TrainerDashboard from './components/TrainerDashboard'; // TrainerDashboard componenti
 import UserDashboard from './components/UserDashboard'; // UserDashboard componenti
 import SignIn from "./components/SignIn";
 import SignUp from"./components/Signup"
-import SignUpAdmin from "./components/AdminSignUp"
+// import SignUpAdmin from "./components/AdminSignUp"
 
 
 
@@ -46,9 +49,12 @@ function App() {
         <Route exact path="/about" component={AboutNav}></Route>
         <Route exact path="/features" component={FeaturesNav}></Route>
         <Route exact path="/contact" component={ContactNav}></Route>
+        <Route exact path="/sign-up" component={SignUpNav}></Route>
+        <Route exact path="/login" component={SignInNav}></Route>
         <Route exact path="/login" component={SignIn} ></Route>
         <Route exact path="/sign-up" component={SignUp} ></Route>
-        <Route exact path="/admin-sign-up" component={SignUpAdmin} ></Route>
+        {/* <Route exact path="/admin-sign-up" component={SignUpAdmin} ></Route> */}
+        <Route exact path="/admin-sign-up" component={AdminSignUpNav} ></Route>
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/trainer-dashboard" element={<TrainerDashboard />} />
         <Route path="/user-dashboard" element={<UserDashboard />} />

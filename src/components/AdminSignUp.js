@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import './AdminSignUp.css'; // CSS faylını import et
 
 export default function AdminSignUp() {
   const [email, setEmail] = useState('');
@@ -14,37 +15,22 @@ export default function AdminSignUp() {
     e.preventDefault();
     setLoading(true);
 
-    const registerData = {
-      email: email,
-      password: password,
-      fullName: fullName,
-    };
+    const registerData = { email, password, fullName };
 
     try {
-      // Admin kayıt işlemi
       const response = await axios.post('https://your-api-url/api/auth/signup-admin', registerData);
-      
-      if (response.status === 200) {
-        // Kayıt başarılıysa admin olarak giriş yapalım
-        const loginData = {
-          email: email,
-          password: password,
-        };
 
+      if (response.status === 200) {
+        const loginData = { email, password };
         const loginResponse = await axios.post('https://your-api-url/api/auth/signin', loginData);
 
         if (loginResponse.status === 200) {
-          // Token'ı localStorage'a kaydedelim
           localStorage.setItem('token', loginResponse.data.Token);
-          history.push('/admin-dashboard'); // Admin paneline yönlendirme
+          history.push('/admin-dashboard');
         }
       }
     } catch (err) {
-      if (err.response?.data?.message === 'Registration failed!') {
-        setError('Admin registration failed.');
-      } else {
-        setError('An error occurred. Please try again.');
-      }
+      setError(err.response?.data?.message || 'An error occurred. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -56,7 +42,7 @@ export default function AdminSignUp() {
       {error && <div className="error">{error}</div>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="fullName">Full Name:</label>
+          <label htmlFor="fullName">Full Name:</label><br></br>
           <input
             type="text"
             id="fullName"
@@ -66,7 +52,7 @@ export default function AdminSignUp() {
           />
         </div>
         <div>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Email:</label><br></br>
           <input
             type="email"
             id="email"
@@ -76,7 +62,7 @@ export default function AdminSignUp() {
           />
         </div>
         <div>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Password:</label><br></br>
           <input
             type="password"
             id="password"

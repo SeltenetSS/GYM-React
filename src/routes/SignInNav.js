@@ -16,3 +16,18 @@
 //     </>
 //   );
 // }
+
+import React from 'react'
+import PageHeader from "../components/PageHeader";
+import SignIn from "../components/SignIn";
+
+
+export default function SignInNav() {
+    return (
+        <>
+            <PageHeader title="SignIn" readOnly />
+            <SignIn/>
+            
+        </>
+    )
+}
