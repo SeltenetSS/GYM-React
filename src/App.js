@@ -24,8 +24,14 @@ import HomeNav from "./routes/HomeNav";
 import AboutNav from "./routes/AboutNav";
 import FeaturesNav from "./routes/FeaturesNav";
 import ContactNav from "./routes/ContactNav";
-import LoginNav from "./routes/LoginNav";
 import Footer from './components/Footer';
+import AdminDashboard from './components/AdminDashboard'; // AdminDashboard componenti
+import TrainerDashboard from './components/TrainerDashboard'; // TrainerDashboard componenti
+import UserDashboard from './components/UserDashboard'; // UserDashboard componenti
+import SignIn from "./components/SignIn";
+
+
+
 
 function App() {
   return (
@@ -37,7 +43,10 @@ function App() {
         <Route exact path="/about" component={AboutNav}></Route>
         <Route exact path="/features" component={FeaturesNav}></Route>
         <Route exact path="/contact" component={ContactNav}></Route>
-        <Route exact path="/login" component={LoginNav}></Route> {/* Düzgün URL */}
+        <Route exact path="/login" component={SignIn} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route path="/trainer-dashboard" element={<TrainerDashboard />} />
+        <Route path="/user-dashboard" element={<UserDashboard />} />
       </Switch>
 
       <Footer />
