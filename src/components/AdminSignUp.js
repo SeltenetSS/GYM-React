@@ -18,17 +18,23 @@ export default function AdminSignUp() {
     const registerData = { email, password, fullName };
 
     try {
-      const response = await axios.post('https://your-api-url/api/auth/signup-admin', registerData);
+      const response = await axios.post('https://localhost:7054/api/Auth/signup-admin', registerData);
 
       if (response.status === 200) {
-        const loginData = { email, password };
-        const loginResponse = await axios.post('https://your-api-url/api/auth/signin', loginData);
-
-        if (loginResponse.status === 200) {
-          localStorage.setItem('token', loginResponse.data.Token);
-          history.push('/admin-dashboard');
-        }
+        alert('Registration successful!');
+        history.push('/login');
       }
+
+      // if (response.status === 200) {
+      //   history.push('/login');
+      //   const loginData = { email, password };
+      //   const loginResponse = await axios.post('https://localhost:7054/api/Auth/signin', loginData);
+
+      //   if (loginResponse.status === 200) {
+      //     localStorage.setItem('token', loginResponse.data.Token);
+      //     history.push('/admin-dashboard');
+      //   }
+      // }
     } catch (err) {
       setError(err.response?.data?.message || 'An error occurred. Please try again.');
     } finally {

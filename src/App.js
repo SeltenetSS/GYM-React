@@ -55,9 +55,9 @@ function App() {
         <Route exact path="/sign-up" component={SignUp} ></Route>
         {/* <Route exact path="/admin-sign-up" component={SignUpAdmin} ></Route> */}
         <Route exact path="/admin-sign-up" component={AdminSignUpNav} ></Route>
-        <Route path="/admin-dashboard" element={<AdminDashboard />} />
-        <Route path="/trainer-dashboard" element={<TrainerDashboard />} />
-        <Route path="/user-dashboard" element={<UserDashboard />} />
+        <Route exact path="/admin-dashboard" component={AdminDashboard} />
+        <Route exact path="/trainer-dashboard" component={TrainerDashboard} />
+        <Route exact path="/user-dashboard" component={UserDashboard} />
       </Switch>
 
       <Footer />

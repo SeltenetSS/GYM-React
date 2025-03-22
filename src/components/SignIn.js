@@ -19,16 +19,16 @@ export default function SignIn() {
     const loginData = { email, password };
 
     try {
-      const response = await axios.post('https://your-api-url/api/auth/signin', loginData);
+      const response = await axios.post('https://localhost:7054/api/Auth/signin', loginData);
       if (response.status === 200) {
         localStorage.setItem('token', response.data.Token);
         const role = response.data.role;
 
         if (role === 'admin' || roleFromURL === 'admin') {
           history.push('/admin-dashboard');
-        } else if (role === 'trainer') {
+        } else if (role === 'trainer' || roleFromURL === 'trainer') {
           history.push('/trainer-dashboard');
-        } else if (role === 'user') {
+        } else if (role === 'user'||roleFromURL === 'user') {
           history.push('/user-dashboard');
         }
       }

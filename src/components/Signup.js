@@ -17,7 +17,7 @@ export default function SignUp() {
     const registerData = { fullName, email, password };
 
     try {
-      const response = await axios.post('https://your-api-url/api/auth/signup', registerData);
+      const response = await axios.post('https://localhost:7054/api/Auth/signup', registerData);
       if (response.status === 200) {
         alert('Registration successful! Waiting for admin approval.');
         history.push('/login');

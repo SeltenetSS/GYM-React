@@ -81,7 +81,7 @@ export default function Navbar() {
       </Link>
     </li>
     <li>
-      <Link className="dropdown-item" to="/login?role=gym-gear">
+      <Link className="dropdown-item" to="/login?role=user">
         Gym Gear
       </Link>
     </li>
