@@ -25,16 +25,7 @@ export default function AdminSignUp() {
         history.push('/login');
       }
 
-      // if (response.status === 200) {
-      //   history.push('/login');
-      //   const loginData = { email, password };
-      //   const loginResponse = await axios.post('https://localhost:7054/api/Auth/signin', loginData);
-
-      //   if (loginResponse.status === 200) {
-      //     localStorage.setItem('token', loginResponse.data.Token);
-      //     history.push('/admin-dashboard');
-      //   }
-      // }
+    
     } catch (err) {
       setError(err.response?.data?.message || 'An error occurred. Please try again.');
     } finally {

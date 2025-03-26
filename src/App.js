@@ -17,7 +17,7 @@ import './components/Features.css'
 import './components/Services.css'
 import './components/Contact.css'
 import './components/Auth.css'
-
+import './App.scss';
 import './responsive.css'
 
 import Navbar from './components/Navbar';
@@ -28,13 +28,14 @@ import ContactNav from "./routes/ContactNav";
 import SignInNav from "./routes/SignInNav";
 import SignUpNav from "./routes/SignUpNav";
 import AdminSignUpNav from "./routes/AdminSignUpNav";
+import AdminDashboardNav from "./routes/AdminDashboardNav";
 import Footer from './components/Footer';
-import AdminDashboard from './components/AdminDashboard'; // AdminDashboard componenti
-import TrainerDashboard from './components/TrainerDashboard'; // TrainerDashboard componenti
-import UserDashboard from './components/UserDashboard'; // UserDashboard componenti
+import AdminDashboard from './components/AdminDashboard'; 
+import TrainerDashboard from './components/TrainerDashboard'; 
+import UserDashboard from './components/UserDashboard'; 
 import SignIn from "./components/SignIn";
 import SignUp from"./components/Signup"
-// import SignUpAdmin from "./components/AdminSignUp"
+
 
 
 
@@ -42,6 +43,7 @@ import SignUp from"./components/Signup"
 function App() {
   return (
     <Router basename="/Gym-Website"> 
+         <Route exact path="/admin-dashboard" component={AdminDashboardNav} ></Route>
       <Navbar />
 
       <Switch>
@@ -53,9 +55,9 @@ function App() {
         <Route exact path="/login" component={SignInNav}></Route>
         <Route exact path="/login" component={SignIn} ></Route>
         <Route exact path="/sign-up" component={SignUp} ></Route>
-        {/* <Route exact path="/admin-sign-up" component={SignUpAdmin} ></Route> */}
+     
         <Route exact path="/admin-sign-up" component={AdminSignUpNav} ></Route>
-        <Route exact path="/admin-dashboard" component={AdminDashboard} />
+ 
         <Route exact path="/trainer-dashboard" component={TrainerDashboard} />
         <Route exact path="/user-dashboard" component={UserDashboard} />
       </Switch>
@@ -66,4 +68,6 @@ function App() {
 }
 
 export default App;
+
+
 

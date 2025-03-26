@@ -8,6 +8,7 @@ export default function AboutNav() {
     return (
         <>
             <PageHeader title="About Us" readOnly />
+            
             <About />
             <Features />
             <Team />
