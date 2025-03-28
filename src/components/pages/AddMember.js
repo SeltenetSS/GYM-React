@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import axios from "axios";  
-import "./AddMember.css"; 
+import axios from "axios";
+import "./AddMember.css";
 
 const AddMember = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +13,7 @@ const AddMember = () => {
     imageUrl: null,
   });
 
-  const history = useHistory();  
+  const history = useHistory();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,10 +49,10 @@ const AddMember = () => {
   };
 
   return (
-    <div className="add-member-container">
-      <h2>Add New Member</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
+    <div className="add-member-wrapper">
+      <h2 className="add-member-title">Add New Member</h2>
+      <form className="add-member-form" onSubmit={handleSubmit}>
+        <div className="add-member-group">
           <label>Name:</label>
           <input
             type="text"
@@ -63,7 +63,7 @@ const AddMember = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="add-member-group">
           <label>Email:</label>
           <input
             type="email"
@@ -74,7 +74,7 @@ const AddMember = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="add-member-group">
           <label>Password:</label>
           <input
             type="password"
@@ -85,7 +85,7 @@ const AddMember = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="add-member-group">
           <label>Phone:</label>
           <input
             type="tel"
@@ -95,7 +95,7 @@ const AddMember = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="add-member-group">
           <label>Date of Birth:</label>
           <input
             type="date"
@@ -105,7 +105,7 @@ const AddMember = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="add-member-group">
           <label>Profile Image:</label>
           <input
             type="file"
@@ -114,7 +114,7 @@ const AddMember = () => {
           />
         </div>
 
-        <button type="submit">Add Member</button>
+        <button className="add-member-button" type="submit">Add Member</button>
       </form>
     </div>
   );
