@@ -1,10 +1,13 @@
-
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  // URL-ə əsaslanaraq admin səhifəsini yoxlamaq
+  const location = useLocation();
+  const isAdminDashboard = location.pathname === "/admin-dashboard"; // Admin səhifəsinin URL'ini yoxla
 
   const redStyle = { color: "#e31c25" };
 
@@ -15,6 +18,11 @@ export default function Navbar() {
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
+
+  // Admin səhifəsində navbar-ı gizlətmək üçün şərtli renderləmə
+  if (isAdminDashboard) {
+    return null; // Admin səhifəsində navbar render edilməyəcək
+  }
 
   return (
     <div id="navBar" className="position-absolute">
@@ -68,31 +76,30 @@ export default function Navbar() {
               </li>
 
               <li className="nav-item dropdown">
-  <button
-    className="nav-link dropdown-toggle"
-    onClick={toggleDropdown}
-  >
-    Login
-  </button>
-  <ul className={`dropdown-menu ${isDropdownOpen ? "show" : ""}`}>
-    <li>
-      <Link className="dropdown-item" to="/login?role=admin">
-        Admin
-      </Link>
-    </li>
-    <li>
-      <Link className="dropdown-item" to="/login?role=user">
-        Gym Gear
-      </Link>
-    </li>
-    <li>
-      <Link className="dropdown-item" to="/login?role=trainer">
-        Trainer
-      </Link>
-    </li>
-  </ul>
-</li>
-
+                <button
+                  className="nav-link dropdown-toggle"
+                  onClick={toggleDropdown}
+                >
+                  Login
+                </button>
+                <ul className={`dropdown-menu ${isDropdownOpen ? "show" : ""}`}>
+                  <li>
+                    <Link className="dropdown-item" to="/login?role=admin">
+                      Admin
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/login?role=user">
+                      Gym Gear
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/login?role=trainer">
+                      Trainer
+                    </Link>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>

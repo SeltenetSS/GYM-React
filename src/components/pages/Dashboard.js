@@ -6,6 +6,7 @@ import VisitingMembers from './data/VisitingMembers';
 import ExistingMembers from './data/ExistingMembers';
 import Notifications from './data/Notifications';
 import UpcomingSchedule from './data/UpcomingSchedule';
+import { Link } from 'react-router-dom'; // React Router v5 üçün Link istifadə edin
 
 const Dashboard = () => {
   const responsive = {
@@ -48,7 +49,7 @@ const Dashboard = () => {
                       <Icon icon="material-symbols:arrow-drop-down-rounded" style={{color: "var(--darkColor2)"}}/>
                     </div>
                   </div>
-                  <h5>New Members</h5>                  
+                  <h5>New Members</h5>                   
                 </div>
                 <div className="overview col m-2">
                   <div className="count">
@@ -141,4 +142,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default Dashboard;

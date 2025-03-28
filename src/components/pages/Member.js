@@ -1,59 +1,83 @@
+// import React from 'react';
+// import { FaPlus, FaEye, FaCheck } from 'react-icons/fa'; // İkonlar
+// import { useHistory } from 'react-router-dom'; // React Router v5 - useHistory
+// import "./Member.css"; // CSS faylının düzgün import edildiyini yoxla
+
+// const Member = () => {
+//   const history = useHistory(); // Keçid funksiyasını yaradıq
+
+//   // Keçidlər
+//   const handleAddMember = () => history.push("/add-member");
+//   const handleViewMember = () => history.push("/view-member");
+//   const handleApproveMember = () => history.push("/approve-member");
+
+//   return (
+//     <div className="member-cards-container">
+//       {/* Add Member Card */}
+//       <div className="card" onClick={handleAddMember}>
+//         <div className="card-icon">
+//           <FaPlus size={30} />
+//         </div>
+//         <div className="card-title">Add Member</div>
+//       </div>
+
+//       {/* View Member Card */}
+//       <div className="card" onClick={handleViewMember}>
+//         <div className="card-icon">
+//           <FaEye size={30} />
+//         </div>
+//         <div className="card-title">View Member</div>
+//       </div>
+
+//       {/* Approve Member Card */}
+//       <div className="card" onClick={handleApproveMember}>
+//         <div className="card-icon">
+//           <FaCheck size={30} />
+//         </div>
+//         <div className="card-title">Approve Member</div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Member;
+
+
+
 import React from 'react';
-import { useHistory } from 'react-router-dom';
-import { dataMembers } from './data/DataAPI';
-import { Icon } from '@iconify/react';
+import { FaPlus, FaEye, FaCheck } from 'react-icons/fa'; 
+import { useHistory } from 'react-router-dom'; 
+import "./Member.css"; 
 
 const Member = () => {
-  const history = useHistory(); // useHistory hook-u ilə yönləndirmə
+  const history = useHistory(); 
+
+  // Düzgün yönləndirmələr
+  const handleAddMember = () => history.push("/admin-dashboard/member/add-member");
+  const handleViewMember = () => history.push("/admin-dashboard/member/view-member");
+  const handleApproveMember = () => history.push("/admin-dashboard/member/approve-member");
 
   return (
-    <div className="content">
-      <span className="title">Members</span>
-      <div className="col-12 d-flex justify-content-between py-2">
-        <div className="col-6 d-flex align-items-end">List of members</div>
-        <div className="col-6 text-end">
-          <button 
-            type="button" 
-            className="btnPrimary"
-            onClick={() => history.push('/add-member')} // Yönləndirmə
-          >
-            <span className="d-none d-sm-block">Add Member</span>
-            <Icon className="d-block d-sm-none" icon="material-symbols:add" />
-          </button>
+    <div className="member-cards-container">
+      <div className="card" onClick={handleAddMember}>
+        <div className="card-icon">
+          <FaPlus size={30} />
         </div>
+        <div className="card-title">Add Member</div>
       </div>
-      <div className="table-responsive text-nowrap">
-        <table className="table table-bordered align-middle">
-          <thead>
-            <tr className="text-center">
-              <th className="col">No</th>
-              <th className="col-4">Name</th>
-              <th className="col-3">Address</th>
-              <th className="col-3">Phone</th>
-              <th className="col">Action</th>
-            </tr>
-          </thead>
-          <tbody className="table-group-divider">
-            {dataMembers.map((mb, i) => (
-              <tr key={mb.id}>
-                <th className="text-center">{i + 1}</th>
-                <td>{mb.name}</td>
-                <td>{mb.address}</td>
-                <td>{mb.phone}</td>
-                <td className="text-center d-flex gap-2">
-                  <button 
-                    type="button" 
-                    className="btnPrimary"
-                    onClick={() => history.push(`/edit-member/${mb.id}`)}
-                  >
-                    Edit
-                  </button>
-                  <button type="button" className="btnSecondary">Delete</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+
+      <div className="card" onClick={handleViewMember}>
+        <div className="card-icon">
+          <FaEye size={30} />
+        </div>
+        <div className="card-title">View Member</div>
+      </div>
+
+      <div className="card" onClick={handleApproveMember}>
+        <div className="card-icon">
+          <FaCheck size={30} />
+        </div>
+        <div className="card-title">Approve Member</div>
       </div>
     </div>
   );

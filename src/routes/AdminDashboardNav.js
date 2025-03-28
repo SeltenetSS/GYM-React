@@ -7,9 +7,12 @@ import AdminDashboard from "../components/AdminDashboard";
 export default function AdminDashboardNav() {
     return (
         <>
+         <div className="admin-dashboard">
          
             <AdminDashboard/>
-            
+            </div>
         </>
     )
 }
+
+

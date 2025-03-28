@@ -1,0 +1,38 @@
+.member-cards-container {
+    display: flex;
+    justify-content: center; /* Kartları ortalayır */
+    gap: 20px; /* Kartlar arasında boşluq */
+    padding: 20px;
+    flex-wrap: wrap; /* Əgər ekran kiçikdirsə, kartlar alt-alta düşəcək */
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px; /* Kartın eni */
+    height: 200px; /* Kvadrat formasında olması üçün */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-icon {
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
