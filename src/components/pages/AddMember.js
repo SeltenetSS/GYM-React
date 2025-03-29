@@ -8,6 +8,8 @@ const AddMember = () => {
     name: "",
     email: "",
     password: "",
+    isActive: false,
+    isApproved: false,
     phone: "",
     dateOfBirth: "",
     imageUrl: null,
@@ -16,36 +18,49 @@ const AddMember = () => {
   const history = useHistory();
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    });
   };
 
   const handleFileChange = (e) => {
     setFormData({ ...formData, imageUrl: e.target.files[0] });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log("Stored Token:", localStorage.getItem("token"));
     const data = new FormData();
     data.append("name", formData.name);
     data.append("email", formData.email);
     data.append("password", formData.password);
+    data.append("isActive", formData.isActive);
+    data.append("isApproved", formData.isApproved);
     data.append("phone", formData.phone);
     data.append("dateOfBirth", formData.dateOfBirth);
     if (formData.imageUrl) {
       data.append("imageUrl", formData.imageUrl);
     }
+  
 
-    axios
-      .post("http://localhost:7054/api/members", data)
-      .then((response) => {
-        console.log("User added successfully:", response.data);
-        history.push("/admin-dashboard/member");
-      })
-      .catch((error) => {
-        console.error("There was an error adding the member:", error);
+    try {
+      await axios.post('https://localhost:7054/api/Admin/add-user', data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "Authorization": `Bearer ${localStorage.getItem("token")}` // Token əlavə edin
+        },
       });
+     
+      alert("User added successfully!");
+      history.push("/admin-dashboard/member");
+    } catch (error) {
+      console.error("Error adding user:", error);
+      console.log(localStorage.getItem("token"))
+      alert("Failed to add user.");
+      
+    }
   };
 
   return (
@@ -105,16 +120,38 @@ const AddMember = () => {
           />
         </div>
 
-        <div className="add-member-group">
-          <label>Profile Image:</label>
-          <input
-            type="file"
-            name="imageUrl"
-            onChange={handleFileChange}
-          />
+        <div className="add-member-group checkbox-group">
+          <label>
+            <input
+              type="checkbox"
+              name="isActive"
+              checked={formData.isActive}
+              onChange={handleChange}
+            />
+            Active
+          </label>
         </div>
 
-        <button className="add-member-button" type="submit">Add Member</button>
+        <div className="add-member-group checkbox-group">
+          <label>
+            <input
+              type="checkbox"
+              name="isApproved"
+              checked={formData.isApproved}
+              onChange={handleChange}
+            />
+            Approved
+          </label>
+        </div>
+
+        <div className="add-member-group">
+          <label>Profile Image:</label>
+          <input type="file" name="imageUrl" onChange={handleFileChange} />
+        </div>
+
+        <button className="add-member-button" type="submit">
+          Add Member
+        </button>
       </form>
     </div>
   );

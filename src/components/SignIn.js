@@ -17,11 +17,13 @@ export default function SignIn() {
     e.preventDefault();
     setLoading(true);
     const loginData = { email, password };
-
+  
     try {
       const response = await axios.post('https://localhost:7054/api/Auth/signin', loginData);
+      console.log("Server Response:", response.data);
       if (response.status === 200) {
         localStorage.setItem('token', response.data.Token);
+        console.log("Token set:", localStorage.getItem("token"));
         const role = response.data.role;
 
         if (role === 'admin' || roleFromURL === 'admin') {
