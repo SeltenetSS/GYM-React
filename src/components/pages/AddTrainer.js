@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import "./AddMember.css";
+import "./AddTrainer.css";
 
-const AddMember = () => {
+const AddTrainer = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
+    speciality: "",
     isActive: false,
     isApproved: false,
-    phone: "",
-    dateOfBirth: "",
+    description: "",
+    experience: "",
+    salary: null,
+    mobileTelephone: "",
     imageUrl: null,
   });
 
@@ -40,29 +43,29 @@ const AddMember = () => {
         data.append(key, value);
       }
     });
-
+ 
     try {
-      await axios.post("https://localhost:7054/api/Admin/add-user", data, {
+      await axios.post("https://localhost:7054/api/Admin/add-trainer", data, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
 
-      alert("User added successfully!");
-      history.push("/admin-dashboard/member");
+      alert("Trainer added successfully!");
+      history.push("/admin-dashboard/trainer");
     } catch (error) {
-      console.error("Error adding user:", error);
-      alert("Failed to add user.");
+      console.error("Error adding trainer:", error);
+      alert("Failed to add trainer.");
     }
   };
 
   return (
-    <div className="add-member-page">
-      <div className="add-member-wrapper">
-        <h2 className="add-member-title">Add New Member</h2>
-        <form className="add-member-form" onSubmit={handleSubmit}>
-          <div className="add-member-group">
+    <div className="add-trainer-page">
+      <div className="add-trainer-wrapper">
+        <h2 className="add-trainer-title">Add New Trainer</h2>
+        <form className="add-trainer-form" onSubmit={handleSubmit}>
+          <div className="add-trainer-group">
             <label htmlFor="name">Full Name</label>
             <input
               id="name"
@@ -75,7 +78,7 @@ const AddMember = () => {
             />
           </div>
 
-          <div className="add-member-group">
+          <div className="add-trainer-group">
             <label htmlFor="email">Email Address</label>
             <input
               id="email"
@@ -88,7 +91,7 @@ const AddMember = () => {
             />
           </div>
 
-          <div className="add-member-group">
+          <div className="add-trainer-group">
             <label htmlFor="password">Password</label>
             <input
               id="password"
@@ -101,30 +104,66 @@ const AddMember = () => {
             />
           </div>
 
-          <div className="add-member-group">
-            <label htmlFor="phone">Phone Number</label>
+          <div className="add-trainer-group">
+            <label htmlFor="speciality">Speciality</label>
             <input
-              id="phone"
-              name="phone"
+              id="speciality"
+              name="speciality"
+              type="text"
+              placeholder="Trainer's Speciality"
+              value={formData.speciality}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="add-trainer-group">
+            <label htmlFor="mobileTelephone">Mobile Telephone</label>
+            <input
+              id="mobileTelephone"
+              name="mobileTelephone"
               type="tel"
               placeholder="+994 XX XXX XX XX"
-              value={formData.phone}
+              value={formData.mobileTelephone}
               onChange={handleChange}
             />
           </div>
 
-          <div className="add-member-group">
-            <label htmlFor="dateOfBirth">Date of Birth</label>
+          <div className="add-trainer-group">
+            <label htmlFor="experience">Experience</label>
             <input
-              id="dateOfBirth"
-              name="dateOfBirth"
-              type="date"
-              value={formData.dateOfBirth}
+              id="experience"
+              name="experience"
+              type="text"
+              placeholder="Trainer's experience"
+              value={formData.experience}
               onChange={handleChange}
             />
           </div>
 
-          <div className="add-member-group checkbox-group">
+          <div className="add-trainer-group">
+            <label htmlFor="salary">Salary</label>
+            <input
+              id="salary"
+              name="salary"
+              type="number"
+              placeholder="Salary"
+              value={formData.salary}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="add-trainer-group">
+            <label htmlFor="description">Description</label>
+            <textarea
+              id="description"
+              name="description"
+              placeholder="Trainer's description"
+              value={formData.description}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="add-trainer-group checkbox-group">
             <input
               id="isActive"
               name="isActive"
@@ -135,7 +174,7 @@ const AddMember = () => {
             <label htmlFor="isActive">Active</label>
           </div>
 
-          <div className="add-member-group checkbox-group">
+          <div className="add-trainer-group checkbox-group">
             <input
               id="isApproved"
               name="isApproved"
@@ -146,7 +185,7 @@ const AddMember = () => {
             <label htmlFor="isApproved">Approved</label>
           </div>
 
-          <div className="add-member-group">
+          <div className="add-trainer-group">
             <label htmlFor="imageUrl">Profile Picture</label>
             <input
               id="imageUrl"
@@ -157,8 +196,8 @@ const AddMember = () => {
             />
           </div>
 
-          <button type="submit" className="add-member-button">
-            Add Member
+          <button type="submit" className="add-trainer-button">
+            Add Trainer
           </button>
         </form>
       </div>
@@ -166,4 +205,4 @@ const AddMember = () => {
   );
 };
 
-export default AddMember;
+export default AddTrainer;

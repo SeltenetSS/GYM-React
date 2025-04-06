@@ -1,0 +1,108 @@
+
+.view-trainer-wrapper {
+    width: 100%;
+    max-width: 1800px;
+    margin: 40px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white; 
+}
+
+.view-trainer-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    background-color: #020202;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+.view-trainer-table thead tr {
+    background-color: #D90429;
+    color: #ffffff; 
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.view-trainer-table th,
+.view-trainer-table td {
+    padding: 12px 15px;
+    text-align: center;
+    color: #020202; 
+}
+
+.view-trainer-table tbody tr {
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.view-trainer-table tbody tr:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    background-color: #f1f1f1; 
+}
+
+.view-trainer-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #eee;
+}
+
+.view-trainer-btn {
+    padding: 6px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    color: white; 
+}
+
+.view-trainer-btn:hover {
+    opacity: 0.9;
+    color: white; 
+}
+
+.view-trainer-btn.delete {
+    background-color: #c20020fc;
+}
+
+.view-trainer-btn.delete:hover {
+    background-color: #a8001b;
+}
+
+.view-trainer-btn.edit {
+    background-color: #4caf50;
+}
+
+.view-trainer-btn.edit:hover {
+    background-color: #3da743;
+}
+
+.view-trainer-edit-modal {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.25);
+    z-index: 1000;
+    color: #333; 
+    width: 400px;
+}
+
+.view-trainer-edit-modal input {
+    display: block;
+    margin: 10px 0;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}

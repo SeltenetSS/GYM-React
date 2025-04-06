@@ -86,7 +86,6 @@ const Logout = () => {
         </div>
       </div>
 
-      {/* Uğurlu logout mesajı modalı */}
       <div
         className="modal fade"
         id="success-modal"

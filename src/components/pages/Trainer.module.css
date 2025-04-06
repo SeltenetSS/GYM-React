@@ -1,4 +1,4 @@
-.memberCardsContainer {
+.trainerCardsContainer {
     display: flex;
     justify-content: center;
     gap: 30px;
@@ -6,14 +6,14 @@
     flex-wrap: wrap;
 }
 
-.memberCard {
-    background: linear-gradient(135deg, #8b0000, #ff0000); /* Tünd qırmızıdan parlaq qırmızıya keçid */
+.trainerCard {
+    background: linear-gradient(135deg, #e63946, #d50000); /* Gradient from red to dark red */
     border-radius: 12px;
     padding: 25px;
     width: 220px;
     height: 240px;
     text-align: center;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     display: flex;
@@ -23,30 +23,30 @@
     overflow: hidden;
 }
 
-.memberCard:hover {
+.trainerCard:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Darker shadow on hover */
 }
 
-.memberCardIcon {
+.trainerCardIcon {
     margin-bottom: 15px;
-    color: #ffffff;
+    color: #fff;
     transition: color 0.3s ease-in-out;
 }
 
-.memberCard:hover .memberCardIcon {
-    color: #ffd700; /* Hover zamanı ikona qızılı rəng */
+.trainerCard:hover .trainerCardIcon {
+    color: #ffcc00; /* Gold color on hover */
 }
 
-.memberCardTitle {
+.trainerCardTitle {
     font-size: 20px;
     font-weight: bold;
-    color: #ffffff;
+    color: #fff;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.memberCardTitle:hover {
-    color: #ffd700;
-    text-shadow: 0 2px 5px rgba(255, 215, 0, 0.7); /* Hover zamanı parıltı effekti */
+.trainerCardTitle:hover {
+    color: #ffcc00; /* Gold color on hover */
+    text-shadow: 0 2px 5px rgba(255, 204, 0, 0.7); /* Gold glow effect */
 }

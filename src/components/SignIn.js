@@ -17,21 +17,41 @@ export default function SignIn() {
     e.preventDefault();
     setLoading(true);
     const loginData = { email, password };
-  
+ 
     try {
       const response = await axios.post('https://localhost:7054/api/Auth/signin', loginData);
-      console.log("Server Response:", response.data);
+ 
       if (response.status === 200) {
-        localStorage.setItem('token', response.data.Token);
-        console.log("Token set:", localStorage.getItem("token"));
+        localStorage.setItem('token', response.data.token);
+        
         const role = response.data.role;
-
-        if (role === 'admin' || roleFromURL === 'admin') {
-          history.push('/admin-dashboard');
-        } else if (role === 'trainer' || roleFromURL === 'trainer') {
-          history.push('/trainer-dashboard');
-        } else if (role === 'user'||roleFromURL === 'user') {
-          history.push('/user-dashboard');
+       
+        console.log("Server Response:", response.data);
+ 
+ 
+        // Eğer rol admin ise ve URL'de de admin var, admin dashboard'a yönlendirilir
+        if (role.toLowerCase() === 'admin') {
+          if (roleFromURL === 'admin') {
+            history.push('/admin-dashboard');
+          } else {
+            setError("You do not have access to this page.");
+          }
+        }
+     
+        else if (role.toLowerCase() === 'trainer') {
+          if (roleFromURL === 'trainer') {
+            history.push('/trainer-dashboard');
+          } else {
+            setError("You do not have access to this page.");
+          }
+        }
+       
+        else if (role.toLowerCase() === 'user') {
+          if (roleFromURL === 'user') {
+            history.push('/user-dashboard');
+          } else {
+            setError("You do not have access to this page.");
+          }
         }
       }
     } catch (err) {
@@ -41,8 +61,9 @@ export default function SignIn() {
     } finally {
       setLoading(false);
     }
-  };
-
+}
+ 
+       
   const handleSignUp = () => history.push('/sign-up');
   const handleAdminSignUp = () => history.push('/admin-sign-up');
 
