@@ -1,13 +1,13 @@
 import React from 'react'
-import Banner from '../components/Banner';
-import GymClass from '../components/GymClass';
-import About from '../components/About';
-import ChoseUs from '../components/ChoseUs';
-import Team from '../components/Team';
-import Subscribe from '../components/Subscribe';
-import MonthlyPlan from '../components/MonthlyPlan';
-import BMI from '../components/BMI';
-import Testimonial from '../components/Testimonial';
+import Banner from '../components/website/Banner';
+import GymClass from '../components/website/GymClass';
+import About from '../components/website/About';
+import ChoseUs from '../components/website/ChoseUs';
+import Team from '../components/website/Team';
+import Subscribe from '../components/website/Subscribe';
+import MonthlyPlan from '../components/website/MonthlyPlan';
+import BMI from '../components/website/BMI';
+import Testimonial from '../components/website/Testimonial';
 
 
 export default function HomeNav() {

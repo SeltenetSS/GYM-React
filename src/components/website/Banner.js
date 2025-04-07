@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import carousel1 from '../assets/image/carousel-1.jpg';
-import carousel2 from '../assets/image/carousel-2.jpg';
+import carousel1 from '../../assets/image/carousel-1.jpg';
+import carousel2 from '../../assets/image/carousel-2.jpg';
 import React from 'react';
 
 export default function Banner() {

@@ -1,11 +1,11 @@
 import React from 'react'
 import Carousel from 'react-multi-carousel'
 import { Icon } from '@iconify/react';
-import person from '../../assets/person.png'
-import VisitingMembers from './data/VisitingMembers';
-import ExistingMembers from './data/ExistingMembers';
-import Notifications from './data/Notifications';
-import UpcomingSchedule from './data/UpcomingSchedule';
+import person from '../../../assets/person.png'
+import VisitingMembers from '../dashboard/VisitingMembers';
+import ExistingMembers from '../dashboard/ExistingMembers';
+import Notifications from '../dashboard/Notifications';
+import UpcomingSchedule from '../dashboard/UpcomingSchedule';
 import { Link } from 'react-router-dom'; // React Router v5 üçün Link istifadə edin
 
 const Dashboard = () => {

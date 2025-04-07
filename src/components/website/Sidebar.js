@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Icon } from '@iconify/react';
-import logo from '../assets/logo.png';
-import logoIcon from '../assets/logo-icon.png';
-import Logout from './pages/Logout';
+import logo from '../../assets/logo.png';
+import logoIcon from '../../assets/logo-icon.png';
+import Logout from '../adminDashboard/sidebar/Logout';
 
 const Sidebar = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import aboutPic from '../assets/image/about.jpg'
+import aboutPic from '../../assets/image/about.jpg'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 export default function About() {

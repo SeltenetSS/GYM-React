@@ -1,7 +1,7 @@
 import React from 'react'
-import testimonial1 from '../assets/image/testimonial-1.jpg'
-import testimonial2 from '../assets/image/testimonial-2.jpg'
-import testimonial3 from '../assets/image/testimonial-3.jpg'
+import testimonial1 from '../../assets/image/testimonial-1.jpg'
+import testimonial2 from '../../assets/image/testimonial-2.jpg'
+import testimonial3 from '../../assets/image/testimonial-3.jpg'
 
 export default function Testimonial() {
 

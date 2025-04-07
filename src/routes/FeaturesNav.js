@@ -1,8 +1,8 @@
 import React from 'react'
-import PageHeader from "../components/PageHeader";
-import Services from "../components/Services";
-import ChoseUs from '../components/ChoseUs';
-import Testimonial from '../components/Testimonial';
+import PageHeader from "../components/website/PageHeader";
+import Services from "../components/website/Services";
+import ChoseUs from '../components/website/ChoseUs';
+import Testimonial from '../components/website/Testimonial';
 
 export default function FeaturesNav() {
     return (

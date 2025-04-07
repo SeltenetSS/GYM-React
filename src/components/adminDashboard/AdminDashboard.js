@@ -1,21 +1,22 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Sidebar from './Sidebar';
-import Topbar from './Topbar';
-import Dashboard from './pages/Dashboard';
-import Member from './pages/Member';
-import Schedule from './pages/Schedule';
-import Trainer from './pages/Trainer';
-import Payment from './pages/Payment';
-import Setting from './pages/Setting';
-import Help from './pages/Help';
-import Logout from './pages/Logout';
-import AddMember from './pages/AddMember';
-import ViewMember from './pages/ViewMember';
-import ApproveMember from './pages/ApproveMember';
-import AddTrainer from './pages/AddTrainer';
-import ViewTrainer from './pages/ViewTrainer';
-import ApproveTrainer from './pages/ApproveTrainer';
+import Sidebar from '../website/Sidebar';
+import Topbar from '../website/Topbar';
+import Dashboard from './sidebar/Dashboard';
+
+import Member from './sidebar/Member';
+import Schedule from './sidebar/Schedule';
+import Trainer from './sidebar/Trainer';
+import Payment from './sidebar/Payment';
+import Setting from './sidebar/Setting';
+import Help from './sidebar/Help';
+import Logout from './sidebar/Logout';
+import AddMember from './member/AddMember';
+import ViewMember from './member/ViewMember';
+import ApproveMember from './member/ApproveMember';
+import AddTrainer from './trainer/AddTrainer';
+import ViewTrainer from './trainer/ViewTrainer';
+import ApproveTrainer from './trainer/ApproveTrainer';
 
 const AdminDashboard = () => {
   return (

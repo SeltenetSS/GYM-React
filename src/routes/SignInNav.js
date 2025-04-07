@@ -18,8 +18,8 @@
 // }
 
 import React from 'react'
-import PageHeader from "../components/PageHeader";
-import SignIn from "../components/SignIn";
+import PageHeader from "../components/website/PageHeader";
+import SignIn from "../components/website/SignIn";
 
 
 export default function SignInNav() {

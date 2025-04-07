@@ -1,7 +1,7 @@
 
 import React from 'react'
-import PageHeader from "../components/PageHeader";
-import SignUp from "../components/Signup";
+import PageHeader from "../components/website/PageHeader";
+import SignUp from "../components/website/Signup";
 
 
 export default function SignUpNav() {

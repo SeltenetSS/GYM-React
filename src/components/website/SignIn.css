@@ -1,0 +1,97 @@
+/* Tam ekran üçün stil tərtibatı */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Auth Form Wrapper - Sayfanın tam ekranını alır */
+  .auth-form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Sayfanın hündürlüyü tam ekrana bərabərdir */
+    background-color: #0B0C10; /* Tünd qara fon */
+    padding: 20px;
+  }
+  
+  /* Formun kontaineri - mərkəzləşdirilmiş */
+  .auth-form-container {
+    background-color: #1C1C1C; /* Daha açıq tünd qara fon */
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px; /* Formun maksimum eni */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #EAEAEA; /* Açıq boz yazı rəngi */
+  }
+  
+  /* Başlıq */
+  .auth-form-container h2 {
+    color: #D90429; /* Qırmızı rəng */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Input sahələri */
+  input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #8E8E8E; /* Boz sərhəd */
+    background-color: #2C2C2C; /* Tünd boz fon */
+    color: #EAEAEA;
+  }
+  
+  /* Giriş düyməsi */
+  button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #D90429; /* Qırmızı fon */
+    color: #EAEAEA;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:disabled {
+    background-color: #8E8E8E; /* Boz düymə rəngi */
+  }
+  
+  button:hover {
+    background-color: #6A040F; /* Tünd qırmızı hover */
+  }
+  
+  /* Error mesajı */
+  .error {
+    color: #FF4C4C; /* Qırmızı səhv mesajı */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Sign-up linkləri */
+  .sign-up-links {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .sign-up-links button {
+    background-color: transparent;
+    color: #D90429;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .sign-up-links button:hover {
+    color: #6A040F; /* Tünd qırmızı hover */
+  }
+  
+  .sign-up-links p {
+    color: #8E8E8E; /* Boz yazılar */
+    margin: 10px 0;
+  }
+  

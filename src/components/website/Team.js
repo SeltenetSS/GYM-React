@@ -1,8 +1,8 @@
 import React from 'react'
-import team1 from '../assets/image/team-1.jpg'
-import team2 from '../assets/image/team-2.jpg'
-import team3 from '../assets/image/team-3.jpg'
-import team4 from '../assets/image/team-4.jpg'
+import team1 from '../../assets/image/team-1.jpg'
+import team2 from '../../assets/image/team-2.jpg'
+import team3 from '../../assets/image/team-3.jpg'
+import team4 from '../../assets/image/team-4.jpg'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 export default function Team() {
