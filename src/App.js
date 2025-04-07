@@ -31,8 +31,8 @@ import AdminSignUpNav from "./routes/AdminSignUpNav";
 import AdminDashboardNav from "./routes/AdminDashboardNav";
 import Footer from './components/website/Footer';
 
-import TrainerDashboard from './components/TrainerDashboard'; 
-import UserDashboard from './components/UserDashboard'; 
+import TrainerDashboard from './components/trainerDashboard/TrainerDashboard'; 
+import UserDashboard from './components/userDashboard/UserDashboard'; 
 
 function App() {
   // Production üçün basename təyin edirik, development üçün boş saxlanılır
