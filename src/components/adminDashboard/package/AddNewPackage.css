@@ -1,51 +1,51 @@
-
-   .add-member-page {
+.admin-add-package-page {
     min-height: 100vh;
-    background: linear-gradient(135deg, #1e1e1e, #2c2c2c); 
+    background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
     box-sizing: border-box;
-  }
-  
-  .add-member-wrapper {
+}
+
+.admin-add-package-wrapper {
     width: 100%;
     max-width: 600px;
-    background: #000000; 
+    background: #000000;
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 12px 30px rgba(255, 0, 0, 0.3); 
+    box-shadow: 0 12px 30px rgba(255, 0, 0, 0.3);
     transition: 0.3s ease;
-  }
-  
-  .add-member-title {
+}
+
+.admin-add-package-title {
     text-align: center;
-    color: #ff4d4d; 
+    color: #ff4d4d;
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 30px;
-  }
-  
-  .add-member-form {
+}
+
+.admin-add-package-form {
     display: flex;
     flex-direction: column;
     gap: 18px;
-  }
-  
-  .add-member-group {
+}
+
+.admin-form-group {
     display: flex;
-    flex-direction: column-reverse; 
-  }
-  
-  .add-member-group label {
+    flex-direction: column-reverse;
+}
+
+.admin-form-group label {
     font-size: 14px;
     font-weight: 500;
-    color: #ccc; 
+    color: #ccc;
     margin-bottom: 6px;
-  }
-  
-  .add-member-group input {
+}
+
+.admin-form-group input,
+.admin-form-group textarea {
     padding: 12px;
     font-size: 15px;
     background: #1a1a1a;
@@ -53,35 +53,16 @@
     border: 1px solid #ff4d4d;
     border-radius: 8px;
     transition: all 0.3s ease;
-  }
-  
-  .add-member-group input:focus {
+}
+
+.admin-form-group input:focus,
+.admin-form-group textarea:focus {
     border-color: #ff1a1a;
     box-shadow: 0 0 6px rgba(255, 77, 77, 0.4);
     outline: none;
-  }
-  
-  .add-member-group input[type="file"] {
-    border: none;
-    padding: 5px;
-    background-color: transparent;
-    color: #fff;
-  }
-  
-  .checkbox-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #fff;
-  }
-  
-  .checkbox-group input {
-    width: 18px;
-    height: 18px;
-    accent-color: #ff4d4d;
-  }
-  
-  .add-member-button {
+}
+
+.admin-submit-button {
     background: linear-gradient(to right, #ff4d4d, #b30000);
     color: white;
     padding: 14px;
@@ -91,21 +72,26 @@
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s ease;
-  }
-  
-  .add-member-button:hover {
+}
+
+.admin-submit-button:hover {
     background: linear-gradient(to right, #b30000, #800000);
     transform: scale(1.05);
-  }
-  
-  @media (max-width: 600px) {
-    .add-member-wrapper {
-      padding: 25px;
-      margin: 10px;
+}
+
+.admin-error-message {
+    color: #ff4d4d;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    .admin-add-package-wrapper {
+        padding: 25px;
+        margin: 10px;
     }
-  
-    .add-member-button {
-      font-size: 15px;
+
+    .admin-submit-button {
+        font-size: 15px;
     }
-  }
-  
+}

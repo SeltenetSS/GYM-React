@@ -1,0 +1,52 @@
+.adminEquipmentCardsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+.adminEquipmentCard {
+    background: linear-gradient(135deg, #8b0000, #ff0000);
+    border-radius: 12px;
+    padding: 25px;
+    width: 220px;
+    height: 240px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: hidden;
+}
+
+.adminEquipmentCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+.adminEquipmentCardIcon {
+    margin-bottom: 15px;
+    color: #ffffff;
+    transition: color 0.3s ease-in-out;
+}
+
+.adminEquipmentCard:hover .adminEquipmentCardIcon {
+    color: #ffd700; /* Hover zamanı ikona qızılı rəng */
+}
+
+.adminEquipmentCardTitle {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.adminEquipmentCardTitle:hover {
+    color: #ffd700;
+    text-shadow: 0 2px 5px rgba(255, 215, 0, 0.7); /* Hover zamanı parıltı effekti */
+}

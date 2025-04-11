@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Icon } from '@iconify/react';
-import logo from '../../assets/logo.png';
-import logoIcon from '../../assets/logo-icon.png';
-import Logout from '../adminDashboard/sidebar/Logout';
+import logo from '../../../assets/logo.png';
+import logoIcon from '../../../assets/logo-icon.png';
+import Logout from './Logout';
 
 const Sidebar = () => {
   return (
@@ -17,51 +17,39 @@ const Sidebar = () => {
       <div className="menu">
         <ul className="nav">
           <li className="nav-item">
-            <NavLink to="/admin-dashboard" className="nav-link" activeClassName="active">
+            <NavLink to="/user-dashboard" className="nav-link" activeClassName="active">
               <Icon icon="radix-icons:dashboard" className="icon" />
               <span>Dashboard</span>
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/admin-dashboard/member" className="nav-link" activeClassName="active">
-              <Icon icon="octicon:people-24" className="icon" />
-              <span>Members</span>
+            <NavLink to="/user-dashboard/member" className="nav-link" activeClassName="active">
+            <Icon icon="map:gym" className="icon" />
+              <span>Notfication</span>
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/admin-dashboard/schedule" className="nav-link" activeClassName="active">
+            <NavLink to="/user-dashboard/equipment" className="nav-link" activeClassName="active">
               <Icon icon="material-symbols:calendar-month-outline-rounded" className="icon" />
-              <span>Schedule</span>
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink to="/admin-dashboard/trainer" className="nav-link" activeClassName="active">
-              <Icon icon="map:gym" className="icon" />
-              <span>Trainers</span>
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink to="/admin-dashboard/payment" className="nav-link" activeClassName="active">
-              <Icon icon="ic:outline-payment" className="icon" />
-              <span>Payments</span>
+              <span>Equipment</span>
             </NavLink>
           </li>
           <div className="line" />
           <li className="nav-item">
-            <NavLink to="/admin-dashboard/setting" className="nav-link" activeClassName="active">
+            <NavLink to="/user-dashboard/attendance" className="nav-link" activeClassName="active">
               <Icon icon="material-symbols:settings-outline" className="icon" />
-              <span>Settings</span>
+              <span>Attendance</span>
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/admin-dashboard/help" className="nav-link" activeClassName="active">
+            <NavLink to="/user-dashboard/profile" className="nav-link" activeClassName="active">
               <Icon icon="ion:help-buoy-sharp" className="icon" />
-              <span>Help</span>
+              <span>Profile</span>
             </NavLink>
           </li>
           <li className="nav-item">
             <NavLink
-              to="/admin-dashboard/logout"
+              to="/user-dashboard/logout"
               className="nav-link"
               data-bs-toggle="modal"
               data-bs-target="#logout-modal"

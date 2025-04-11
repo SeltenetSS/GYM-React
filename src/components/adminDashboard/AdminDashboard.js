@@ -1,20 +1,23 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Sidebar from '../website/Sidebar';
-import Topbar from '../website/Topbar';
-import Dashboard from './sidebar/Dashboard';
+import Sidebar from './sidebar/Sidebar';
+import Topbar from './sidebar/Topbar';
+import Dashboard from './dashboard/Dashboard';
 
-import Member from './sidebar/Member';
-import Schedule from './sidebar/Schedule';
-import Trainer from './sidebar/Trainer';
-import Payment from './sidebar/Payment';
-import Setting from './sidebar/Setting';
-import Help from './sidebar/Help';
+import Member from './member/Member';
+import Equipment from './equipment/Equipment';
+import Trainer from './trainer/Trainer';
+import Payment from './payment/Payment';
+import Package from './package/Package'
+import Profile from './profile/Profile';
 import Logout from './sidebar/Logout';
 import AddMember from './member/AddMember';
 import ViewMember from './member/ViewMember';
 import ApproveMember from './member/ApproveMember';
 import AddTrainer from './trainer/AddTrainer';
+import AddNewEquipment from './equipment/AddNewEquipment';
+import AddNewPackage from './package/AddNewPackage';
+import ViewPackage from './package/ViewPackage';
 import ViewTrainer from './trainer/ViewTrainer';
 import ApproveTrainer from './trainer/ApproveTrainer';
 
@@ -30,14 +33,17 @@ const AdminDashboard = () => {
           <Route exact path="/admin-dashboard/member/add-member" component={AddMember} />
           <Route exact path="/admin-dashboard/member/view-member" component={ViewMember} />
           <Route exact path="/admin-dashboard/member/approve-member" component={ApproveMember} />
-          <Route exact path="/admin-dashboard/schedule" component={Schedule} />
           <Route exact path="/admin-dashboard/trainer" component={Trainer} />
           <Route exact path="/admin-dashboard/trainer/add-trainer" component={AddTrainer} />
+          <Route exact path="/admin-dashboard/equipment/add-equipment" component={AddNewEquipment} />
+          <Route exact path="/admin-dashboard/package/add-package" component={AddNewPackage} />
           <Route exact path="/admin-dashboard/trainer/view-trainer" component={ViewTrainer} />
+          <Route exact path="/admin-dashboard/package/view-package" component={ViewPackage} />
           <Route exact path="/admin-dashboard/trainer/approve-trainer" component={ApproveTrainer} />
           <Route exact path="/admin-dashboard/payment" component={Payment} />
-          <Route exact path="/admin-dashboard/setting" component={Setting} />
-          <Route exact path="/admin-dashboard/help" component={Help} />
+          <Route exact path="/admin-dashboard/package" component={Package} />
+          <Route exact path="/admin-dashboard/equipment" component={Equipment} />
+          <Route exact path="/admin-dashboard/profile" component={Profile} />
           <Route exact path="/admin-dashboard/logout" component={Logout} />
         </Switch>
       </div>

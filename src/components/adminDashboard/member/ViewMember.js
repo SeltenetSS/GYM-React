@@ -53,7 +53,7 @@ const ViewMember = () => {
       email: member.email || "",
       dateOfBirth: member.dateOfBirth?.split("T")[0] || ""
     });
-    setEditedFile(null); // əvvəlki şəkli sıfırla
+    setEditedFile(null); 
   };
 
   const handleEditChange = (e) => {

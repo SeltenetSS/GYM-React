@@ -1,4 +1,4 @@
-.memberCardsContainer {
+.adminPackageCardsContainer {
     display: flex;
     justify-content: center;
     gap: 30px;
@@ -6,8 +6,8 @@
     flex-wrap: wrap;
 }
 
-.memberCard {
-    background: linear-gradient(135deg, #8b0000, #ff0000); /* Tünd qırmızıdan parlaq qırmızıya keçid */
+.adminPackageCard {
+    background: linear-gradient(135deg, #8b0000, #ff0000);
     border-radius: 12px;
     padding: 25px;
     width: 220px;
@@ -23,22 +23,22 @@
     overflow: hidden;
 }
 
-.memberCard:hover {
+.adminPackageCard:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
 }
 
-.memberCardIcon {
+.adminPackageCardIcon {
     margin-bottom: 15px;
     color: #ffffff;
     transition: color 0.3s ease-in-out;
 }
 
-.memberCard:hover .memberCardIcon {
-    color: #ffd700; /* Hover zamanı ikona qızılı rəng */
+.adminPackageCard:hover .adminPackageCardIcon {
+    color: #ffd700; 
 }
 
-.memberCardTitle {
+.adminPackageCardTitle {
     font-size: 20px;
     font-weight: bold;
     color: #ffffff;
@@ -46,7 +46,7 @@
     letter-spacing: 1px;
 }
 
-.memberCardTitle:hover {
+.adminPackageCardTitle:hover {
     color: #ffd700;
-    text-shadow: 0 2px 5px rgba(255, 215, 0, 0.7); /* Hover zamanı parıltı effekti */
+    text-shadow: 0 2px 5px rgba(255, 215, 0, 0.7);
 }

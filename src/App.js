@@ -30,23 +30,25 @@ import SignUpNav from "./routes/SignUpNav";
 import AdminSignUpNav from "./routes/AdminSignUpNav";
 import AdminDashboardNav from "./routes/AdminDashboardNav";
 import Footer from './components/website/Footer';
+import TrainerDashboardNav from "./routes/TrainerDashboardNav";
+import UserDashboardNav from "./routes/UserDashboardNav";
 
-import TrainerDashboard from './components/trainerDashboard/TrainerDashboard'; 
-import UserDashboard from './components/userDashboard/UserDashboard'; 
 
 function App() {
-  // Production üçün basename təyin edirik, development üçün boş saxlanılır
-  const basename = process.env.NODE_ENV === "production" ? "/Gym-Website" : "/";
-
   return (
-    <Router basename={basename}>
+    <Router >
       <Switch>
-        {/* AdminDashboard səhifəsi üçün Navbar və Footer-ı gizlət */}
-        <Route path="/admin-dashboard">
+      <Route path="/admin-dashboard">
           <AdminDashboardNav />
         </Route>
-
-        {/* Digər bütün səhifələr üçün */}
+        <Route path="/trainer-dashboard">
+          <TrainerDashboardNav />
+        </Route>
+        
+        <Route path="/user-dashboard">
+          <UserDashboardNav />
+        </Route>
+     
         <Route path="/">
           <Navbar />
           <Switch>
@@ -57,8 +59,8 @@ function App() {
             <Route exact path="/sign-up" component={SignUpNav} />
             <Route exact path="/login" component={SignInNav} />
             <Route exact path="/admin-sign-up" component={AdminSignUpNav} />
-            <Route exact path="/trainer-dashboard" component={TrainerDashboard} />
-            <Route exact path="/user-dashboard" component={UserDashboard} />
+           
+  
           </Switch>
           <Footer />
         </Route>

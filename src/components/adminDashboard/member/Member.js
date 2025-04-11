@@ -3,7 +3,7 @@
 import React from "react";
 import { FaPlus, FaEye, FaCheck } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
-import styles from "./Member.module.css"; // CSS modulu import et
+import styles from "./Member.module.css"; 
 
 const Member = () => {
   const history = useHistory();
