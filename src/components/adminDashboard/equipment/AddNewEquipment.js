@@ -1,13 +1,14 @@
+
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import "./AddNewEquipment.css"; 
+import "./AddNewEquipment.css";
 
 const AddNewEquipment = () => {
   const [equipment, setEquipment] = useState({
     name: "",
     description: "",
-    isAvailable: true,
+    isAvailable: true, // boolean dəyəri
     price: "",
     unit: "",
     imageUrl: null,
@@ -29,20 +30,35 @@ const AddNewEquipment = () => {
       imageUrl: e.target.files[0],
     });
   };
-  console.log(localStorage.getItem("token"));
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate that price is a valid number
+    if (isNaN(equipment.price) || equipment.price <= 0) {
+      setError("Please enter a valid price.");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("name", equipment.name);
     formData.append("description", equipment.description);
-    formData.append("isAvailable", equipment.isAvailable);
-    formData.append("price", equipment.price);
+    formData.append("isAvailable", equipment.isAvailable); // directly sending true/false
+    formData.append("price", equipment.price.toString()); // Ensure price is a string
     formData.append("unit", equipment.unit);
-    formData.append("imageUrl", equipment.imageUrl);
 
- 
+    // Check if an image is selected
+    if (equipment.imageUrl) {
+      formData.append("imageUrl", equipment.imageUrl); // Appending the file correctly
+    } else {
+      console.error("No image file selected");
+    }
+
+    // Logging formData for debugging purposes
+    formData.forEach((value, key) => {
+      console.log(key, value);
+    });
+
     try {
       const response = await axios.post("https://localhost:7054/api/Equipment/add-equipment", formData, {
         headers: {
@@ -50,12 +66,14 @@ const AddNewEquipment = () => {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
+
       if (response.status === 200) {
         alert("Equipment added successfully!");
         history.push("/admin-dashboard/equipment");
       }
     } catch (err) {
-      setError("Failed to add equipment");
+      console.error("Error response:", err.response?.data); // Log the error response
+      setError(err.response?.data?.message || "Failed to add equipment");
     }
   };
 
@@ -94,14 +112,19 @@ const AddNewEquipment = () => {
               id="isAvailable"
               name="isAvailable"
               checked={equipment.isAvailable}
-              onChange={() => setEquipment({ ...equipment, isAvailable: !equipment.isAvailable })}
+              onChange={() =>
+                setEquipment({
+                  ...equipment,
+                  isAvailable: !equipment.isAvailable,
+                })
+              }
             />
           </div>
 
           <div className="admin-form-group">
             <label htmlFor="price">Price</label>
             <input
-              type="decimal"
+              type="number"
               id="price"
               name="price"
               value={equipment.price}
@@ -113,7 +136,7 @@ const AddNewEquipment = () => {
           <div className="admin-form-group">
             <label htmlFor="unit">Unit (kg, gram, etc.)</label>
             <input
-              type="number"
+              type="text"
               id="unit"
               name="unit"
               value={equipment.unit}
@@ -142,5 +165,4 @@ const AddNewEquipment = () => {
 };
 
 export default AddNewEquipment;
-
 

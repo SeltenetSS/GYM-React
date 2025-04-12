@@ -19,8 +19,6 @@ const Sidebar = () => {
           <li className="nav-item">
             <NavLink to="/admin-dashboard" className="nav-link" activeClassName="active">
             <Icon icon="material-symbols:stacked-line-chart" className="icon" />
-
-
               <span>Dashboard</span>
             </NavLink>
           </li>
@@ -28,6 +26,12 @@ const Sidebar = () => {
             <NavLink to="/admin-dashboard/member" className="nav-link" activeClassName="active">
               <Icon icon="octicon:people-24" className="icon" />
               <span>Members</span>
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/admin-dashboard/attendance" className="nav-link" activeClassName="active">
+              <Icon icon="octicon:people-24" className="icon" />
+              <span>Attendance</span>
             </NavLink>
           </li>
           <li className="nav-item">

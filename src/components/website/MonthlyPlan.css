@@ -1,7 +1,5 @@
 /* MonthlyPlan */
-
 #section7 {
-
   background-color: #111;
   color: white;
   padding-bottom: 60px;
@@ -9,17 +7,14 @@
 }
 
 #section7 h6 {
-  color: #e31c25
+  color: #e31c25;
 }
 
-#section7 h2,
-#section7 h3 {
-
+#section7 h2, #section7 h3 {
   font-family: 'Oswald', sans-serif;
 }
 
 .ps-item {
-
   padding: 40px 30px 52px;
   border: 1px solid #464646;
   transform: skewY(-4deg);
@@ -49,11 +44,9 @@
   font-size: 16px;
   font-weight: 700;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
 
 .ps-item ul {
-
   transform: skewY(4deg);
 }
 
@@ -63,7 +56,6 @@
   color: #c4c4c4;
   line-height: 32px;
   list-style: none;
-
 }
 
 #section7 .btn {
@@ -76,7 +68,6 @@
   background-color: #333333;
   font-family: 'Roboto', sans-serif;
 }
-
 
 .ps-item:hover {
   background-color: #ffffff;
@@ -99,5 +90,17 @@
 .ps-item:hover a.btn {
   background-color: #e31c25 !important;
   font-weight: 700;
+}
 
+/* Flexbox layout for responsive design */
+@media (max-width: 768px) {
+  .col-lg-3 {
+    flex: 0 0 50%; /* Makes each plan take half the width */
+  }
+}
+
+@media (max-width: 480px) {
+  .col-lg-3 {
+    flex: 0 0 100%; /* Makes each plan take full width on smaller screens */
+  }
 }

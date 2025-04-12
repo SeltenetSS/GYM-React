@@ -17,11 +17,11 @@ const UserDashboard = () => {
           <div className="main-content">
             <Switch>
             <Route exact path="/user-dashboard" component={Dashboard} />
-              <Route path="/user-dashboard/equipment" component={Equipment} />
-              <Route path="/user-dashboard/notfication" component={Notfication} />
-              <Route path="/user-dashboard/userattendance" component={UserAttendance} />
-              <Route path="/user-dashboard/profile" component={Profile} />
-              <Route path="/user-dashboard/logout" component={Logout} />
+              <Route exact path="/user-dashboard/equipment" component={Equipment} />
+              <Route exact path="/user-dashboard/notfication" component={Notfication} />
+              <Route exact path="/user-dashboard/userattendance" component={UserAttendance} />
+              <Route exact path="/user-dashboard/profile" component={Profile} />
+              <Route exact path="/user-dashboard/logout" component={Logout} />
             </Switch>
           </div>
         </div>

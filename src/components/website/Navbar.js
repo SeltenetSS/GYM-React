@@ -5,9 +5,9 @@ export default function Navbar() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
-  // URL-ə əsaslanaraq admin səhifəsini yoxlamaq
+
   const location = useLocation();
-  const isAdminDashboard = location.pathname === "/admin-dashboard"; // Admin səhifəsinin URL'ini yoxla
+  const isAdminDashboard = location.pathname === "/admin-dashboard"; 
 
   const redStyle = { color: "#e31c25" };
 
@@ -19,9 +19,9 @@ export default function Navbar() {
     setDropdownOpen(!isDropdownOpen);
   };
 
-  // Admin səhifəsində navbar-ı gizlətmək üçün şərtli renderləmə
+ 
   if (isAdminDashboard) {
-    return null; // Admin səhifəsində navbar render edilməyəcək
+    return null; 
   }
 
   return (

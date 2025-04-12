@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Sidebar from './sidebar/Sidebar';
 import Topbar from './sidebar/Topbar';
 import Dashboard from './dashboard/Dashboard';
-
+import Attendance from './attendance/Attendance'; 
 import Member from './member/Member';
 import Equipment from './equipment/Equipment';
 import Trainer from './trainer/Trainer';
@@ -18,8 +18,10 @@ import AddTrainer from './trainer/AddTrainer';
 import AddNewEquipment from './equipment/AddNewEquipment';
 import AddNewPackage from './package/AddNewPackage';
 import ViewPackage from './package/ViewPackage';
+import ViewEquipment from './equipment/ViewEquipment';
 import ViewTrainer from './trainer/ViewTrainer';
 import ApproveTrainer from './trainer/ApproveTrainer';
+import TakeAttendance from './attendance/TakeAttendance';
 
 const AdminDashboard = () => {
   return (
@@ -42,7 +44,10 @@ const AdminDashboard = () => {
           <Route exact path="/admin-dashboard/trainer/approve-trainer" component={ApproveTrainer} />
           <Route exact path="/admin-dashboard/payment" component={Payment} />
           <Route exact path="/admin-dashboard/package" component={Package} />
+          <Route exact path="/admin-dashboard/attendance" component={Attendance} />
+          <Route exact path="/admin-dashboard/attendance/take-attendance" component={TakeAttendance} />
           <Route exact path="/admin-dashboard/equipment" component={Equipment} />
+          <Route exact path="/admin-dashboard/equipment/view-equipment" component={ViewEquipment} />
           <Route exact path="/admin-dashboard/profile" component={Profile} />
           <Route exact path="/admin-dashboard/logout" component={Logout} />
         </Switch>

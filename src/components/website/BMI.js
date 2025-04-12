@@ -1,30 +1,56 @@
-import React, { useState } from 'react'
-export default function BMI() {
 
+
+import React, { useState } from 'react';
+import axios from 'axios';
+
+export default function BMI() {
     const [myStyle, setMyStyle] = useState('');
     const [weight, setWeight] = useState('');
     const [height, setHeight] = useState('');
+    const [suggestedPackage, setSuggestedPackage] = useState('');
 
     const WeightVal = (event) => {
-
         setWeight(event.target.value);
-    }
+    };
 
     const HeightVal = (event) => {
         setHeight(event.target.value);
+    };
 
-    }
-
-    const calculateBmi = () => {
+    const calculateBmi = async () => {
         if (weight && height) {
-            const bmi = (weight / ((height / 100) ** 2)).toFixed(2);
-
-            setMyStyle(bmi);
+            const userData = {
+                WeightKg: parseFloat(weight),
+                HeightCm: parseFloat(height),
+            };
+    
+            try {
+                const response = await axios.post('https://localhost:7054/api/Package/suggest-package', userData);
+                console.log(response.data); 
+    
+                const { calculatedBmi, suggestedPackage } = response.data;
+    
+                if (calculatedBmi !== undefined) {
+                    setMyStyle(`Your BMI value: ${calculatedBmi}`);
+                } else {
+                    setMyStyle('An error occurred while calculating BMI.');
+                }
+    
+                
+                if (suggestedPackage && suggestedPackage.packageName) {
+                    setSuggestedPackage(suggestedPackage.packageName);
+                } else {
+                    setSuggestedPackage('No packages offered');
+                }
+            } catch (error) {
+                console.error("Error when calculating BMI:", error);
+                setMyStyle('An error occurred while calculating BMI.');
+            }
         } else {
-
-            setMyStyle('Please enter valid weight and height.');
+            setMyStyle('Please enter the correct weight and height..');
         }
     };
+    
 
     return (
         <div className="container-fluid-lg position-relative bmi my-5">
@@ -32,9 +58,9 @@ export default function BMI() {
                 <div className="row px-lg-3 align-items-center mt-5">
                     <div className="col-md-6">
                         <div className="pe-md-3 d-none d-md-block">
-                            <h4 className="text-primary">Body Mass Index </h4>
+                            <h4 className="text-primary">Body Mass Index</h4>
                             <h4 className="display-4 text-white fw-bold mb-4">What is BMI?</h4>
-                            <p className="m-0 text-white">Vero elitr lorem magna justo magna justo at justo est ipsum sed clita lorem dolor ipsum sed. Lorem sea lorem vero. Sanct dolor clita clita rebum kasd magna erat diam</p>
+                            <p className="m-0 text-white">Lorem ipsum...</p>
                         </div>
                     </div>
                     <div className="col-md-6 bg-secondary py-5">
@@ -58,10 +84,15 @@ export default function BMI() {
                                     </div>
                                 </div>
                             </form>
+                            {suggestedPackage && (
+                                <div className="mt-4">
+                                    <h4 className="text-white">Suggested Package: {suggestedPackage}</h4>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }

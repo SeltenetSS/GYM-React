@@ -1,9 +1,7 @@
-
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import './AdminSignUp.css'; // CSS faylını import et
+import './AdminSignUp.css'; 
 
 export default function AdminSignUp() {
   const [email, setEmail] = useState('');
@@ -21,13 +19,10 @@ export default function AdminSignUp() {
 
     try {
       const response = await axios.post('https://localhost:7054/api/Auth/signup-admin', registerData);
-
       if (response.status === 200) {
         alert('Registration successful!');
         history.push('/login');
       }
-
-    
     } catch (err) {
       setError(err.response?.data?.message || 'An error occurred. Please try again.');
     } finally {
@@ -36,12 +31,12 @@ export default function AdminSignUp() {
   };
 
   return (
-    <div className="sign-up-form">
-      <h2>Admin Sign Up</h2>
-      {error && <div className="error">{error}</div>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="fullName">Full Name:</label><br></br>
+    <div className="auth-form-wrapper">
+      <div className="auth-form-container">
+        <h2>Admin Sign Up</h2>
+        {error && <div className="error">{error}</div>}
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="fullName">Full Name:</label>
           <input
             type="text"
             id="fullName"
@@ -49,9 +44,8 @@ export default function AdminSignUp() {
             onChange={(e) => setFullName(e.target.value)}
             required
           />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label><br></br>
+
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
             id="email"
@@ -59,9 +53,8 @@ export default function AdminSignUp() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label><br></br>
+
+          <label htmlFor="password">Password:</label>
           <input
             type="password"
             id="password"
@@ -70,11 +63,12 @@ export default function AdminSignUp() {
             required
             minLength="6"
           />
-        </div>
-        <button type="submit" disabled={loading}>
-          {loading ? 'Signing up...' : 'Sign Up'}
-        </button>
-      </form>
+
+          <button type="submit" disabled={loading}>
+            {loading ? 'Signing up...' : 'Sign Up'}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

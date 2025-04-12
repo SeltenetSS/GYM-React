@@ -20,13 +20,13 @@ const TrainerDashboard = () => {
       <div className="main-content">
         <Switch>
         <Route exact path="/trainer-dashboard" component={Dashboard} />
-          <Route path="/trainer-dashboard/member" component={Member} />
-          <Route path="/trainer-dashboard/equipment" component={Equipment} />
-          <Route path="/trainer-dashboard/notfication" component={Notfication} />
-          <Route path="/trainer-dashboard/payment" component={Payment} />
-          <Route path="/trainer-dashboard/attendance" component={Attendance} />
-          <Route path="/trainer-dashboard/profile" component={Profile} />
-          <Route path="/trainer-dashboard/logout" component={Logout} />
+          <Route exact path="/trainer-dashboard/member" component={Member} />
+          <Route exact path="/trainer-dashboard/equipment" component={Equipment} />
+          <Route exact path="/trainer-dashboard/notfication" component={Notfication} />
+          <Route exact path="/trainer-dashboard/payment" component={Payment} />
+          <Route exact path="/trainer-dashboard/attendance" component={Attendance} />
+          <Route exact path="/trainer-dashboard/profile" component={Profile} />
+          <Route exact path="/trainer-dashboard/logout" component={Logout} />
         </Switch>
       </div>
     </div>

@@ -1,56 +1,45 @@
 :root {
-    --primaryColor: #D90429;
-    --secondaryColor: #6A040F;
-    --darkColor1: #0B0C10;
-    --darkColor2: #1C1C1C;
-    --lightColor: #EAEAEA;
-    --greyColor: #8E8E8E;
-  }
-  
-  /* Full-screen layout */
-  html, body {
+    --primaryColor: #D90429;       
+    --secondaryColor: #6A040F;     
+    --darkColor1: #0B0C10;         
+    --darkColor2: #1C1C1C;         
+    --lightColor: #EAEAEA;         
+    --greyColor: #8E8E8E;        
+}
+
+/* Ensure full screen layout */
+html, body {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
-  }
-  
-  /* Auth form container */
-  .auth-form-wrapper {
+}
+
+.auth-form-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: var(--darkColor1); /* Dark background */
     padding: 20px;
-  }
-  
-  /* Auth form box */
-  .auth-form-container {
-    background-color: var(--darkColor2); /* Slightly lighter dark background */
+}
+
+.auth-form-container {
+    background-color: var(--darkColor2); /* Lighter dark background */
     padding: 30px;
     border-radius: 10px;
     width: 100%;
     max-width: 400px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    color: var(--lightColor);
-  }
-  
-  /* Heading */
-  .auth-form-container h2 {
-    color: var(--primaryColor);
+    color: var(--lightColor); /* Light text */
+}
+
+.auth-form-container h2 {
+    color: var(--primaryColor); /* Red color */
     text-align: center;
     margin-bottom: 20px;
-  }
-  
-  /* Error message */
-  .error {
-    color: #FF4C4C;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Form elements */
-  input[type="text"], input[type="email"], input[type="password"] {
+}
+
+input[type="text"], input[type="email"], input[type="password"], select {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
@@ -58,10 +47,15 @@
     border: 1px solid var(--greyColor); /* Gray border */
     background-color: #2C2C2C; /* Dark gray background */
     color: var(--lightColor);
-  }
-  
-  /* Button */
-  button {
+    font-size: 16px;
+}
+
+select {
+    background-color: #2C2C2C;
+    border: 1px solid var(--greyColor);
+}
+
+button {
     width: 100%;
     padding: 12px;
     border: none;
@@ -71,13 +65,18 @@
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  button:disabled {
-    background-color: var(--greyColor); /* Gray button when disabled */
-  }
-  
-  button:hover {
+}
+
+button:disabled {
+    background-color: var(--greyColor); /* Disabled gray button */
+}
+
+button:hover {
     background-color: var(--secondaryColor); /* Darker red on hover */
-  }
-  
+}
+
+.error {
+    color: #FF4C4C; /* Red error text */
+    text-align: center;
+    margin-bottom: 20px;
+}
