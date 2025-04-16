@@ -36,20 +36,12 @@ import UserDashboardNav from "./routes/UserDashboardNav";
 
 function App() {
   return (
-    <Router >
+    <Router basename="/Gym-Website">
       <Switch>
-      <Route path="/admin-dashboard">
-          <AdminDashboardNav />
-        </Route>
-        <Route path="/trainer-dashboard">
-          <TrainerDashboardNav />
-        </Route>
-        
-        <Route path="/user-dashboard">
-          <UserDashboardNav />
-        </Route>
-     
-        <Route path="/">
+        <Route path="/admin-dashboard" component={AdminDashboardNav} />
+        <Route path="/trainer-dashboard" component={TrainerDashboardNav} />
+        <Route path="/user-dashboard" component={UserDashboardNav} />
+        <Route>
           <Navbar />
           <Switch>
             <Route exact path="/" component={HomeNav} />

@@ -8,7 +8,7 @@ const AddNewEquipment = () => {
   const [equipment, setEquipment] = useState({
     name: "",
     description: "",
-    isAvailable: true, // boolean dəyəri
+    isAvailable: true, 
     price: "",
     unit: "",
     imageUrl: null,
@@ -34,7 +34,7 @@ const AddNewEquipment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate that price is a valid number
+   
     if (isNaN(equipment.price) || equipment.price <= 0) {
       setError("Please enter a valid price.");
       return;
@@ -43,18 +43,18 @@ const AddNewEquipment = () => {
     const formData = new FormData();
     formData.append("name", equipment.name);
     formData.append("description", equipment.description);
-    formData.append("isAvailable", equipment.isAvailable); // directly sending true/false
-    formData.append("price", equipment.price.toString()); // Ensure price is a string
+    formData.append("isAvailable", equipment.isAvailable);
+    formData.append("price", equipment.price.toString());
     formData.append("unit", equipment.unit);
 
-    // Check if an image is selected
+ 
     if (equipment.imageUrl) {
-      formData.append("imageUrl", equipment.imageUrl); // Appending the file correctly
+      formData.append("imageUrl", equipment.imageUrl);
     } else {
       console.error("No image file selected");
     }
 
-    // Logging formData for debugging purposes
+   
     formData.forEach((value, key) => {
       console.log(key, value);
     });
@@ -72,7 +72,7 @@ const AddNewEquipment = () => {
         history.push("/admin-dashboard/equipment");
       }
     } catch (err) {
-      console.error("Error response:", err.response?.data); // Log the error response
+      console.error("Error response:", err.response?.data); 
       setError(err.response?.data?.message || "Failed to add equipment");
     }
   };

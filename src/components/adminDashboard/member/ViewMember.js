@@ -11,7 +11,7 @@ const ViewMember = () => {
     email: "",
     dateOfBirth: ""
   });
-  const [editedFile, setEditedFile] = useState(null); // şəkil üçün ayrıca state
+  const [editedFile, setEditedFile] = useState(null);
 
   useEffect(() => {
     fetchMembers();

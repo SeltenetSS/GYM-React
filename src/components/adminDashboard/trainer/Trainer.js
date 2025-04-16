@@ -1,7 +1,7 @@
 import React from "react";
 import { FaPlus, FaEye, FaCheck } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
-import styles from "./Trainer.module.css"; // CSS module import
+import styles from "./Trainer.module.css"; 
 
 const Trainer = () => {
   const history = useHistory();

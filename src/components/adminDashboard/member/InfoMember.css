@@ -1,0 +1,127 @@
+:root {
+    --primaryColor: #D90429;
+    --secondaryColor: #6A040F;
+    --darkColor1: #0B0C10;
+    --darkColor2: #1C1C1C;
+    --lightColor: #EAEAEA;
+    --greyColor: #8E8E8E;
+  }
+  
+  .info-member-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 40px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+  }
+  
+  .info-member-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    margin: 20px 0;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  .info-member-table thead tr {
+    background-color: var(--primaryColor);
+    color: white;
+    text-align: left;
+  }
+  
+  .info-member-table th,
+  .info-member-table td {
+    padding: 12px 15px;
+    text-align: center;
+  }
+  
+  .info-member-table tbody tr {
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+  }
+  
+  .info-member-table tbody tr:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    background-color: #f1f1f1;
+  }
+  
+  .info-member-button {
+    padding: 6px 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #D90429;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .info-member-button:hover {
+    background-color: #9c1e1e;
+  }
+  
+  .info-member-save-button {
+    background-color: #006400;
+  }
+  
+  .info-member-save-button:hover {
+    background-color: #004d00;
+  }
+  
+  .info-member-cancel-button {
+    background-color: #9c1e1e;
+  }
+  
+  .info-member-cancel-button:hover {
+    background-color: #9c1e1e;
+  }
+  
+  .info-member-edit-form {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .info-member-edit-form h3 {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .info-member-edit-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .info-member-edit-form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .info-member-table td img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .info-member-table td span {
+    color: #888;
+    font-style: italic;
+  }
+  

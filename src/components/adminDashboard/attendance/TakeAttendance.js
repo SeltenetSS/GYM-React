@@ -1,213 +1,133 @@
-// import React, { useEffect, useState } from "react";
-// import { FaPlus } from "react-icons/fa";
-// import axios from "axios"; 
-// import "./TakeAttendance.css";
-
-// const TakeAttendance = () => {
-//   const [users, setUsers] = useState([]);
-//   const [selectedUser, setSelectedUser] = useState(null); 
-//   const [attendanceStatus, setAttendanceStatus] = useState(""); 
-  
- 
-//   useEffect(() => {
-//     axios.get("/api/attendance/users") 
-//       .then(response => setUsers(response.data))
-//       .catch(error => console.error("Error fetching users:", error));
-//   }, []);
-  
-//   const handleAttendance = (userId) => {
-//     const attendanceData = {
-//       userId,
-//       attendanceDate: new Date(),
-//       status: attendanceStatus === "Present" ? true : false, 
-//     };
-    
-    
-//     axios.post("/api/attendance/take-attendance", attendanceData)
-//       .then(response => {
-//         alert("Attendance saved successfully!");
-//         setSelectedUser(null); 
-//       })
-//       .catch(error => {
-//         console.error("Error saving attendance:", error);
-//         alert("Failed to save attendance.");
-//       });
-//   };
-
-//   return (
-//     <div className="attendance-container">
-//       <h1>Take Attendance</h1>
-      
-
-//       <table className="attendance-table">
-//         <thead>
-//           <tr>
-//             <th>User Name</th>
-//             <th>Email</th>
-//             <th>Take Attendance</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {users.map(user => (
-//             <tr key={user.id}>
-//               <td>{user.fullName}</td>
-//               <td>{user.email}</td>
-//               <td>
-//                 <button
-//                   className="take-attendance-btn"
-//                   onClick={() => setSelectedUser(user.id)}
-//                 >
-//                   <FaPlus /> 
-//                 </button>
-//               </td>
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-
-//       {selectedUser && (
-//         <div className="attendance-modal">
-//           <div className="modal-content">
-//             <h2>Take Attendance for User {selectedUser}</h2>
-            
-//             <div>
-//               <label>
-//                 Status:
-//                 <select
-//                   value={attendanceStatus}
-//                   onChange={(e) => setAttendanceStatus(e.target.value)}
-//                 >
-//                   <option value="">Select Status</option>
-//                   <option value="Present">Present</option>
-//                   <option value="Absent">Absent</option>
-//                 </select>
-//               </label>
-//             </div>
-
-//             <div className="modal-actions">
-//               <button onClick={() => handleAttendance(selectedUser)}>Save Attendance</button>
-//               <button onClick={() => setSelectedUser(null)}>Cancel</button>
-//             </div>
-//           </div>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default TakeAttendance;
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { FaPlus } from "react-icons/fa";
-import "./TakeAttendance.css"; // Üslub faylını əlavə etmisinizsə
+import "./TakeAttendance.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const TakeAttendance = () => {
-  const [users, setUsers] = useState([]); // İstifadəçilərin siyahısı
-  const [selectedUser, setSelectedUser] = useState(null); // Seçilmiş istifadəçi
-  const [modalOpen, setModalOpen] = useState(false); // Modalın açılıb- bağlanma vəziyyəti
-  const [date, setDate] = useState(""); // Tarix
-  const [status, setStatus] = useState("Present"); // İştirak statusu (Hüzurda/Absensiya)
+  const [users, setUsers] = useState([]);
+  const [attendanceDate, setAttendanceDate] = useState(new Date().toISOString().split("T")[0]);
+  const [statusMap, setStatusMap] = useState({});
+  const [error, setError] = useState("");
 
+  // Fetch users on component mount
   useEffect(() => {
-    // API-dən istifadəçiləri çəkirik
     const fetchUsers = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        setError("Token not found. Please login again.");
+        window.location.href = "/login";
+        return;
+      }
+
       try {
-        const response = await axios.get("/api/user/top-users"); // Serverdən istifadəçiləri alırıq
-        setUsers(response.data); // Gələn məlumatları istifadəçilər listəsinə əlavə edirik
+        const response = await axios.get("https://localhost:7054/api/Attendance/get-attendance", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setUsers(response.data);
       } catch (err) {
-        console.error("Error fetching users:", err); // Xətanı log edirik
+        if (err.response?.status === 401) {
+          setError("Unauthorized access. Please login again.");
+          window.location.href = "/login";
+        } else {
+          setError("Failed to load attendance data. Security issue.");
+        }
       }
     };
 
-    fetchUsers(); // İstifadəçiləri yükləmək üçün funksiyanı çağırırıq
-  }, []); // Componentin bir dəfə yüklənməsi üçün boş array istifadə edirik
+    fetchUsers();
+  }, []);
 
-  const handleTakeAttendanceClick = (user) => {
-    setSelectedUser(user); // İstifadəçini seçirik
-    setModalOpen(true); // Modalı açırıq
+  const handleStatusChange = (userId, status) => {
+    setStatusMap((prev) => ({ ...prev, [userId]: status }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault(); // Formanın təkrardan yüklənməsinin qarşısını alırıq
+  const handleSubmit = async (userId) => {
+    const status = statusMap[userId] || "Present";
 
-    const dto = {
-      userId: selectedUser.id,
-      attendanceDate: date,
-      status, // Hüzurda ya da Absensiya statusunu göndəririk
+    const attendanceData = {
+      userId,
+      status: status === "Present" ? 1 : 0,
+      attendanceDate,
     };
 
     try {
-      // İştirak vəziyyətini göndəririk
-      await axios.post("/api/attendance/take-attendance", dto);
-      alert("Attendance saved successfully"); // Uğurlu nəticə
-      setModalOpen(false); // Modalı bağlayırıq
-    } catch (err) {
-      console.error("Error saving attendance:", err); // Xətanı log edirik
-      alert("Error saving attendance"); // Xəta mesajı
+      await axios.post("https://localhost:7054/api/Attendance/take-attendance", attendanceData, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      alert("Attendance submitted successfully!");
+    } catch (error) {
+      console.error("Error response:", error.response);
+      alert(`An error occurred: ${error.response?.data?.message || "No additional information available."}`);
     }
   };
 
   return (
-    <div className="container mt-5">
-      <h2>Member Attendance</h2>
-      <table className="table table-striped">
+    <div className="takeAttendanceContainer">
+      <h3>Take Attendance</h3>
+
+      {error && <div className="error">{error}</div>}
+
+      <div className="formGroup">
+        <label>Date:</label>
+        <DatePicker
+  selected={new Date(attendanceDate)}
+  onChange={(date) => setAttendanceDate(date.toISOString().split("T")[0])}
+  dateFormat="yyyy-MM-dd"
+  className="customDatePicker"
+/>
+
+      </div>
+
+      <table className="attendanceTable">
         <thead>
           <tr>
+            <th>Image</th>
             <th>Name</th>
             <th>Phone</th>
-            <th>Points</th>
+            <th>Package</th>
+            <th>Status</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
           {users.map((user) => (
             <tr key={user.id}>
+              <td>
+                <img
+                  src={user.imageUrl || "https://example.com/default-avatar.png"}
+                  alt={user.name}
+                  className="tableUserImage"
+                />
+              </td>
               <td>{user.name}</td>
               <td>{user.phone}</td>
-              <td>{user.point}</td>
+              <td>{user.packageName}</td>
               <td>
-                <button className="btn btn-outline-primary" onClick={() => handleTakeAttendanceClick(user)}>
-                  <FaPlus />
+                <select
+                  onChange={(e) => handleStatusChange(user.id, e.target.value)}
+                  defaultValue="Present"
+                >
+                  <option value="Present">Present</option>
+                  <option value="Absent">Absent</option>
+                </select>
+              </td>
+              <td>
+                <button
+                  className="submit-btn"
+                  onClick={() => handleSubmit(user.id)}
+                >
+                  Save
                 </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-
-      {/* Modal açıldığında, seçim edilmiş user ilə form göstərilir */}
-      {modalOpen && selectedUser && (
-        <div className="modal-backdrop">
-          <div className="modal-content p-4">
-            <h4>Take Attendance for {selectedUser.name}</h4>
-            <form onSubmit={handleSubmit}>
-              <div className="mb-3">
-                <label>Date</label>
-                <input
-                  type="date"
-                  className="form-control"
-                  value={date}
-                  onChange={(e) => setDate(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="mb-3">
-                <label>Status</label>
-                <select
-                  className="form-select"
-                  value={status}
-                  onChange={(e) => setStatus(e.target.value)}
-                >
-                  <option value="Present">Present</option>
-                  <option value="Absent">Absent</option>
-                </select>
-              </div>
-              <button type="submit" className="btn btn-success me-2">Save</button>
-              <button type="button" className="btn btn-secondary" onClick={() => setModalOpen(false)}>Cancel</button>
-            </form>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

@@ -13,6 +13,7 @@ import Profile from './profile/Profile';
 import Logout from './sidebar/Logout';
 import AddMember from './member/AddMember';
 import ViewMember from './member/ViewMember';
+import InfoMember from './member/InfoMember';
 import ApproveMember from './member/ApproveMember';
 import AddTrainer from './trainer/AddTrainer';
 import AddNewEquipment from './equipment/AddNewEquipment';
@@ -22,6 +23,7 @@ import ViewEquipment from './equipment/ViewEquipment';
 import ViewTrainer from './trainer/ViewTrainer';
 import ApproveTrainer from './trainer/ApproveTrainer';
 import TakeAttendance from './attendance/TakeAttendance';
+import ViewAttendance from './attendance/ViewAttendance';
 
 const AdminDashboard = () => {
   return (
@@ -34,6 +36,7 @@ const AdminDashboard = () => {
           <Route exact path="/admin-dashboard/member" component={Member} />
           <Route exact path="/admin-dashboard/member/add-member" component={AddMember} />
           <Route exact path="/admin-dashboard/member/view-member" component={ViewMember} />
+          <Route exact path="/admin-dashboard/member/info-member" component={InfoMember} />
           <Route exact path="/admin-dashboard/member/approve-member" component={ApproveMember} />
           <Route exact path="/admin-dashboard/trainer" component={Trainer} />
           <Route exact path="/admin-dashboard/trainer/add-trainer" component={AddTrainer} />
@@ -46,6 +49,7 @@ const AdminDashboard = () => {
           <Route exact path="/admin-dashboard/package" component={Package} />
           <Route exact path="/admin-dashboard/attendance" component={Attendance} />
           <Route exact path="/admin-dashboard/attendance/take-attendance" component={TakeAttendance} />
+          <Route exact path="/admin-dashboard/attendance/view-attendance" component={ViewAttendance} />
           <Route exact path="/admin-dashboard/equipment" component={Equipment} />
           <Route exact path="/admin-dashboard/equipment/view-equipment" component={ViewEquipment} />
           <Route exact path="/admin-dashboard/profile" component={Profile} />

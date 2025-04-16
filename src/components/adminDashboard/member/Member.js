@@ -1,9 +1,8 @@
-
-
 import React from "react";
-import { FaPlus, FaEye, FaCheck } from "react-icons/fa";
+import { FaPlus, FaEye, FaCheck, FaIdBadge } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 import styles from "./Member.module.css"; 
+import SearchBar from "../sidebar/SearchBar";
 
 const Member = () => {
   const history = useHistory();
@@ -11,6 +10,7 @@ const Member = () => {
   const handleAddMember = () => history.push("/admin-dashboard/member/add-member");
   const handleViewMember = () => history.push("/admin-dashboard/member/view-member");
   const handleApproveMember = () => history.push("/admin-dashboard/member/approve-member");
+  const handleInfoMember = () => history.push("/admin-dashboard/member/info-member"); // Added this function
 
   return (
     <div className={styles.memberCardsContainer}>
@@ -33,6 +33,13 @@ const Member = () => {
           <FaCheck size={30} />
         </div>
         <div className={styles.memberCardTitle}>Approve Member</div>
+      </div>
+
+      <div className={styles.memberCard} onClick={handleInfoMember}>
+        <div className={styles.memberCardIcon}>
+          <FaIdBadge size={30} />
+        </div>
+        <div className={styles.memberCardTitle}>Information Member</div>
       </div>
     </div>
   );
