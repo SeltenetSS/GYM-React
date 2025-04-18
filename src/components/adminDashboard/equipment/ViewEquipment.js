@@ -1,5 +1,6 @@
 
 
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./ViewEquipment.css";
@@ -15,23 +16,23 @@ const ViewEquipment = () => {
     price: 0,
     unit: "",
     isAvailable: true,
-    image: null,  
+    image: null,
   });
 
-  useEffect(() => {
-    const fetchEquipment = async () => {
-      try {
-        const response = await axios.get("https://localhost:7054/api/Equipment/equipments", {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
-        setEquipmentList(response.data);
-      } catch (err) {
-        setError("Failed to load equipment");
-      }
-    };
+  const fetchEquipment = async () => {
+    try {
+      const response = await axios.get("https://localhost:7054/api/Equipment/equipments", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      setEquipmentList(response.data);
+    } catch (err) {
+      setError("Failed to load equipment");
+    }
+  };
 
+  useEffect(() => {
     fetchEquipment();
   }, []);
 
@@ -43,7 +44,7 @@ const ViewEquipment = () => {
       price: equipment.price,
       unit: equipment.unit,
       isAvailable: equipment.isAvailable,
-      image: null, // Reset the image input when editing
+      image: null,
     });
     setIsEditModalOpen(true);
   };
@@ -58,27 +59,42 @@ const ViewEquipment = () => {
     formData.append("unit", editedEquipment.unit);
     formData.append("isAvailable", editedEquipment.isAvailable);
     if (editedEquipment.image) {
-      formData.append("image", editedEquipment.image); // Appending the image file
+      formData.append("imageUrl", editedEquipment.image);  
     }
+    
 
     try {
-      await axios.put(
+      const response = await axios.put(
         `https://localhost:7054/api/Equipment/update-equipment/${currentEquipment.id}`,
         formData,
         {
+
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
             "Content-Type": "multipart/form-data",
-          },
+          }, 
         }
       );
+
+      // const updatedEquipment = {
+      //   ...currentEquipment,
+      //   ...editedEquipment,
+      //   imageUrl: response.data.imageUrl || currentEquipment.imageUrl,
+      // };
+      const updatedEquipment = {
+        ...currentEquipment,
+        ...editedEquipment,
+        imageUrl: editedEquipment.image ? URL.createObjectURL(editedEquipment.image) : currentEquipment.imageUrl,
+      };
+      
       setEquipmentList((prevList) =>
-        prevList.map((eq) =>
-          eq.id === currentEquipment.id ? { ...eq, ...editedEquipment } : eq
-        )
+        prevList.map((eq) => (eq.id === currentEquipment.id ? updatedEquipment : eq))
       );
+
       setIsEditModalOpen(false);
+      setError("");
     } catch (error) {
+      console.error("Error details:", error.response ? error.response.data : error.message);
       setError("Error updating equipment");
     }
   };
@@ -99,7 +115,7 @@ const ViewEquipment = () => {
   };
 
   const handleImageChange = (e) => {
-    setEditedEquipment({ ...editedEquipment, image: e.target.files[0] }); // Handle file input change
+    setEditedEquipment({ ...editedEquipment, image: e.target.files[0] });
   };
 
   return (
@@ -109,11 +125,13 @@ const ViewEquipment = () => {
       <table className="equipment-table">
         <thead>
           <tr>
+            <th>ID</th>
+            <th>Image</th>
             <th>Name</th>
             <th>Description</th>
             <th>Price</th>
             <th>Unit</th>
-            <th>Image</th>
+            <th>Available</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -121,17 +139,23 @@ const ViewEquipment = () => {
           {equipmentList.length > 0 ? (
             equipmentList.map((equipment) => (
               <tr key={equipment.id}>
+                <td>{equipment.id}</td>
+                <td>
+                  {equipment.imageUrl ? (
+                    <img
+                      src={equipment.imageUrl}
+                      alt={equipment.name}
+                      className="equipment-image"
+                    />
+                  ) : (
+                    "No image"
+                  )}
+                </td>
                 <td>{equipment.name}</td>
                 <td>{equipment.description || "No description available"}</td>
                 <td>{equipment.price} $</td>
                 <td>{equipment.unit}</td>
-                <td>
-                  {equipment.imageUrl ? (
-                    <img src={equipment.imageUrl} alt={equipment.name} className="equipment-image" />
-                  ) : (
-                    "No image available"
-                  )}
-                </td>
+                <td>{equipment.isAvailable ? "Yes" : "No"}</td>
                 <td>
                   <button className="edit-btn" onClick={() => handleEdit(equipment)}>
                     Edit
@@ -144,7 +168,7 @@ const ViewEquipment = () => {
             ))
           ) : (
             <tr>
-              <td colSpan="6">No equipment available</td>
+              <td colSpan="8">No equipment available</td>
             </tr>
           )}
         </tbody>
@@ -159,27 +183,35 @@ const ViewEquipment = () => {
               <input
                 type="text"
                 value={editedEquipment.name}
-                onChange={(e) => setEditedEquipment({ ...editedEquipment, name: e.target.value })}
+                onChange={(e) =>
+                  setEditedEquipment({ ...editedEquipment, name: e.target.value })
+                }
               />
 
               <label>Description</label>
               <textarea
                 value={editedEquipment.description}
-                onChange={(e) => setEditedEquipment({ ...editedEquipment, description: e.target.value })}
+                onChange={(e) =>
+                  setEditedEquipment({ ...editedEquipment, description: e.target.value })
+                }
               />
 
               <label>Price</label>
               <input
                 type="number"
                 value={editedEquipment.price}
-                onChange={(e) => setEditedEquipment({ ...editedEquipment, price: e.target.value })}
+                onChange={(e) =>
+                  setEditedEquipment({ ...editedEquipment, price: e.target.value })
+                }
               />
 
               <label>Unit</label>
               <input
                 type="text"
                 value={editedEquipment.unit}
-                onChange={(e) => setEditedEquipment({ ...editedEquipment, unit: e.target.value })}
+                onChange={(e) =>
+                  setEditedEquipment({ ...editedEquipment, unit: e.target.value })
+                }
               />
 
               <label>Available</label>
@@ -187,16 +219,15 @@ const ViewEquipment = () => {
                 type="checkbox"
                 checked={editedEquipment.isAvailable}
                 onChange={(e) =>
-                  setEditedEquipment({ ...editedEquipment, isAvailable: e.target.checked })
+                  setEditedEquipment({
+                    ...editedEquipment,
+                    isAvailable: e.target.checked,
+                  })
                 }
               />
 
               <label>Image</label>
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange} // Handle image file change
-              />
+              <input type="file" accept="image/*" onChange={handleImageChange} />
 
               <button type="submit">Save Changes</button>
               <button type="button" onClick={() => setIsEditModalOpen(false)}>

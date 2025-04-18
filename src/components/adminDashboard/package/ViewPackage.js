@@ -80,33 +80,37 @@ const ViewPackage = () => {
   return (
     <div className="package-wrapper">
       <table className="package-table">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Duration (Months)</th>
-            <th>Price</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {packages.map((pkg) => (
-            <tr key={pkg.id}>
-              <td>{pkg.packageName}</td>
-              <td>{pkg.description}</td>
-              <td>{pkg.durationInMonths}</td>
-              <td>{pkg.price} ₼</td>
-              <td>
-                <button className="edit-btn" onClick={() => handleEdit(pkg)}>
-                  Edit
-                </button>
-                <button className="delete-btn" onClick={() => handleDelete(pkg.id)}>
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
+      <thead>
+  <tr>
+    <th>ID</th> 
+    <th>Title</th>
+    <th>Description</th>
+    <th>Duration (Months)</th>
+    <th>Price</th>
+    <th>Actions</th>
+  </tr>
+</thead>
+
+<tbody>
+  {packages.map((pkg) => (
+    <tr key={pkg.id}>
+      <td>{pkg.id}</td> 
+      <td>{pkg.packageName}</td>
+      <td>{pkg.description}</td>
+      <td>{pkg.durationInMonths}</td>
+      <td>{pkg.price} ₼</td>
+      <td>
+        <button className="edit-btn" onClick={() => handleEdit(pkg)}>
+          Edit
+        </button>
+        <button className="delete-btn" onClick={() => handleDelete(pkg.id)}>
+          Delete
+        </button>
+      </td>
+    </tr>
+  ))}
+</tbody>
+
       </table>
 
    

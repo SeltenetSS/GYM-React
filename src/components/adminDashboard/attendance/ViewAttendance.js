@@ -3,7 +3,7 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import AttendanceModal from "./AttendanceModal"; // Modal component
+import AttendanceModal from "./AttendanceModal";
 import "./ViewAttendance.css";
 
 const ViewAttendance = () => {
@@ -53,7 +53,7 @@ const ViewAttendance = () => {
       );
       setUserAttendance(response.data);
       setAttendanceLoading(false);
-      setIsModalOpen(true); // Show modal
+      setIsModalOpen(true); 
     } catch (err) {
       console.error("Error fetching user attendance history:", err);
       setAttendanceLoading(false);
@@ -73,6 +73,7 @@ const ViewAttendance = () => {
           <table className="attendance-table">
             <thead>
               <tr>
+              <th>Id</th>
                 <th>Image</th>
                 <th>Name</th>
                 <th>Phone</th>
@@ -83,6 +84,7 @@ const ViewAttendance = () => {
             <tbody>
               {attendanceList.map((user) => (
                 <tr key={user.id}>
+                   <td>{user.id}</td>
                   <td>
                     <img
                       src={user.imageUrl || "https://via.placeholder.com/50"}

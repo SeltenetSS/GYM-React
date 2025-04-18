@@ -1,0 +1,182 @@
+.view-trainer-wrapper {
+  width: 100%;
+  max-width: 1800px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+}
+
+.view-trainer-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  background-color: #020202;
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+.view-trainer-table thead tr {
+  background-color: #D90429;
+  color: #ffffff;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.view-trainer-table th,
+.view-trainer-table td {
+  padding: 12px 15px;
+  text-align: center;
+  color: #020202;
+}
+
+.view-trainer-table tbody tr {
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.view-trainer-table tbody tr:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  background-color: #f1f1f1;
+}
+
+.view-trainer-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #eee;
+}
+
+.view-trainer-btn {
+  padding: 6px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  color: white;
+}
+
+.view-trainer-btn:hover {
+  opacity: 0.9;
+  color: white;
+}
+
+.view-trainer-btn.delete {
+  background-color: #c20020fc;
+}
+
+.view-trainer-btn.delete:hover {
+  background-color: #a8001b;
+}
+
+.view-trainer-btn.edit {
+  background-color: #4caf50;
+}
+
+.view-trainer-btn.edit:hover {
+  background-color: #3da743;
+}
+
+.view-trainer-edit-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #121212;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(255, 0, 0, 0.2);
+  z-index: 9999;
+  color: #ffffff;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: 1px solid #d90429;
+}
+
+/* Başlıq */
+.view-trainer-edit-modal h3 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #d90429;
+  text-align: center;
+}
+
+/* Label və input */
+.view-trainer-edit-modal label {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #e0e0e0;
+}
+
+.view-trainer-edit-modal input,
+.view-trainer-edit-modal textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #d90429;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.view-trainer-edit-modal textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Button qutusu */
+.view-trainer-edit-modal .button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+/* Düymələr */
+.view-trainer-edit-modal .view-trainer-btn {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.view-trainer-edit-modal .view-trainer-btn.edit {
+  background-color: #d90429;
+  color: #fff;
+}
+
+.view-trainer-edit-modal .view-trainer-btn.edit:hover {
+  background-color: #b10322;
+}
+
+.view-trainer-edit-modal .view-trainer-btn.delete {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #d90429;
+}
+
+.view-trainer-edit-modal .view-trainer-btn.delete:hover {
+  background-color: #1a1a1a;
+  color: #d90429;
+}
+
+

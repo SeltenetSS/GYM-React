@@ -15,11 +15,10 @@ function InfoMember() {
   });
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState('');
-
   useEffect(() => {
     fetchInfoUsers();
   }, []);
-
+  
   const fetchInfoUsers = async () => {
     try {
       const response = await axios.get("https://localhost:7054/api/User/details", {
@@ -29,6 +28,7 @@ function InfoMember() {
           "Pragma": "no-cache",
         },
       });
+      console.log('API response:', response.data);
       setMembers(response.data || []);
       setMessage('');
     } catch (error) {
@@ -39,7 +39,7 @@ function InfoMember() {
       setLoading(false);
     }
   };
-
+  
   const handleEditClick = (id) => {
     const memberToEdit = members.find((member) => member.id === id);
     setEditMemberId(id);
