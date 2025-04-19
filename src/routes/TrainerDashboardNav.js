@@ -8,10 +8,24 @@ export default function TrainerDashboardNav() {
     useEffect(() => {
         const token = localStorage.getItem("token");
 
+      
         if (!token) {
             history.push("/login");
         }
-    }, []);
+
+        const handlePopState = () => {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                history.push("/login");
+            }
+        };
+
+        window.addEventListener("popstate", handlePopState);
+
+        return () => {
+            window.removeEventListener("popstate", handlePopState);
+        };
+    }, [history]);
 
     return (
         <div className="trainer-dashboard">

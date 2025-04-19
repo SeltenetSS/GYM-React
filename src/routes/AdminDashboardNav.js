@@ -9,9 +9,22 @@ export default function AdminDashboardNav() {
         const token = localStorage.getItem("token");
 
         if (!token) {
-            history.push("/admin-sign-up"); 
+            history.push("/admin-sign-up");
         }
-    }, []);
+
+      
+        const handlePopState = () => {
+            if (!localStorage.getItem("token")) {
+                history.push("/admin-sign-up");
+            }
+        };
+
+        window.addEventListener("popstate", handlePopState);
+
+        return () => {
+            window.removeEventListener("popstate", handlePopState);
+        };
+    }, [history]);
 
     return (
         <div className="admin-dashboard">

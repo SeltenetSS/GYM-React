@@ -1,186 +1,214 @@
 :root {
-    --primaryColor: #D90429;
-    --secondaryColor: #6A040F;
-    --darkColor1: #0B0C10;
-    --darkColor2: #1C1C1C;
-    --lightColor: #EAEAEA;
-    --greyColor: #8E8E8E;
-    --darkerLightColor: black; /* Even darker for text */
-  }
-  
-  /* Main container for the equipment list page */
-  .equipment-list-page {
-    padding: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--darkColor1);
-    color: white;
-  }
-  
-  /* Title of the equipment list */
-  .equipment-list-page h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: white;
-  }
-  
-  /* Error message styling */
-  .error-message {
-    color: red;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-  }
-  
-  /* Styling for the equipment table */
-  .equipment-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 10px;
-    background-color: var(--darkColor1);
-    margin: 0 auto;
-    box-sizing: border-box;
-    font-size: 15px;
-  }
-  
-  /* Table header styling */
-  .equipment-table thead tr {
-    background-color: var(--primaryColor);
-    color: white;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-  }
-  
-  /* Table cell styling */
-  .equipment-table th,
-  .equipment-table td {
-    padding: 12px 15px;
-    text-align: center;
-    color: var(--darkerLightColor); /* Even darker text color */
-  }
-  
-  /* Styling for table rows */
-  .equipment-table tbody tr {
-    background-color: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  /* Hover effect for rows */
-  .equipment-table tbody tr:hover {
-    transform: scale(1.01);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    background-color: var(--lightColor);
-  }
-  
-  /* Hover effect for table cells (text color change) */
-  .equipment-table td:hover {
-    color: #ffffff;  /* White color when hovered */
-  }
-  
-  /* Action buttons for editing and deleting */
-  .edit-btn,
-  .delete-btn {
-    padding: 6px 12px;
-    margin: 0 5px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 14px;
-  }
-  
-  .edit-btn {
-    background-color: #198754;
-    color: white;
-  }
-  
-  .delete-btn {
-    background-color: #dc3545;
-    color: white;
-  }
-  
-  /* Modal overlay */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  /* Modal content styling */
-  .modal-content {
-    background-color: var(--darkColor2);
-    padding: 20px;
-    border-radius: 10px;
-    width: 400px;
-    max-width: 90%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Modal header */
-  .modal-content h2 {
-    margin-bottom: 20px;
-    color: white;
-  }
-  
-  /* Form field labels */
-  .modal-content label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: var(--lightColor);
-    font-size: 14px;
-  }
-  
-  /* Form input fields */
-  .modal-content input,
-  .modal-content textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    background-color: var(--darkColor1);
-    color: var(--lightColor);
-  }
-  
-  /* Modal buttons */
-  .modal-content button {
-    padding: 10px 20px;
-    background-color: var(--primaryColor);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  /* Cancel button */
-  .modal-content button[type="button"] {
-    background-color: #ccc;
-  }
-  
-  /* Button hover effects */
-  .modal-content button:hover {
-    background-color: #0056b3;
-  }
-  
-  .modal-content button[type="button"]:hover {
-    background-color: #888;
-  }
-  
-  .equipment-image {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 5px;
-  }
-  
+  --primaryColor: #D90429;      /* Qırmızı */
+  --secondaryColor: #6A040F;    /* Tünd qırmızı */
+  --darkColor1: #0B0C10;        /* Əsas qaranlıq fon */
+  --darkColor2: #1C1C1C;        /* Tünd qaranlıq fon */
+  --lightColor: #EAEAEA;        /* Açıq rəng */
+  --greyColor: #8E8E8E;
+  --darkerLightColor: black;    /* Hətta daha tünd rəng */
+}
+
+/* Main container for the equipment list page */
+.equipment-list-page {
+  padding: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--darkColor1);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Title of the equipment list */
+.equipment-list-page h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Error message styling */
+.error-message {
+  color: var(--primaryColor);
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Styling for the equipment table */
+.equipment-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  background-color: var(--darkColor1);
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-size: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Table header styling */
+.equipment-table thead tr {
+  background-color: var(--primaryColor);
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Table cell styling */
+.equipment-table th,
+.equipment-table td {
+  padding: 14px 20px;
+  text-align: center;
+  color: var(--lightColor);
+}
+
+/* Styling for table rows */
+.equipment-table tbody tr {
+  background-color: var(--darkColor2); /* Dark color for rows */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Remove hover effect for rows */
+.equipment-table tbody tr:hover {
+  background-color: var(--darkColor2); /* Keep original dark color */
+  transform: none;
+}
+
+/* Remove hover effect for table cells */
+.equipment-table td:hover {
+  color: var(--lightColor); /* Keep color unchanged */
+}
+
+/* Action buttons for editing and deleting */
+.edit-btn,
+.delete-btn {
+  padding: 8px 15px;
+  margin: 0 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+  background-color: #198754;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #145d43;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal content styling */
+.modal-content {
+  background-color: var(--darkColor2);
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+/* Modal header */
+.modal-content h2 {
+  margin-bottom: 20px;
+  color: white;
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Form field labels */
+.modal-content label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: var(--lightColor);
+  font-size: 14px;
+}
+
+/* Form input fields */
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: var(--darkColor1);
+  color: var(--lightColor);
+  transition: border 0.3s ease;
+}
+
+/* Focus effect for input fields */
+.modal-content input:focus,
+.modal-content textarea:focus {
+  border-color: var(--primaryColor);
+  outline: none;
+}
+
+/* Modal buttons */
+.modal-content button {
+  padding: 12px 24px;
+  background-color: var(--primaryColor);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Cancel button */
+.modal-content button[type="button"] {
+  background-color: #ccc;
+}
+
+/* Button hover effects */
+.modal-content button:hover {
+  background-color: #c82333;
+}
+
+.modal-content button[type="button"]:hover {
+  background-color: #888;
+}
+
+.equipment-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 10px;
+}

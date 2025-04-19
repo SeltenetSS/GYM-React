@@ -76,11 +76,7 @@ const ViewEquipment = () => {
         }
       );
 
-      // const updatedEquipment = {
-      //   ...currentEquipment,
-      //   ...editedEquipment,
-      //   imageUrl: response.data.imageUrl || currentEquipment.imageUrl,
-      // };
+    
       const updatedEquipment = {
         ...currentEquipment,
         ...editedEquipment,

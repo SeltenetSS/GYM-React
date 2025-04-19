@@ -1,0 +1,113 @@
+.chat-toggle-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chat-toggle-button:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .guest-chat-box {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding-right: 5px;
+    max-height: calc(100% - 90px); 
+  }
+  
+  .chat-message {
+    background: #f1f1f1;
+    padding: 6px 10px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    font-size: 14px;
+    max-width: 80%;
+    word-wrap: break-word;
+  }
+  
+  .guest-message {
+    align-self: flex-end;
+    background-color: #daf5d9;
+    color: #2e7d32;
+    text-align: right;
+  }
+  
+  .admin-message {
+    align-self: flex-start;
+    background-color: #e0e7ff;
+    color: #1e3a8a;
+    text-align: left;
+  }
+  
+  .chat-input input {
+    flex: 1;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  
+  .chat-input input {
+    flex: 1;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .chat-input button {
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    height: 100%;
+  }
+  .chat-input button:hover {
+    background-color: #0056b3;
+  }
+  
+  .chat-close-button {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #999;
+  }
+  
+  .chat-close-button:hover {
+    color: red;
+  }
+  

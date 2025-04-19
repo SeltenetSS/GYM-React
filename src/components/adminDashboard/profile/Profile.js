@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import './Profile.css';
 
 function Profile() {
   const [adminData, setAdminData] = useState(null);
@@ -30,8 +31,8 @@ function Profile() {
           email: res.data.email,
         }));
       } catch (err) {
-        console.error("Profil yüklənmədi:", err);
-        setMessage("Profil məlumatı alınarkən xəta baş verdi.");
+        console.error("Profile not loaded:", err);
+        setMessage("Error occurred while fetching profile data.");
       } finally {
         setLoading(false);
       }
@@ -64,81 +65,84 @@ function Profile() {
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      setMessage("Profil uğurla yeniləndi!");
+      setMessage("Profile successfully updated!");
     } catch (err) {
-      const msg = err.response?.data?.message || "Yeniləmə zamanı xəta baş verdi.";
+      const msg = err.response?.data?.message || "Error occurred while updating.";
       setMessage(msg);
     }
   };
 
-  if (loading) return <p>Yüklənir...</p>;
+  if (loading) return <p>Loading...</p>;
 
   return (
     <div className="profile-container">
-      <h2>Profilim</h2>
-      {message && <p style={{ color: message.includes("xəta") ? "red" : "green" }}>{message}</p>}
+      <h2>My Profile</h2>
+      {message && (
+        <p className="profile-message" style={{ color: message.includes("Error") ? "red" : "limegreen" }}>
+          {message}
+        </p>
+      )}
 
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Ad:</label>
+        <div className="profile-input-field">
+          <label htmlFor="name">Name:</label>
           <input
             type="text"
             name="name"
+            id="name"
             value={formData.name}
             onChange={handleChange}
             required
           />
         </div>
 
-        <div>
-          <label>Email:</label>
+        <div className="profile-input-field">
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
             name="email"
+            id="email"
             value={formData.email}
             onChange={handleChange}
             required
           />
         </div>
 
-        <div>
-          <label>Yeni şəkil (əgər dəyişmək istəyirsənsə):</label>
-          <input type="file" name="imageUrl" onChange={handleChange} />
+        <div className="profile-input-field">
+          <label htmlFor="imageUrl">New image (if you want to change it):</label>
+          <input type="file" name="imageUrl" id="imageUrl" onChange={handleChange} />
         </div>
 
         {adminData?.imageUrl && (
-          <div>
-            <p>Mövcud şəkil:</p>
-            <img
-              src={adminData.imageUrl}
-              alt="Profil şəkli"
-              width="100"
-              style={{ borderRadius: "8px" }}
-            />
+          <div className="profile-image-wrapper">
+            <p>Current image:</p>
+            <img src={adminData.imageUrl} alt="Profile image" className="profile-image" />
           </div>
         )}
 
-        <div>
-          <label>Hazırkı şifrə:</label>
+        <div className="profile-input-field">
+          <label htmlFor="currentPassword">Current password:</label>
           <input
             type="password"
             name="currentPassword"
+            id="currentPassword"
             value={formData.currentPassword}
             onChange={handleChange}
           />
         </div>
 
-        <div>
-          <label>Yeni şifrə:</label>
+        <div className="profile-input-field">
+          <label htmlFor="newPassword">New password:</label>
           <input
             type="password"
             name="newPassword"
+            id="newPassword"
             value={formData.newPassword}
             onChange={handleChange}
           />
         </div>
 
-        <button type="submit">Yenilə</button>
+        <button type="submit" className="admin-profile-button">Update</button>
       </form>
     </div>
   );

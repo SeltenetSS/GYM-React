@@ -1,0 +1,85 @@
+.admin-chat-container {
+    display: flex;
+    height: 500px;
+    border: 1px solid #ccc;
+  }
+  .admin-message {
+    background-color: #e0e7ff;
+    color: #1e3a8a;
+    text-align: left;
+    padding: 6px 10px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+  }
+  .user-list {
+    width: 200px;
+    border-right: 1px solid #ccc;
+    background: #f7f7f7;
+    padding: 10px;
+  }
+  .guest-message {
+    background-color: #daf5d9;
+    color: #2e7d32;
+    text-align: right;
+    padding: 6px 10px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+  }
+  
+  .user-item {
+    cursor: pointer;
+    padding: 8px;
+    background-color: #f0f0f0;
+    margin: 5px 0;
+    border-radius: 4px;
+  }
+  
+  .user-item.active {
+    background-color: #d1e7ff;
+  }
+  
+  .chat-section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chat-header {
+    padding: 10px;
+    background: #eef;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+  }
+  
+  .chat-messages {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background: #fff;
+  }
+  
+  .message {
+    padding: 6px;
+    margin-bottom: 5px;
+    background: #f0f0f0;
+    border-radius: 4px;
+  }
+  
+  .chat-input {
+    display: flex;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    background: #fafafa;
+  }
+  
+  .chat-input input {
+    flex-grow: 1;
+    padding: 6px;
+    margin-right: 5px;
+  }
+  
+  .chat-placeholder {
+    padding: 20px;
+    color: #999;
+  }
+  

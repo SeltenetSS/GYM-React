@@ -24,7 +24,7 @@ import ViewTrainer from './trainer/ViewTrainer';
 import ApproveTrainer from './trainer/ApproveTrainer';
 import TakeAttendance from './attendance/TakeAttendance';
 import ViewAttendance from './attendance/ViewAttendance';
-
+import adminChat from './chat/adminChat';
 const AdminDashboard = () => {
   return (
     <div className="rowContainer">
@@ -54,6 +54,7 @@ const AdminDashboard = () => {
           <Route exact path="/admin-dashboard/equipment/view-equipment" component={ViewEquipment} />
           <Route exact path="/admin-dashboard/profile" component={Profile} />
           <Route exact path="/admin-dashboard/logout" component={Logout} />
+          <Route exact path="/admin-dashboard/chat" component={adminChat}/>
         </Switch>
       </div>
     </div>

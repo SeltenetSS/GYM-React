@@ -1,0 +1,70 @@
+.trainer-dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .trainer-dashboard-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  
+  .trainer-dashboard-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .trainer-dashboard-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .trainer-dashboard-card-title {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .trainer-dashboard-card-count {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .trainer-dashboard-bg-blue {
+    background-color: #3b82f6;
+    color: #fff;
+  }
+  
+  .trainer-dashboard-bg-yellow {
+    background-color: #fbbf24;
+    color: #fff;
+  }
+  
+  .trainer-dashboard-bg-red {
+    background-color: #ef4444;
+    color: #fff;
+  }
+  
+  .trainer-dashboard-bottom {
+    width: 100%;
+  }
+  
+  .trainer-dashboard-chart-container {
+    width: 100%;
+    height: 400px;
+  }
+  
+  .trainer-dashboard-chart-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  

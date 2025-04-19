@@ -35,17 +35,23 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/trainer-dashboard/notfication" className="nav-link" activeClassName="active">
+            <NavLink to="/trainer-dashboard/equipmentusage" className="nav-link" activeClassName="active">
               <Icon icon="map:gym" className="icon" />
-              <span>Notfication</span>
+              <span>Equipment Usage</span>
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/trainer-dashboard/payments" className="nav-link" activeClassName="active">
+            <NavLink to="/trainer-dashboard/MySchedule" className="nav-link" activeClassName="active">
               <Icon icon="ic:outline-payment" className="icon" />
-              <span>Payments</span>
+              <span>My Schedule</span>
             </NavLink>
           </li>
+           <li className="nav-item">
+            <NavLink to="/trainer-dashboard/MyGroup" className="nav-link" activeClassName="active">
+              <Icon icon="ic:outline-payment" className="icon" />
+              <span>My Group</span>
+            </NavLink>
+          </li> 
           <div className="line" />
           <li className="nav-item">
             <NavLink to="/trainer-dashboard/attendance" className="nav-link" activeClassName="active">

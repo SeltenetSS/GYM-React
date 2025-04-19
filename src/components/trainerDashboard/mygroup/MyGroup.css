@@ -1,0 +1,20 @@
+.trainer-dashboard-groups-container {
+    padding: 20px;
+  }
+  
+  .trainer-dashboard-groups-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .trainer-dashboard-groups-table th, .trainer-dashboard-groups-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .trainer-dashboard-groups-table th {
+    background-color: black;
+    color: white;
+  }
+  

@@ -1,5 +1,4 @@
 
-import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './components/website/Navbar.css';
 import './components/website/Banner.css';
@@ -17,7 +16,7 @@ import './components/website/Features.css';
 import './components/website/Services.css';
 import './components/website/Contact.css';
 import './components/website/Auth.css';
-import './App.scss';
+
 import './responsive.css';
 
 import Navbar from './components/website/Navbar';
@@ -32,9 +31,16 @@ import AdminDashboardNav from "./routes/AdminDashboardNav";
 import Footer from './components/website/Footer';
 import TrainerDashboardNav from "./routes/TrainerDashboardNav";
 import UserDashboardNav from "./routes/UserDashboardNav";
-
-
+import   './App.scss';
+import GuestChat from './components/adminDashboard/chat/guestChat';
+import React, { useState } from "react";
+import './components/adminDashboard/chat/chatstyles.css';
 function App() {
+  const [chatOpen, setChatOpen] = useState(false);
+
+  const toggleChat = () => {
+    setChatOpen(!chatOpen);
+  };
   return (
     <Router basename="/Gym-Website">
       <Switch>
@@ -55,6 +61,12 @@ function App() {
   
           </Switch>
           <Footer />
+              {/* 💬 Emoji və Chat qutusu */}
+          <button className="chat-toggle-button" onClick={toggleChat}>
+            💬
+          </button>
+          {chatOpen && <GuestChat onClose={() => setChatOpen(false)} />}
+
         </Route>
       </Switch>
     </Router>

@@ -1,0 +1,19 @@
+.schedule-container {
+  padding: 20px;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.schedule-table th, .schedule-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.schedule-table th {
+  background-color: rgb(112, 12, 12);
+  color: white;
+}

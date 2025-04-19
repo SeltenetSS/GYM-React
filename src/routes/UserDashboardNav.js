@@ -9,9 +9,24 @@ export default function UserDashboardNav() {
         const token = localStorage.getItem("token");
 
         if (!token) {
-            history.push("/login"); 
+            history.push("/login");
         }
-    }, []);
+
+  
+        const handlePopState = () => {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                history.push("/login");
+            }
+        };
+
+        window.addEventListener("popstate", handlePopState);
+
+       
+        return () => {
+            window.removeEventListener("popstate", handlePopState);
+        };
+    }, [history]);
 
     return (
         <div className="user-dashboard">

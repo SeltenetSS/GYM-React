@@ -1,82 +1,132 @@
-.member-container {
-    padding: 20px;
-    font-family: sans-serif;
-  }
-  
-  .member-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .member-table th, .member-table td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-  }
-  
-  .member-table th {
-    background-color: #f0f0f0;
-  }
-  
-  .edit-btn, .delete-btn {
-    padding: 5px 10px;
-    margin-right: 5px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .edit-btn {
-    background-color: #2196F3;
-    color: white;
-  }
-  
-  .delete-btn {
-    background-color: #f44336;
-    color: white;
-  }
-  
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal {
-    background: white;
-    padding: 20px;
-    width: 300px;
-    border-radius: 10px;
-    text-align: center;
-  }
-  
-  .modal input {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 8px;
-  }
-  
-  .save-btn {
-    background-color: green;
-    color: white;
-    margin-right: 10px;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  .close-btn {
-    background-color: gray;
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 5px;
-  }
-  
+:root {
+  --primaryColor: #D90429;
+  --secondaryColor: #6A040F;
+  --darkColor1: #0B0C10;
+  --darkColor2: #1C1C1C;
+  --lightColor: #EAEAEA;
+  --greyColor: #8E8E8E;
+}
+
+.trainer-member-container {
+  padding: 2rem;
+  background-color: var(--darkColor2);
+  min-height: 100vh;
+  color: var(--lightColor);
+}
+
+.trainer-member-container h2 {
+  text-align: center;
+  color: var(--primaryColor);
+  margin-bottom: 2rem;
+}
+
+.trainer-member-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--darkColor1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.trainer-member-table th,
+.trainer-member-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--greyColor);
+}
+
+.trainer-member-table th {
+  background-color: var(--secondaryColor);
+  color: var(--lightColor);
+}
+
+.trainer-member-table tr:hover {
+  background-color: var(--darkColor2);
+}
+
+.trainer-edit-btn,
+.trainer-delete-btn {
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.trainer-edit-btn {
+  background-color: var(--primaryColor);
+  color: white;
+}
+
+.trainer-delete-btn {
+  background-color: var(--greyColor);
+  color: white;
+}
+
+.trainer-edit-btn:hover,
+.trainer-delete-btn:hover {
+  opacity: 0.85;
+}
+
+.trainer-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(11, 12, 16, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.trainer-modal {
+  background-color: var(--darkColor1);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 0 10px var(--greyColor);
+}
+
+.trainer-modal h3 {
+  margin-bottom: 1rem;
+  color: var(--primaryColor);
+}
+
+.trainer-modal input {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid var(--greyColor);
+  border-radius: 5px;
+  background-color: var(--darkColor2);
+  color: white;
+}
+
+.trainer-save-btn,
+.trainer-close-btn {
+  width: 48%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-right: 4%;
+  cursor: pointer;
+}
+
+.trainer-save-btn {
+  background-color: var(--primaryColor);
+  color: white;
+}
+
+.trainer-close-btn {
+  background-color: var(--greyColor);
+  color: white;
+}
+
+.trainer-save-btn:hover,
+.trainer-close-btn:hover {
+  opacity: 0.85;
+}

@@ -1,0 +1,76 @@
+:root {
+    --primaryColor: #D90429;
+    --secondaryColor: #6A040F;
+    --darkColor1: #0B0C10;
+    --darkColor2: #1C1C1C;
+    --lightColor: #EAEAEA;
+    --greyColor: #8E8E8E;
+  }
+  
+  body {
+    background-color: var(--darkColor1);
+    color: var(--lightColor);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .trainerEquipment-container {
+    padding: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .trainerEquipment-title {
+    text-align: center;
+    color: var(--primaryColor);
+    margin-bottom: 1.5rem;
+  }
+  
+  .trainerEquipment-error {
+    color: var(--primaryColor);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .trainerEquipment-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--darkColor2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .trainerEquipment-table th,
+  .trainerEquipment-table td {
+    border: 1px solid var(--greyColor);
+    padding: 12px;
+    text-align: center;
+  }
+  
+  .trainerEquipment-table th {
+    background-color: var(--secondaryColor);
+    color: var(--lightColor);
+  }
+  
+  .trainerEquipment-table td {
+    color: var(--lightColor);
+  }
+  
+  .trainerEquipment-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .trainerEquipment-available {
+    color: lightgreen;
+    font-weight: bold;
+  }
+  
+  .trainerEquipment-unavailable {
+    color: var(--primaryColor);
+    font-weight: bold;
+  }
+  

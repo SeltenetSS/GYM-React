@@ -1,0 +1,181 @@
+/* :root {
+    --primaryColor: #00A8E8;
+    --secondaryColor: #0077B6;
+    --backgroundColor: #121212;
+    --cardColor: #1E1E1E;
+    --textColor: #F1F1F1;
+    --greyColor: #555555;
+  }
+  
+  .equipmentusagemain-chart-container {
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+    padding: 40px 20px;
+    border-radius: 10px;
+  }
+  
+  .equipmentusagemain-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+  }
+  
+  .equipmentusagemain-form input {
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 220px;
+    border-radius: 6px;
+    border: 1px solid var(--greyColor);
+    background-color: var(--cardColor);
+    color: var(--textColor);
+    transition: border 0.3s ease;
+  }
+  
+  .equipmentusagemain-form input:focus {
+    border: 1px solid var(--primaryColor);
+    outline: none;
+  }
+  
+  .equipmentusagemain-form button {
+    background-color: var(--primaryColor);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 16px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+
+  
+  .equipmentusagemain-form button:hover {
+    background-color: var(--secondaryColor);
+  }
+  
+  .equipmentusagemain-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 30px;
+  }
+  
+  .equipmentusagemain-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--cardColor);
+    color: var(--textColor);
+  }
+  
+  .equipmentusagemain-table th,
+  .equipmentusagemain-table td {
+    padding: 12px;
+    border: 1px solid var(--greyColor);
+    text-align: center;
+  }
+  
+  .equipmentusagemain-table th {
+    background-color: var(--primaryColor);
+    color: white;
+  }
+  
+  .equipmentusagemain-chart-box {
+    width: 100%;
+    height: 400px;
+    padding: 20px;
+    background-color: var(--cardColor);
+    border-radius: 10px;
+  }
+   */:root {
+  --primaryColor: #00A8E8;
+  --secondaryColor: #0077B6;
+  --backgroundColor: #121212;
+  --cardColor: #1E1E1E;
+  --textColor: #F1F1F1;
+  --greyColor: #555555;
+}
+
+.equipmentusagemain-chart-container {
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+  padding: 40px 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.equipmentusagemain-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.equipmentusagemain-form input {
+  padding: 8px 12px;
+  font-size: 14px;
+  width: 250px;
+  max-width: 90%;
+  border-radius: 6px;
+  border: 1px solid var(--greyColor);
+  background-color: var(--cardColor);
+  color: var(--textColor);
+  transition: border 0.3s ease;
+  text-align: center;
+}
+
+.equipmentusagemain-form input:focus {
+  border: 1px solid var(--primaryColor);
+  outline: none;
+}
+
+.equipmentusagemain-form button {
+  background-color: var(--primaryColor);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 20px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  width: auto;
+}
+
+.equipmentusagemain-form button:hover {
+  background-color: var(--secondaryColor);
+}
+
+.equipmentusagemain-table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.equipmentusagemain-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--cardColor);
+  color: var(--textColor);
+}
+
+.equipmentusagemain-table th,
+.equipmentusagemain-table td {
+  padding: 12px;
+  border: 1px solid var(--greyColor);
+  text-align: center;
+}
+
+.equipmentusagemain-table th {
+  background-color: var(--primaryColor);
+  color: white;
+}
+
+.equipmentusagemain-chart-box {
+  width: 100%;
+  height: 400px;
+  padding: 20px;
+  background-color: var(--cardColor);
+  border-radius: 10px;
+}

@@ -1,72 +1,74 @@
-.payment-container {
-    padding: 40px;
-    background-color: var(--lightColor);
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-  }
-  
-  .payment-title {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 30px;
-    color: var(--darkColor1); 
-  }
-  
-  .payment-table-container {
-    overflow-x: auto;
-  }
-  
-  .payment-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .payment-table thead {
-    background-color: var(--primaryColor);
-    color: white;
-  }
-  
-  .payment-table th,
-  .payment-table td {
-    padding: 15px 20px;
-    text-align: left;
-    border-bottom: 1px solid var(--greyColor);
-    color: var(--darkColor1); 
-  }
-  
-  .payment-table tbody tr:hover {
-    background-color: var(--lightColor);
-  }
-  
-  .user-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .no-image {
-    width: 40px;
-    height: 40px;
-    background-color: var(--greyColor);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 12px;
-  }
+:root {
+  --primaryColor: #D90429;       /* Qırmızı */
+  --secondaryColor: #6A040F;     /* Tünd qırmızı */
+  --darkColor1: #0B0C10;         /* Əsas qaranlıq fon */
+  --darkColor2: #1C1C1C;         /* İkincil qaranlıq fon */
+  --lightColor: #EAEAEA;         /* Açıq rəng */
+  --greyColor: #8E8E8E;          /* Boz */
+}
 
-  :root {
-    --primaryColor: #D90429;     
-    --secondaryColor: #6A040F;    
-    --darkColor1: #0B0C10;         
-    --darkColor2: #1C1C1C;        
-    --lightColor: #EAEAEA;        
-    --greyColor: #8E8E8E;        
-  }
-  
+.payment-container {
+  padding: 40px;
+  background-color: var(--darkColor1);
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: var(--lightColor);
+}
+
+.payment-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: var(--primaryColor);
+}
+
+.payment-table-container {
+  overflow-x: auto;
+}
+
+.payment-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--darkColor2);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.payment-table thead {
+  background-color: var(--secondaryColor);
+  color: var(--lightColor);
+}
+
+.payment-table th,
+.payment-table td {
+  padding: 15px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--greyColor);
+  color: var(--lightColor);
+}
+
+.payment-table tbody tr:hover {
+  background-color: var(--darkColor1);
+}
+
+.user-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primaryColor);
+}
+
+.no-image {
+  width: 40px;
+  height: 40px;
+  background-color: var(--greyColor);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lightColor);
+  font-size: 12px;
+  font-weight: bold;
+}

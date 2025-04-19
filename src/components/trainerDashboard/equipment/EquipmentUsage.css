@@ -1,0 +1,60 @@
+:root {
+    --primaryColor: #D90429;
+    --secondaryColor: #6A040F;
+    --darkColor1: #0B0C10;
+    --darkColor2: #1C1C1C;
+    --lightColor: #EAEAEA;
+    --greyColor: #8E8E8E;
+  }
+  
+  .equipmentusagemain-container {
+    background-color: var(--darkColor1);
+    padding: 40px 20px;
+    color: var(--lightColor);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Ortadan çıxarıldı, yuxarıya çəkildi */
+  }
+  
+  .equipmentusagemain-card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  .equipmentusagemain-card {
+    background-color: var(--darkColor2);
+    border: 1px solid var(--greyColor);
+    border-radius: 10px;
+    padding: 30px 20px;
+    width: 260px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease;
+  }
+  
+  .equipmentusagemain-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .equipmentusagemain-card h3 {
+    color: var(--primaryColor);
+    margin-bottom: 20px;
+  }
+  
+  .equipmentusagemain-card button {
+    padding: 10px 20px;
+    background-color: var(--primaryColor);
+    color: var(--lightColor);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .equipmentusagemain-card button:hover {
+    background-color: var(--secondaryColor);
+  }
+  

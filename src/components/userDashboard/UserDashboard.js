@@ -11,10 +11,11 @@ import Dashboard from './dashboard/Dashboard';
 
 const UserDashboard = () => {
     return (
-        <div className="user-rowContainer">
-             <Topbar />
+        <div className="rowContainer">
+        
           <Sidebar />
-          <div className="main-content">
+          <div className="body">
+          <Topbar />
             <Switch>
             <Route exact path="/user-dashboard" component={Dashboard} />
               <Route exact path="/user-dashboard/equipment" component={Equipment} />

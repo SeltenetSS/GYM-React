@@ -61,7 +61,13 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/admin-dashboard/help" className="nav-link" activeClassName="active">
+  <NavLink to="/admin-dashboard/chat" className="nav-link" activeClassName="active">
+    <Icon icon="mdi:chat-processing-outline" className="icon" />
+    <span>Chat</span>
+  </NavLink>
+</li>
+          <li className="nav-item">
+            <NavLink to="/admin-dashboard/profile" className="nav-link" activeClassName="active">
             <Icon icon="mdi:account-circle-outline" className="icon" />
 
               <span>Profile</span>
