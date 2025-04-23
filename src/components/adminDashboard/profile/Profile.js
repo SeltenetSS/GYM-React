@@ -1,45 +1,42 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import './Profile.css';
+import "./Profile.css";
 
-function Profile() {
-  const [adminData, setAdminData] = useState(null);
+const Profile = () => {
+  const [profile, setProfile] = useState({});
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    imageUrl: null,
     currentPassword: "",
     newPassword: "",
-    imageUrl: null,
   });
-  const [loading, setLoading] = useState(true);
-  const [message, setMessage] = useState("");
-
-  const token = localStorage.getItem("token");
-  const adminId = localStorage.getItem("id");
+  const [adminId, setAdminId] = useState(null);
 
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get(`https://localhost:7054/api/Admin/admin-profile/${adminId}`, {
-          headers: { Authorization: `Bearer ${token}` },
+        const response = await axios.get("https://localhost:7054/api/Admin/admin-profile", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
         });
-
-        setAdminData(res.data);
-        setFormData((prev) => ({
-          ...prev,
-          name: res.data.name,
-          email: res.data.email,
-        }));
-      } catch (err) {
-        console.error("Profile not loaded:", err);
-        setMessage("Error occurred while fetching profile data.");
-      } finally {
-        setLoading(false);
+        setProfile(response.data);
+        setFormData({
+          name: response.data.name || "",
+          email: response.data.email || "",
+          imageUrl: null,
+          currentPassword: "",
+          newPassword: "",
+        });
+        setAdminId(response.data.id);
+      } catch (error) {
+        console.error("Failed to fetch profile data:", error);
       }
     };
 
     fetchProfile();
-  }, [adminId, token]);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -52,100 +49,59 @@ function Profile() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const data = new FormData();
-    data.append("Name", formData.name);
-    data.append("Email", formData.email);
-    if (formData.imageUrl) data.append("ImageUrl", formData.imageUrl);
-    if (formData.currentPassword) data.append("CurrentPassword", formData.currentPassword);
-    if (formData.newPassword) data.append("NewPassword", formData.newPassword);
+    Object.entries(formData).forEach(([key, value]) => {
+      if (value) data.append(key, value);
+    });
 
     try {
       await axios.put(`https://localhost:7054/api/Admin/update-admin/${adminId}`, data, {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
       });
-
-      setMessage("Profile successfully updated!");
-    } catch (err) {
-      const msg = err.response?.data?.message || "Error occurred while updating.";
-      setMessage(msg);
+      alert("Profile updated successfully!");
+      window.location.reload();
+    } catch (error) {
+      alert(error.response?.data?.message || "An error occurred!");
     }
   };
 
-  if (loading) return <p>Loading...</p>;
-
   return (
-    <div className="profile-container">
-      <h2>My Profile</h2>
-      {message && (
-        <p className="profile-message" style={{ color: message.includes("Error") ? "red" : "limegreen" }}>
-          {message}
-        </p>
-      )}
-
-      <form onSubmit={handleSubmit}>
-        <div className="profile-input-field">
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
+    <div className="admin-profile-container">
+      <h1 className="admin-profile-title">Admin Profile</h1>
+      <form onSubmit={handleSubmit} className="admin-profile-form">
+        {profile.imageUrl && (
+          <img
+            src={profile.imageUrl}
+            alt="Profile"
+            className="admin-profile-image"
           />
-        </div>
-
-        <div className="profile-input-field">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="profile-input-field">
-          <label htmlFor="imageUrl">New image (if you want to change it):</label>
-          <input type="file" name="imageUrl" id="imageUrl" onChange={handleChange} />
-        </div>
-
-        {adminData?.imageUrl && (
-          <div className="profile-image-wrapper">
-            <p>Current image:</p>
-            <img src={adminData.imageUrl} alt="Profile image" className="profile-image" />
-          </div>
         )}
-
-        <div className="profile-input-field">
-          <label htmlFor="currentPassword">Current password:</label>
-          <input
-            type="password"
-            name="currentPassword"
-            id="currentPassword"
-            value={formData.currentPassword}
-            onChange={handleChange}
-          />
+        <div className="admin-profile-group">
+          <label>Name:</label>
+          <input type="text" name="name" value={formData.name} onChange={handleChange} />
         </div>
-
-        <div className="profile-input-field">
-          <label htmlFor="newPassword">New password:</label>
-          <input
-            type="password"
-            name="newPassword"
-            id="newPassword"
-            value={formData.newPassword}
-            onChange={handleChange}
-          />
+        <div className="admin-profile-group">
+          <label>Email:</label>
+          <input type="email" name="email" value={formData.email} onChange={handleChange} />
         </div>
-
+        <div className="admin-profile-group">
+          <label>New Image:</label>
+          <input type="file" name="imageUrl" onChange={handleChange} />
+        </div>
+        <div className="admin-profile-group">
+          <label>Current Password:</label>
+          <input type="password" name="currentPassword" onChange={handleChange} />
+        </div>
+        <div className="admin-profile-group">
+          <label>New Password:</label>
+          <input type="password" name="newPassword" onChange={handleChange} />
+        </div>
         <button type="submit" className="admin-profile-button">Update</button>
       </form>
     </div>
   );
-}
+};
 
 export default Profile;

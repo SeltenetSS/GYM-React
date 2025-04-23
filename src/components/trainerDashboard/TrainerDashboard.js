@@ -14,6 +14,8 @@ import AddUsage from './equipment/AddUsage';
 import ViewUsage from './equipment/ViewUsage';
 import ViewChart from './equipment/ViewChart';
 import MyGroup from './mygroup/MyGroup';
+import TakeAttendance from './attendance/TakeAttendance';
+import ViewAttendance from './attendance/ViewAttendance';
 const TrainerDashboard = () => {
   return (
     <div className="rowContainer">
@@ -30,6 +32,8 @@ const TrainerDashboard = () => {
           <Route exact path="/trainer-dashboard/attendance" component={Attendance} />
           <Route exact path="/trainer-dashboard/profile" component={Profile} />
           <Route exact path="/trainer-dashboard/logout" component={Logout} />
+          <Route exact path="/trainer-dashboard/attendance/take-attendance" component={TakeAttendance} />
+          <Route exact path="/trainer-dashboard/attendance/view-attendance" component={ViewAttendance} />
           <Route exact path="/trainer-dashboard/equipmentusage" component={EquipmentUsage} />
           <Route exact path="/trainer-dashboard/equipmentusage/add-usage" component={AddUsage} />
           <Route exact path="/trainer-dashboard/equipmentusage/view-usage" component={ViewUsage} />

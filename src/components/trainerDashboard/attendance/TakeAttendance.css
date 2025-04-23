@@ -1,0 +1,151 @@
+
+
+:root {
+    --primaryColor: #D90429;
+    --secondaryColor: #6A040F;
+    --darkColor1: #0B0C10;
+    --darkColor2: #1C1C1C;
+    --lightColor: #EAEAEA;
+    --greyColor: #8E8E8E;
+  }
+  
+  .takeAttendanceContainer {
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px;
+    background-color: var(--darkColor2);
+    color: var(--lightColor);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  
+  .takeAttendanceContainer h3 {
+    text-align: center;
+    color: var(--primaryColor);
+    margin-bottom: 25px;
+    font-size: 28px;
+  }
+  
+  .formGroup {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+  
+  .formGroup label {
+    margin-right: 10px;
+    font-weight: 500;
+    color: var(--lightColor);
+  }
+  
+  input[type="date"] {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--greyColor);
+    background-color: var(--darkColor1);
+    color: var(--lightColor);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  input[type="date"]:focus {
+    border-color: var(--primaryColor);
+  }
+  
+  .attendanceTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: var(--darkColor1);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .attendanceTable th,
+  .attendanceTable td {
+    padding: 14px 18px;
+    text-align: center;
+    border-bottom: 1px solid var(--greyColor);
+  }
+  
+  .attendanceTable th {
+    background-color: var(--secondaryColor);
+    color: var(--lightColor);
+    font-weight: 600;
+    font-size: 15px;
+  }
+  
+  .attendanceTable td {
+    color: var(--lightColor);
+  }
+  
+  .tableUserImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primaryColor);
+  }
+  
+  select {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--greyColor);
+    background-color: var(--darkColor2);
+    color: var(--lightColor);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  select:focus {
+    border-color: var(--primaryColor);
+  }
+  
+  .submit-btn {
+    padding: 8px 18px;
+    background-color: var(--primaryColor);
+    color: var(--lightColor);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: var(--secondaryColor);
+  }
+  
+  .error {
+    color: #ff4d4d;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+
+  .customDatePicker {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--greyColor);
+    background-color: var(--darkColor1);
+    color: var(--lightColor);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .customDatePicker:focus {
+    border-color: var(--primaryColor);
+  }
+  .attendanceTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--darkColor1);
+    border-radius: 12px;
+    overflow: hidden;
+    table-layout: fixed;
+  }
+    

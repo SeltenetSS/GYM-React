@@ -52,6 +52,12 @@ input[type="password"] {
   border: 1px solid var(--greyColor);
   background-color: #2C2C2C;
   color: var(--lightColor);
+  font-size: 16px;
+}
+
+/* Input error styling */
+.input-error {
+  border: 1px solid #FF4C4C;
 }
 
 /* Submit Button */
@@ -80,6 +86,13 @@ button:hover {
   color: #FF4C4C;
   text-align: center;
   margin-bottom: 20px;
+}
+
+.error-message {
+  color: #FF4C4C;
+  font-size: 14px;
+  margin-top: -8px;
+  margin-bottom: 10px;
 }
 
 /* Sign-Up Links */

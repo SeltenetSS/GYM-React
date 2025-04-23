@@ -16,17 +16,27 @@ export default function BMI() {
     const HeightVal = (event) => {
         setHeight(event.target.value);
     };
-
     const calculateBmi = async () => {
         if (weight && height) {
             const userData = {
                 WeightKg: parseFloat(weight),
                 HeightCm: parseFloat(height),
             };
-    
+     
             try {
-                const response = await axios.post('https://localhost:7054/api/Package/suggest-package', userData);
-                console.log(response.data); 
+                const token = localStorage.getItem('token');
+    
+                const response = await axios.post(
+                    'https://localhost:7054/api/Package/suggest-package',
+                    userData,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    }
+                );
+    
+                console.log(response.data);
     
                 const { calculatedBmi, suggestedPackage } = response.data;
     
@@ -36,7 +46,6 @@ export default function BMI() {
                     setMyStyle('An error occurred while calculating BMI.');
                 }
     
-                
                 if (suggestedPackage && suggestedPackage.packageName) {
                     setSuggestedPackage(suggestedPackage.packageName);
                 } else {
@@ -51,7 +60,6 @@ export default function BMI() {
         }
     };
     
-
     return (
         <div className="container-fluid-lg position-relative bmi my-5">
             <div className="container-lg">

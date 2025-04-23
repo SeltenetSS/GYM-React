@@ -10,7 +10,7 @@ const Member = () => {
   const handleAddMember = () => history.push("/admin-dashboard/member/add-member");
   const handleViewMember = () => history.push("/admin-dashboard/member/view-member");
   const handleApproveMember = () => history.push("/admin-dashboard/member/approve-member");
-  const handleInfoMember = () => history.push("/admin-dashboard/member/info-member"); // Added this function
+  const handleInfoMember = () => history.push("/admin-dashboard/member/info-member");
 
   return (
     <div className={styles.memberCardsContainer}>

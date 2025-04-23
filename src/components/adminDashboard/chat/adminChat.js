@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import * as signalR from "@microsoft/signalr";
-
+import "./AdminChat.css"; 
 const AdminChat = () => {
   const [connection, setConnection] = useState(null);
   const [selectedGuestId, setSelectedGuestId] = useState('');

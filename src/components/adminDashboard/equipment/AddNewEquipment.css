@@ -1,6 +1,6 @@
 .admin-add-equipment-page {
     min-height: 100vh;
-    background: linear-gradient(135deg, #1e1e1e, #2c2c2c); /* Dark gradient background */
+    background: linear-gradient(135deg, #1e1e1e, #2c2c2c); 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,16 +11,16 @@
   .admin-add-equipment-wrapper {
     width: 100%;
     max-width: 600px;
-    background: #000000; /* Black background */
+    background: #000000; 
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 12px 30px rgba(255, 0, 0, 0.3); /* Red shadow */
+    box-shadow: 0 12px 30px rgba(255, 0, 0, 0.3); 
     transition: 0.3s ease;
   }
   
   .admin-add-equipment-title {
     text-align: center;
-    color: #ff4d4d; /* Red title */
+    color: #ff4d4d; 
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 30px;
@@ -34,13 +34,13 @@
   
   .admin-form-group {
     display: flex;
-    flex-direction: column-reverse; /* Input below, label above */
+    flex-direction: column-reverse; 
   }
   
   .admin-form-group label {
     font-size: 14px;
     font-weight: 500;
-    color: #ccc; /* Light gray */
+    color: #ccc;
     margin-bottom: 6px;
   }
   

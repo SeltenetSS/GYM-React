@@ -1,40 +1,39 @@
 :root {
-    --primaryColor: #D90429;       
-    --secondaryColor: #6A040F;     
-    --darkColor1: #0B0C10;         
-    --darkColor2: #1C1C1C;         
-    --lightColor: #EAEAEA;         
-    --greyColor: #8E8E8E;        
+    --primaryColor: #D90429;
+    --secondaryColor: #6A040F;
+    --darkColor1: #0B0C10;
+    --darkColor2: #1C1C1C;
+    --lightColor: #EAEAEA;
+    --greyColor: #8E8E8E;
 }
 
-/* Ensure full screen layout */
 html, body {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
 }
 
-.auth-form-wrapper {
+.user-auth-form-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: var(--darkColor1); /* Dark background */
+    background-color: var(--darkColor1);
     padding: 20px;
 }
 
-.auth-form-container {
-    background-color: var(--darkColor2); /* Lighter dark background */
+.user-auth-form-container {
+    background-color: var(--darkColor2);
     padding: 30px;
     border-radius: 10px;
     width: 100%;
     max-width: 400px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    color: var(--lightColor); /* Light text */
+    color: var(--lightColor);
 }
 
-.auth-form-container h2 {
-    color: var(--primaryColor); /* Red color */
+.user-auth-form-container h2 {
+    color: var(--primaryColor);
     text-align: center;
     margin-bottom: 20px;
 }
@@ -44,8 +43,8 @@ input[type="text"], input[type="email"], input[type="password"], select {
     padding: 12px;
     margin: 10px 0;
     border-radius: 5px;
-    border: 1px solid var(--greyColor); /* Gray border */
-    background-color: #2C2C2C; /* Dark gray background */
+    border: 1px solid var(--greyColor);
+    background-color: #2C2C2C;
     color: var(--lightColor);
     font-size: 16px;
 }
@@ -60,7 +59,7 @@ button {
     padding: 12px;
     border: none;
     border-radius: 5px;
-    background-color: var(--primaryColor); /* Red background */
+    background-color: var(--primaryColor);
     color: var(--lightColor);
     font-size: 16px;
     cursor: pointer;
@@ -68,15 +67,26 @@ button {
 }
 
 button:disabled {
-    background-color: var(--greyColor); /* Disabled gray button */
+    background-color: var(--greyColor);
 }
 
 button:hover {
-    background-color: var(--secondaryColor); /* Darker red on hover */
+    background-color: var(--secondaryColor);
 }
 
 .error {
-    color: #FF4C4C; /* Red error text */
+    color: #FF4C4C;
     text-align: center;
     margin-bottom: 20px;
+}
+
+.error-message {
+    color: #FF4C4C;
+    font-size: 14px;
+    margin-top: -8px;
+    margin-bottom: 10px;
+}
+
+.input-error {
+    border: 1px solid #FF4C4C;
 }

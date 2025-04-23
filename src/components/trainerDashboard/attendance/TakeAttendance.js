@@ -21,7 +21,7 @@ const TakeAttendance = () => {
       }
 
       try {
-        const response = await axios.get("https://localhost:7054/api/Attendance/get-attendance", {
+        const response = await axios.get("https://localhost:7054/api/Trainer/attendance", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -54,7 +54,7 @@ const TakeAttendance = () => {
     };
 
     try {
-      await axios.post("https://localhost:7054/api/Attendance/take-attendance", attendanceData, {
+      await axios.post("https://localhost:7054/api/Trainer/take-attendance'", attendanceData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

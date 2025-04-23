@@ -20,7 +20,7 @@ const ViewAttendance = () => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          "https://localhost:7054/api/Attendance/get-attendance",
+          "https://localhost:7054/api/Trainer/attendance",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -103,7 +103,7 @@ const ViewAttendance = () => {
             </tbody>
           </table>
 
-     
+       
           {isModalOpen && (
             <AttendanceModal
               userAttendance={userAttendance}

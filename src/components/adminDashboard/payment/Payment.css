@@ -1,10 +1,10 @@
 :root {
-  --primaryColor: #D90429;       /* Qırmızı */
-  --secondaryColor: #6A040F;     /* Tünd qırmızı */
-  --darkColor1: #0B0C10;         /* Əsas qaranlıq fon */
-  --darkColor2: #1C1C1C;         /* İkincil qaranlıq fon */
-  --lightColor: #EAEAEA;         /* Açıq rəng */
-  --greyColor: #8E8E8E;          /* Boz */
+  --primaryColor: #D90429;     
+  --secondaryColor: #6A040F;     
+  --darkColor1: #0B0C10;       
+  --darkColor2: #1C1C1C;        
+  --lightColor: #EAEAEA;        
+  --greyColor: #8E8E8E;          
 }
 
 .payment-container {

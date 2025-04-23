@@ -1,87 +1,88 @@
 :root {
-    --primaryColor: #D90429;
-    --secondaryColor: #6A040F;
-    --darkColor1: #0B0C10;
-    --darkColor2: #1C1C1C;
-    --lightColor: #EAEAEA;
-    --greyColor: #8E8E8E;
-  }
-  
-  .profile-container {
-    max-width: 600px;
-    margin: 60px auto;
-    background-color: var(--darkColor2);
-    padding: 30px 40px;
-    border-radius: 12px;
-    color: var(--lightColor);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    font-family: "Segoe UI", sans-serif;
-  }
-  
-  .profile-container h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: var(--primaryColor);
-  }
-  
-  .profile-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-  
-  .profile-container label {
-    font-size: 14px;
-    color: var(--greyColor);
-    margin-bottom: 5px;
-  }
-  
-  .profile-container input[type="text"],
-  .profile-container input[type="email"],
-  .profile-container input[type="password"],
-  .profile-container input[type="file"] {
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
-    font-size: 15px;
-    background-color: var(--darkColor1);
-    color: var(--lightColor);
-    border: 1px solid var(--greyColor);
-    transition: border-color 0.3s;
-  }
-  
-  .profile-container input:focus {
-    outline: none;
-    border-color: var(--primaryColor);
-  }
-  
-  .profile-container button[type="submit"] {
-    background-color: var(--primaryColor);
-    color: white;
-    border: none;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .profile-container button[type="submit"]:hover {
-    background-color: var(--secondaryColor);
-  }
-  
-  .profile-container img {
-    margin-top: 10px;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border: 2px solid var(--primaryColor);
-  }
-  
-  .profile-container p {
-    margin-top: 5px;
-    font-size: 14px;
-    color: var(--lightColor);
-  }
-  
+  --primaryColor: #D90429;
+  --secondaryColor: #6A040F;
+  --darkColor1: #0B0C10;
+  --darkColor2: #1C1C1C;
+  --lightColor: #EAEAEA;
+  --greyColor: #8E8E8E;
+}
+
+.admin-profile-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(--lightColor);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  font-family: "Segoe UI", sans-serif;
+  color: var(--darkColor1);
+  font-weight: 600; 
+}
+
+.admin-profile-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700; 
+  margin-bottom: 25px;
+  color: var(--primaryColor);
+}
+
+.admin-profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.admin-profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 20px;
+  border: 3px solid var(--primaryColor);
+}
+
+.admin-profile-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-profile-group label {
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--darkColor2);
+}
+
+.admin-profile-group input[type="text"],
+.admin-profile-group input[type="email"],
+.admin-profile-group input[type="password"],
+.admin-profile-group input[type="file"] {
+  padding: 10px;
+  border: 1px solid var(--greyColor);
+  border-radius: 8px;
+  background-color: white;
+  outline: none;
+  transition: border-color 0.3s ease;
+  font-weight: 600; 
+  color: var(--darkColor1);
+}
+
+.admin-profile-group input:focus {
+  border-color: var(--primaryColor);
+}
+
+.admin-profile-button {
+  padding: 12px;
+  background-color: var(--primaryColor);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-profile-button:hover {
+  background-color: var(--secondaryColor);
+}

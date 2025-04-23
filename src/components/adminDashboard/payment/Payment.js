@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./Payment.css"; // CSS faylını daxil et
+import "./Payment.css"; 
 
 const Payment = () => {
   const [payments, setPayments] = useState([]);

@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { Icon } from "@iconify/react";
 import { useHistory } from "react-router-dom";
-import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min"; // Bootstrap modal üçün
+import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min"; 
 
 const Logout = () => {
   const history = useHistory();
 
   useEffect(() => {
     return () => {
-      // Komponent silinəndə (unmount) modalları tam bağlayırıq
+     
       const logoutModal = document.getElementById("logout-modal");
       const successModal = document.getElementById("success-modal");
 
@@ -39,10 +39,10 @@ const Logout = () => {
       if (modalInstance) modalInstance.show();
     }
 
-    // Tokeni silirik
+ 
     localStorage.removeItem("token");
 
-    // 1 saniyə sonra səhifəni dəyişirik
+    
     setTimeout(() => {
       window.location.href = "/sign-up";
     }, 1000);
@@ -50,7 +50,7 @@ const Logout = () => {
 
   return (
     <>
-      {/* Logout təsdiq modalı */}
+
       <div
         className="modal fade"
         id="logout-modal"
