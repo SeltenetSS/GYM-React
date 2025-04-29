@@ -45,7 +45,7 @@ const MySchedules = () => {
             <th>Trainer Name</th>
             <th>Group Name</th>
             <th>User Name</th>
-            <th>Day</th>
+            <th>Week</th>
             <th>Start Time</th>
             <th>End Time</th>
             <th>Description</th>

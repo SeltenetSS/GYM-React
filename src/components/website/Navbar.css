@@ -1,4 +1,4 @@
-/* NavBar  */
+/* NavBar
 
 #navBar {
   z-index: 999;
@@ -119,9 +119,9 @@
 .dropdown-menu .dropdown-item:hover {
   background-color: #e31c25;
   border-radius: 10px;
- 
+
 }
-/* Navbar'ın admin səhifəsində görüntülenməməsini təmin et */
+
 .navbar {
   position: fixed;
   width: 100%;
@@ -129,4 +129,154 @@
   left: 0;
   z-index: 10;
 }
+ */
 
+ 
+#navBar {
+  z-index: 999;
+  background-color: transparent;
+  opacity: 1;
+  width: 100%;
+  position: relative;
+}
+
+#gym {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 4px;
+}
+
+#gym h1 i {
+  margin-left: 8px;
+}
+
+.collapse > ul > li > a.active {
+  background-color: #e31c25;
+  border-radius: 20px;
+  color: white;
+}
+
+.collapse > ul > li > a.active::after {
+  display: none;
+}
+
+.collapse > ul > li > a {
+  color: white;
+  font-size: 19px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  transition: all 0.2s ease-in;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  position: relative;
+}
+
+.collapse > ul > li > a:hover {
+  color: white;
+  background-color: #e31c25;
+  border-radius: 20px;
+}
+
+.collapse > ul > li > a::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  top: 22px;
+  border: 1px solid white;
+  transform: rotate(-27deg);
+  margin-left: -78px;
+  transition: color 0.3s ease-in;
+}
+
+/* Hover edəndə xətt gizlənsin */
+.collapse > ul > li > a:hover::after {
+  display: none;
+}
+
+/* Home üçün xüsusi margin */
+.collapse a.home::after {
+  margin-left: -60px;
+}
+
+.collapse li {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.navbar-collapse {
+  flex-grow: 0 !important;
+}
+
+#navBar .nav-link {
+  position: relative;
+}
+
+/* Login button stili */
+.nav-item .dropdown-toggle {
+  color: white;
+  font-size: 19px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  transition: all 0.2s ease-in;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  background-color: transparent;
+  border: none;
+  position: relative; /* Xətt üçün lazım olacaq */
+}
+
+/* Login altında xətt əlavə edilir */
+.nav-item .dropdown-toggle::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  top: 22px;
+  border: 1px solid white;
+  transform: rotate(-27deg);
+  margin-left: -78px;
+  transition: color 0.3s ease-in;
+}
+
+/* Hover edəndə Login xətti gizlənsin */
+.nav-item .dropdown-toggle:hover::after {
+  display: none;
+}
+
+/* Login linki üzərində xətt yalnız hover edərkən göstərilsin */
+.nav-item .dropdown-toggle.active::after {
+  display: block;
+  margin-left: 2px;
+}
+
+.nav-item .dropdown-toggle:hover,
+.nav-item .dropdown-toggle:focus {
+  background-color: #e31c25;
+  border-radius: 20px;
+}
+
+/* Dropdown menyusu */
+.dropdown-menu {
+  background-color: black;
+  border-radius: 10px;
+  border: none;
+  margin-top: 10px;
+  left: -20px; /* Dropdown menyusunu sola çəkdik */
+}
+
+.dropdown-menu .dropdown-item {
+  font-size: 17px;
+  padding: 10px 20px;
+  transition: all 0.2s ease-in;
+  color: white;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #e31c25;
+  border-radius: 10px;
+}
+
+/* Navbar'ın sabit üstdə olması */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}

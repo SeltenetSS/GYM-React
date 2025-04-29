@@ -77,8 +77,18 @@ export default function Contact() {
             </div>
             <div className="row mt-5">
                 <div className="col-12">
-                
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57905.56571393285!2d67.11334533125!3d24.894643500000008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb339dd644b99db%3A0x1dcfc823fd54e7d5!2sFit%20Fusion%20-%20Gym!5e0!3m2!1sen!2s!4v1705432080225!5m2!1sen!2s" style={map} allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.7250066623983!2d49.850507375867565!3d40.41494237143991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x403087fbef6b3dfb%3A0xc32b1d5765759234!2sSTEP%20%C4%B0T%20ACADEMY!5e0!3m2!1str!2saz!4v1745617342741!5m2!1str!2saz" 
+  width="600" 
+  height="450" 
+  style={{ border: '0', width: '100%', height: '450px' }} 
+  allowfullscreen="" 
+  loading="lazy" 
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+
+
                 </div>
             </div>
         </div>

@@ -34,13 +34,20 @@ const Sidebar = () => {
               <span>Equipment</span>
             </NavLink>
           </li>
-          <div className="line" />
+        
           <li className="nav-item">
-            <NavLink to="/user-dashboard/attendance" className="nav-link" activeClassName="active">
-              <Icon icon="material-symbols:settings-outline" className="icon" />
-              <span>Attendance</span>
+            <NavLink to="/user-dashboard/payment" className="nav-link" activeClassName="active">
+              <Icon icon="material-symbols:calendar-month-outline-rounded" className="icon" />
+              <span>Payment</span>
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink to="/user-dashboard/package" className="nav-link" activeClassName="active">
+                 <Icon icon="mdi:arm-flex" className="icon" />
+              <span>Package</span>
+            </NavLink>
+          </li>
+          <div className="line" />
           <li className="nav-item">
             <NavLink to="/user-dashboard/profile" className="nav-link" activeClassName="active">
               <Icon icon="ion:help-buoy-sharp" className="icon" />

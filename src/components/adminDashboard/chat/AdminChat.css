@@ -1,85 +1,259 @@
+/* .admin-chat-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f5f7fa;
+  border: 1px solid #dce1e7;
+  border-radius: 8px;
+  overflow: hidden;
+}
+ 
+.user-list {
+  width: 250px;
+  background: #ffffff;
+  border-right: 1px solid #dce1e7;
+  padding: 20px 10px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+  overflow-y: auto;
+}
+ 
+.user-item {
+  cursor: pointer;
+  padding: 12px 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  transition: background 0.3s;
+  font-weight: 500;
+  color: #333;
+}
+ 
+.user-item:hover {
+  background-color: #e6f0ff;
+}
+ 
+.user-item.active {
+  background-color: #cce0ff;
+  font-weight: bold;
+}
+ 
+.chat-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9fbfd;
+}
+ 
+.chat-header {
+  padding: 15px;
+  background: #eef3fa;
+  border-bottom: 1px solid #dce1e7;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1d3557;
+}
+ 
+.chat-messages {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #ffffff;
+}
+ 
+.message {
+  max-width: 70%;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+ 
+.admin-message {
+  background-color: #d0e8ff;
+  color: #003366;
+  margin-left: auto;
+  text-align: right;
+}
+ 
+.guest-message {
+  background-color: #d2f8d2;
+  color: #064420;
+  margin-right: auto;
+  text-align: left;
+}
+ 
+.chat-input {
+  display: flex;
+  padding: 15px;
+  border-top: 1px solid #dce1e7;
+  background: #f5f7fa;
+}
+ 
+.chat-input input {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+ 
+.chat-input button {
+  margin-left: 10px;
+  padding: 10px 16px;
+  border: none;
+  background-color: #4a90e2;
+  color: white;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+ 
+.chat-input button:hover {
+  background-color: #357ab7;
+}
+ 
+.chat-placeholder {
+  padding: 20px;
+  color: #999;
+  font-style: italic;
+  text-align: center;
+} */
+:root {
+  --primaryColor: #D90429;
+  --secondaryColor: #6A040F;
+  --darkColor1: #0B0C10;
+  --darkColor2: #1C1C1C;
+  --lightColor: #EAEAEA;
+  --greyColor: #8E8E8E;
+}
+
 .admin-chat-container {
-    display: flex;
-    height: 500px;
-    border: 1px solid #ccc;
-  }
-  .admin-message {
-    background-color: #e0e7ff;
-    color: #1e3a8a;
-    text-align: left;
-    padding: 6px 10px;
-    margin-bottom: 5px;
-    border-radius: 8px;
-  }
-  .user-list {
-    width: 200px;
-    border-right: 1px solid #ccc;
-    background: #f7f7f7;
-    padding: 10px;
-  }
-  .guest-message {
-    background-color: #daf5d9;
-    color: #2e7d32;
-    text-align: right;
-    padding: 6px 10px;
-    margin-bottom: 5px;
-    border-radius: 8px;
-  }
-  
-  .user-item {
-    cursor: pointer;
-    padding: 8px;
-    background-color: #f0f0f0;
-    margin: 5px 0;
-    border-radius: 4px;
-  }
-  
-  .user-item.active {
-    background-color: #d1e7ff;
-  }
-  
-  .chat-section {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .chat-header {
-    padding: 10px;
-    background: #eef;
-    border-bottom: 1px solid #ccc;
-    font-weight: bold;
-  }
-  
-  .chat-messages {
-    flex-grow: 1;
-    padding: 10px;
-    overflow-y: auto;
-    background: #fff;
-  }
-  
-  .message {
-    padding: 6px;
-    margin-bottom: 5px;
-    background: #f0f0f0;
-    border-radius: 4px;
-  }
-  
-  .chat-input {
-    display: flex;
-    border-top: 1px solid #ccc;
-    padding: 10px;
-    background: #fafafa;
-  }
-  
-  .chat-input input {
-    flex-grow: 1;
-    padding: 6px;
-    margin-right: 5px;
-  }
-  
-  .chat-placeholder {
-    padding: 20px;
-    color: #999;
-  }
-  
+  display: flex;
+  height: 100vh;
+  background-color: var(--lightColor);
+  border: 1px solid #dce1e7;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+}
+
+.user-list {
+  width: 250px;
+  background: #ffffff;
+  border-right: 1px solid #dce1e7;
+  padding: 20px 10px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+  overflow-y: auto;
+}
+
+.guest-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+.guest-item {
+  cursor: pointer;
+  padding: 12px 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  transition: background 0.3s;
+  font-weight: 500;
+  color: #333;
+}
+
+.guest-item:hover {
+  background-color: #e6f0ff;
+}
+
+.guest-item.active {
+  background-color: #cce0ff;
+  font-weight: bold;
+}
+
+.chat-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9fbfd;
+}
+
+.chat-header {
+  padding: 15px;
+  background: #eef3fa;
+  border-bottom: 1px solid #dce1e7;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1d3557;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #ffffff;
+}
+
+.message {
+  max-width: 70%;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.admin-message {
+  background-color: #d0e8ff;
+  color: #003366;
+  margin-left: auto;
+  text-align: right;
+}
+
+.guest-message {
+  background-color: #d2f8d2;
+  color: #064420;
+  margin-right: auto;
+  text-align: left;
+}
+
+.chat-input {
+  display: flex;
+  padding: 15px;
+  border-top: 1px solid #dce1e7;
+  background: #f5f7fa;
+}
+
+.chat-input input {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.chat-input button {
+  margin-left: 10px;
+  padding: 6px 20px; /* Adjusted for smaller width and longer length */
+  border: none;
+  background-color: var(--primaryColor);
+  color: white;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 120px; /* Set fixed width */
+}
+
+.chat-input button:hover {
+  background-color: var(--secondaryColor);
+}
+
+.chat-placeholder {
+  padding: 20px;
+  color: var(--greyColor);
+  font-style: italic;
+  text-align: center;
+}

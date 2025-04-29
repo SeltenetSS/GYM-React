@@ -30,7 +30,8 @@ const Sidebar = () => {
           </li>
           <li className="nav-item">
             <NavLink to="/admin-dashboard/attendance" className="nav-link" activeClassName="active">
-              <Icon icon="octicon:people-24" className="icon" />
+            <Icon icon="mdi:clipboard-check-outline" className="icon" />
+
               <span>Attendance</span>
             </NavLink>
           </li>
@@ -39,6 +40,14 @@ const Sidebar = () => {
             <Icon icon="mdi:arm-flex" className="icon" />
 
               <span>Package</span>
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/admin-dashboard/group" className="nav-link" activeClassName="active">
+            <Icon icon="mdi:account-group-outline" className="icon" />
+
+
+              <span>Group</span>
             </NavLink>
           </li>
           <li className="nav-item">

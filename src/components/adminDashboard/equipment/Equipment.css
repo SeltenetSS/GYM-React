@@ -35,7 +35,7 @@
 }
 
 .adminEquipmentCard:hover .adminEquipmentCardIcon {
-    color: #ffd700; /* Hover zamanı ikona qızılı rəng */
+    color: #ffd700; 
 }
 
 .adminEquipmentCardTitle {

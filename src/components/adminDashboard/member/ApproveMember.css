@@ -1,0 +1,97 @@
+
+.approve-container {
+  padding: 20px;
+  max-width: 100%;
+  margin: auto;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.approve-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: bold;
+}
+
+.loading-text, .no-pending-text {
+  font-size: 18px;
+  color: #555;
+  text-align: center;
+}
+
+.approve-user-list {
+  list-style: none;
+  padding: 0;
+}
+
+.approve-user-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+  flex: 1;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.approve-button, .delete-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.approve-button:hover {
+  background-color: #218838;
+}
+
+.delete-button {
+  background-color: #dc3545;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.approve-message {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #28a745;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .approve-container {
+    padding: 15px;
+  }
+
+  .approve-user-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 5px;
+  }
+}

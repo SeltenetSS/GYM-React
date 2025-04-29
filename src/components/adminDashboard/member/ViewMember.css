@@ -106,4 +106,28 @@
     width: 100%;
     box-sizing: border-box;
   }
-  
+
+/* 
+  GRID
+  .ag-theme-alpine {
+    background-color: #020202; 
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.ag-theme-alpine .ag-header {
+    background-color: #D90429;
+    color: white;
+    font-weight: bold;
+}
+
+.ag-theme-alpine .ag-row {
+    background-color: white;
+    color: #020202;
+}
+
+.ag-theme-alpine .ag-row-hover {
+    background-color: #f1f1f1;
+} */
+

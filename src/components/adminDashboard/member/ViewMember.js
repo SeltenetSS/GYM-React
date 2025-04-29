@@ -266,3 +266,150 @@ const ViewMember = () => {
 };
 
 export default ViewMember;
+
+
+
+////GRID
+
+
+// import React, { useEffect, useState, useMemo } from "react";
+// import { AgGridReact } from "ag-grid-react";
+// import { ClientSideRowModelModule } from "ag-grid-community"; 
+// import axios from "axios";
+// import "ag-grid-community/styles/ag-grid.css";
+// import "ag-grid-community/styles/ag-theme-alpine.css";
+// import "./ViewMember.css";
+
+// const ViewMember = () => {
+//   const [members, setMembers] = useState([]);
+//   const [packages, setPackages] = useState([]);
+//   const [trainers, setTrainers] = useState([]);
+
+//   useEffect(() => {
+//     fetchAllData();
+//   }, []);
+
+//   const fetchAllData = async () => {
+//     await Promise.all([
+//       fetchMembers(),
+//       fetchPackages(),
+//       fetchTrainers()
+//     ]);
+//   };
+
+//   const fetchMembers = async () => {
+//     try {
+//       const res = await axios.get("https://localhost:7054/api/Admin/users", {
+//         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+//       });
+//       setMembers(res.data);
+//     } catch (err) {
+//       console.error("Error fetching members:", err);
+//     }
+//   };
+
+//   const fetchPackages = async () => {
+//     try {
+//       const res = await axios.get("https://localhost:7054/api/Package/packages", {
+//         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+//       });
+//       setPackages(res.data);
+//     } catch (err) {
+//       console.error("Error fetching packages:", err);
+//     }
+//   };
+
+//   const fetchTrainers = async () => {
+//     try {
+//       const res = await axios.get("https://localhost:7054/api/Admin/trainers", {
+//         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+//       });
+//       setTrainers(res.data);
+//     } catch (err) {
+//       console.error("Error fetching trainers:", err);
+//     }
+//   };
+
+//   const handleDelete = async (id) => {
+//     try {
+//       await axios.delete(`https://localhost:7054/api/Admin/delete-user/${id}`, {
+//         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+//       });
+//       setMembers(prev => prev.filter(m => m.id !== id));
+//     } catch (err) {
+//       console.error("Error deleting member:", err);
+//     }
+//   };
+
+//   const handleEdit = (member) => {
+//     console.log("Edit member", member);
+//   };
+
+//   const columnDefs = useMemo(() => [
+//     { headerName: "ID", field: "id", sortable: true, filter: true },
+//     { headerName: "Name", field: "name", sortable: true, filter: true },
+//     {
+//       headerName: "Image",
+//       field: "imageUrl",
+//       cellRenderer: (params) => (
+//         <img src={params.value || "/default-avatar.png"} alt="avatar" style={{ width: 50, height: 50, borderRadius: "50%" }} />
+//       ),
+//     },
+//     { headerName: "Phone", field: "phone", sortable: true, filter: true },
+//     {
+//       headerName: "Date of Birth",
+//       field: "dateOfBirth",
+//       valueFormatter: (params) => params.value ? new Date(params.value).toLocaleDateString() : "N/A"
+//     },
+//     { headerName: "Email", field: "email", sortable: true, filter: true },
+//     {
+//       headerName: "Trainer",
+//       field: "trainerId",
+//       valueGetter: (params) => {
+//         const trainer = trainers.find(t => t.id === params.data.trainerId);
+//         return trainer ? trainer.name : "N/A";
+//       }
+//     },
+//     {
+//       headerName: "Package",
+//       field: "packageId",
+//       valueGetter: (params) => {
+//         const pack = packages.find(p => p.id === params.data.packageId);
+//         return pack ? pack.name : "N/A";
+//       }
+//     },
+//     {
+//       headerName: "Joined",
+//       field: "createdDate",
+//       valueFormatter: (params) => params.value ? new Date(params.value).toLocaleDateString() : "N/A"
+//     },
+//     {
+//       headerName: "Actions",
+//       cellRenderer: (params) => (
+//         <div>
+//           <button onClick={() => handleEdit(params.data)} className="view-member-btn edit">Edit</button>
+//           <button onClick={() => handleDelete(params.data.id)} className="view-member-btn delete">Delete</button>
+//         </div>
+//       ),
+//     }
+//   ], [trainers, packages]);
+
+//   return (
+//     <div className="ag-theme-alpine" style={{ height: "700px", width: "100%" }}>
+//       <AgGridReact
+//         rowData={members}
+//         columnDefs={columnDefs}
+//         modules={[ClientSideRowModelModule]} 
+//         pagination={true}
+//         paginationPageSize={10}
+//         domLayout="autoHeight"
+//       />
+//     </div>
+//   );
+// };
+
+// export default ViewMember;
+
+
+
+

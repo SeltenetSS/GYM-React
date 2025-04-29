@@ -1,68 +1,88 @@
+:root {
+  --primaryColor: #D90429;
+  --secondaryColor: #6A040F;
+  --darkColor1: #0B0C10;
+  --darkColor2: #1C1C1C;
+  --lightColor: #EAEAEA;
+  --greyColor: #8E8E8E;
+}
 
+.trainer-profile-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(--lightColor);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  font-family: "Segoe UI", sans-serif;
+  color: var(--darkColor1);
+  font-weight: 600; 
+}
 
-   .admin-profile-container {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 25px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .admin-profile-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .profile-image {
-    display: block;
-    margin: 0 auto 20px;
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-  }
-  
-  .admin-profile-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .admin-profile-form label {
-    margin: 10px 0 5px;
-    font-weight: 500;
-    color: #444;
-  }
-  
-  .admin-profile-form input {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    outline: none;
-  }
-  
-  .admin-profile-form button {
-    margin-top: 20px;
-    padding: 12px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .admin-profile-form button:hover {
-    background-color: #0056b3;
-  }
-  
-  .message {
-    margin-top: 15px;
-    text-align: center;
-    color: green;
-    font-weight: 500;
-  }
-  
+.trainer-profile-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: var(--primaryColor);
+}
+
+.trainer-profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.trainer-profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 20px;
+  border: 3px solid var(--primaryColor);
+}
+
+.trainer-profile-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.trainer-profile-group label {
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--darkColor2);
+}
+
+.trainer-profile-group input[type="text"],
+.trainer-profile-group input[type="email"],
+.trainer-profile-group input[type="password"],
+.trainer-profile-group input[type="file"] {
+  padding: 10px;
+  border: 1px solid var(--greyColor);
+  border-radius: 8px;
+  background-color: white;
+  outline: none;
+  transition: border-color 0.3s ease;
+  font-weight: 600;
+  color: var(--darkColor1);
+}
+
+.trainer-profile-group input:focus {
+  border-color: var(--primaryColor);
+}
+
+.trainer-profile-button {
+  padding: 12px;
+  background-color: var(--primaryColor);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.trainer-profile-button:hover {
+  background-color: var(--secondaryColor);
+}

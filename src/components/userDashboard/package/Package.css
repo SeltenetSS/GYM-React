@@ -1,0 +1,168 @@
+
+  .package-container {
+    padding: 30px;
+    background-color: #f7f9fc;
+    min-height: 100vh;
+  }
+  
+  .package-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #004d40;
+  }
+  
+  .package-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+  
+  .package-card {
+    background: linear-gradient(to right, #a8e6cf, #dcedc1);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #2e2e2e; 
+  }
+  
+  .package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+  
+  .package-name {
+    color: #004d40;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .package-description {
+    color: #2e2e2e;
+    margin-bottom: 10px;
+  }
+  
+  .package-price {
+    font-weight: bold;
+    color: #d84315;
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  .package-button {
+    margin-top: 15px;
+    background-color: #388e3c; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease;
+  }
+  
+  .package-button:hover {
+    background-color: #1b5e20;
+  }
+  .payment-form {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.payment-form input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.payment-form button {
+  margin-right: 10px;
+  padding: 8px 12px;
+}
+
+.buy-now-button {
+  margin-top: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.package-container {
+    position: relative;
+  }
+  
+  .package-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .package-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  .package-details {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .buy-now-button {
+    margin-top: 10px;
+    background-color: #335c34;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
+  .payment-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .payment-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    max-width: 100%;
+  }
+  
+  .payment-form input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+  }
+  
+  .payment-form button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #2d412d;
+    color: white;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .payment-form button[type="button"] {
+    background-color: #f44336;
+  }
+  
