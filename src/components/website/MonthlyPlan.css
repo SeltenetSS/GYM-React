@@ -104,3 +104,49 @@
     flex: 0 0 100%; /* Makes each plan take full width on smaller screens */
   }
 }
+.page-nav-btn {
+  background-color: #e31c25;
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.page-nav-btn:hover {
+  background-color: #c72c1e;
+}
+
+.text-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.text-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Keçid işarələrini yerləşdirmək üçün paketləri üfüqi olaraq kaydırılabilen konteyner */
+.packages-container {
+  display: flex;
+  overflow-x: auto; /* Paketləri yatay sürüşdürə bilmək üçün */
+  gap: 20px; /* Paketlər arasındakı boşluq */
+}
+
+.ps-item {
+  min-width: 250px;
+  max-width: 300px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.ps-item:hover {
+  transform: translateY(-10px); /* Hover effekti */
+}

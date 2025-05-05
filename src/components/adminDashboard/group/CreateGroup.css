@@ -1,0 +1,61 @@
+.create-group-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff; /* Ağ arxa fon */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* İşıqlı kölgə */
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .create-group-container h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+  }
+  
+  .create-group-container form div {
+    margin-bottom: 20px;
+  }
+  
+  .create-group-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #34495e;
+  }
+  
+  .create-group-container input,
+  .create-group-container select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 15px;
+    border: 1px solid #dcdde1;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .create-group-container input:focus,
+  .create-group-container select:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  .create-group-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: red;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .create-group-container button:hover {
+    background-color: red;
+  }
+  

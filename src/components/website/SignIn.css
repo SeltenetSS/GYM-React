@@ -1,119 +1,91 @@
-:root {
-  --primaryColor: #D90429;  /* Bright Red */
-  --secondaryColor: #6A040F;  /* Dark Red */
-  --darkColor1: #0B0C10;  /* Darkest Background */
-  --darkColor2: #1C1C1C;  /* Lighter Dark Background */
-  --lightColor: #EAEAEA;  /* Light Gray for Text */
-  --greyColor: #8E8E8E;  /* Gray for borders and less important text */
-}
-
-/* General Body and HTML styles */
-html, body {
-  height: 100%;
-  margin: 0;
+/* Qara fon və ağ yazı */
+.signin-body {
+  background-color: #000 !important;
+  color: #fff !important;
   font-family: Arial, sans-serif;
-  background-color: var(--darkColor1);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
-/* Auth Form Wrapper - Full-screen container */
-.auth-form-wrapper {
+/* Əlavə stil üçün bütün səhifə konteyneri */
+.signin-page {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  padding: 20px;
 }
 
-/* Form Container */
-.auth-form-container {
-  background-color: var(--darkColor2);
+/* Qutunun dizaynı */
+.signin-wrapper {
+  background-color: #1a1a1a;
   padding: 30px;
-  border-radius: 10px;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  color: var(--lightColor);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
-/* Heading Style */
-.auth-form-container h2 {
-  color: var(--primaryColor);
+.signin-container h2 {
+  color: #fff;
   text-align: center;
   margin-bottom: 20px;
 }
 
-/* Input Fields */
-input[type="email"],
-input[type="password"] {
+.signin-error {
+  color: #ff4d4d;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  color: #fff;
+}
+
+.signin-input {
   width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: 1px solid var(--greyColor);
-  background-color: #2C2C2C;
-  color: var(--lightColor);
-  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #888;
+  border-radius: 6px;
+  background-color: #333;
+  color: #fff;
 }
 
-/* Input error styling */
-.input-error {
-  border: 1px solid #FF4C4C;
+.signin-input-error {
+  border-color: #ff4d4d;
 }
 
-/* Submit Button */
 button {
   width: 100%;
-  padding: 12px;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #6A040F;
   border: none;
-  border-radius: 5px;
-  background-color: var(--primaryColor);
-  color: var(--lightColor);
-  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-button:disabled {
-  background-color: var(--greyColor);
-}
-
 button:hover {
-  background-color: var(--secondaryColor);
+  background-color: #6A040F;
 }
 
-/* Error Message */
-.error {
-  color: #FF4C4C;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.error-message {
-  color: #FF4C4C;
-  font-size: 14px;
-  margin-top: -8px;
-  margin-bottom: 10px;
-}
-
-/* Sign-Up Links */
-.sign-up-links {
-  text-align: center;
+.signin-links {
   margin-top: 20px;
+  text-align: center;
 }
 
-.sign-up-links button {
-  background-color: transparent;
-  color: var(--primaryColor);
-  border: none;
-  text-decoration: underline;
-  cursor: pointer;
+.signin-links p {
+  margin: 0 0 10px;
+  color: #ccc;
 }
 
-.sign-up-links button:hover {
-  color: var(--secondaryColor);
+.signin-links button {
+  background-color: #6A040F;
 }
 
-.sign-up-links p {
-  color: var(--greyColor);
-  margin: 10px 0;
+.signin-links button:hover {
+  background-color: #6A040F;
 }

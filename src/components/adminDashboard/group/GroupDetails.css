@@ -1,0 +1,89 @@
+.group-details-container {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .group-details-card {
+    background-color: #f5f5f5;
+    color: #222; /* Yazılar tünd */
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .group-details-card h3 {
+    margin: 0 0 10px;
+  }
+  
+  .group-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .group-details-table th,
+  .group-details-table td {
+    color: #222;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .group-details-table th {
+    background-color: #dcdcdc;
+  }
+  
+  .group-details-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  
+  .group-details-modal {
+    background: #fff;
+    color: #222; /* Modal içi yazı tünd */
+    padding: 30px;
+    border-radius: 12px;
+    width: 400px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .group-details-modal h2 {
+    color: #111;
+  }
+  
+  .group-details-modal select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .group-details-modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .group-details-modal-buttons button {
+    padding: 8px 16px;
+    background-color: #d60505;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .group-details-modal-buttons button:hover {
+    background-color: #790f0f;
+  }
+  

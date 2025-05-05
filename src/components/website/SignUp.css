@@ -1,39 +1,31 @@
-:root {
-    --primaryColor: #D90429;
-    --secondaryColor: #6A040F;
-    --darkColor1: #0B0C10;
-    --darkColor2: #1C1C1C;
-    --lightColor: #EAEAEA;
-    --greyColor: #8E8E8E;
-}
-
-html, body {
-    height: 100%;
+.signup-page {
+    height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: #0B0C10; /* Arxa fon ağ */
+    color: #f8f8f8; /* Tünd mətn */
 }
 
 .user-auth-form-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: var(--darkColor1);
+    height: 100%;
     padding: 20px;
 }
 
 .user-auth-form-container {
-    background-color: var(--darkColor2);
+    background-color: #F5F5F5; /* Açıq boz forma fonu */
     padding: 30px;
     border-radius: 10px;
     width: 100%;
     max-width: 400px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    color: var(--lightColor);
+    color: #0B0C10;
 }
 
 .user-auth-form-container h2 {
-    color: var(--primaryColor);
+    color: #D90429;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -43,15 +35,15 @@ input[type="text"], input[type="email"], input[type="password"], select {
     padding: 12px;
     margin: 10px 0;
     border-radius: 5px;
-    border: 1px solid var(--greyColor);
-    background-color: #2C2C2C;
-    color: var(--lightColor);
+    border: 1px solid #8E8E8E;
+    background-color: #FFFFFF;
+    color: #0B0C10;
     font-size: 16px;
 }
 
 select {
-    background-color: #2C2C2C;
-    border: 1px solid var(--greyColor);
+    background-color: #FFFFFF;
+    border: 1px solid #8E8E8E;
 }
 
 button {
@@ -59,19 +51,19 @@ button {
     padding: 12px;
     border: none;
     border-radius: 5px;
-    background-color: var(--primaryColor);
-    color: var(--lightColor);
+    background-color: #D90429;
+    color: #FFFFFF;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 button:disabled {
-    background-color: var(--greyColor);
+    background-color: #8E8E8E;
 }
 
 button:hover {
-    background-color: var(--secondaryColor);
+    background-color: #6A040F;
 }
 
 .error {

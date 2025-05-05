@@ -47,7 +47,13 @@ const Sidebar = () => {
               <span>Package</span>
             </NavLink>
           </li>
-          <div className="line" />
+          <li className="nav-item">
+  <NavLink to="/user-dashboard/shop" className="nav-link" activeClassName="active">
+    <Icon icon="material-symbols:storefront-outline" className="icon" />
+    <span>Shop</span>
+  </NavLink>
+</li>
+
           <li className="nav-item">
             <NavLink to="/user-dashboard/profile" className="nav-link" activeClassName="active">
               <Icon icon="ion:help-buoy-sharp" className="icon" />

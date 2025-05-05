@@ -1,140 +1,16 @@
-// import React, { useEffect, useState, useRef } from 'react';
-// import * as signalR from "@microsoft/signalr";
-// import "./AdminChat.css"; 
-// const AdminChat = () => {
-//   const [connection, setConnection] = useState(null);
-//   const [selectedGuestId, setSelectedGuestId] = useState('');
-//   const [message, setMessage] = useState('');
-//   const [messages, setMessages] = useState([]);
-//   const [guests, setGuests] = useState([]);
-
-//   const messagesEndRef = useRef(null);
-
-//   useEffect(() => {
-//     const newConnection = new signalR.HubConnectionBuilder()
-//       .withUrl(`https://localhost:7054/chathub?userId=admin`)
-//       .withAutomaticReconnect()
-//       .build();
-
-//     newConnection.start()
-//       .then(() => {
-//         console.log("Admin connected to SignalR");
-//       })
-//       .catch(err => {
-//         console.error("SignalR connection error:", err);
-//         alert("Xəta: SignalR bağlantısı qurulmadı.");
-//       });
 
 
-//     newConnection.on("NewGuestConnected", (guestId) => {
-//       setGuests(prev => [...new Set([...prev, guestId])]); 
-//     });
-
-   
-//     newConnection.on("ReceiveMessage", (message, fromUserId) => {
-    
-//       if (fromUserId !== 'admin') {
-//         setMessages(prev => [...prev, { from: fromUserId, text: message }]);
-//       }
-//     });
-    
-//     setConnection(newConnection);
-
-//     return () => {
-//       newConnection.stop();
-//     };
-//   }, []);
-
-//   const handleGuestSelect = (guestId) => {
-//     setSelectedGuestId(guestId);
-//     if (connection) {
-//       connection.invoke("JoinGroup", guestId, guestId)
-//         .then(() => {
-//           console.log(`${guestId} qrupuna qoşulub.`);
-//         })
-//         .catch(err => {
-//           console.error("JoinGroup metodunda xəta:", err);
-//           alert("Xəta: Qrupa qoşularkən problem yarandı.");
-//         });
-//     }
-//   };
-
-//   const sendMessage = async () => {
-//     if (connection && selectedGuestId && message) {
-//       try {
-//         await connection.invoke("SendMessage", selectedGuestId, message);
-//         setMessages(prev => [...prev, { from: 'admin', text: message }]); 
-//         setMessage('');
-//       } catch (err) {
-//         console.error("Mesaj göndərilmədi:", err);
-//         alert("Mesaj göndərilmədi!");
-//       }
-//     }
-//   };
-
-//   useEffect(() => {
-//     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-//   }, [messages]);
-
-//   return (
-//     <div style={{ display: 'flex' }}>
-//       <div style={{ width: '220px', borderRight: '1px solid gray', padding: '10px' }}>
-//         <h4>Guests</h4>
-//         <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
-//           {guests.map((guest, index) => (
-//             <li
-//               key={index}
-//               style={{
-//                 cursor: 'pointer',
-//                 fontWeight: guest === selectedGuestId ? 'bold' : 'normal',
-//                 padding: '5px 0',
-//               }}
-//               onClick={() => handleGuestSelect(guest)}
-//             >
-//               {guest}
-//             </li>
-//           ))}
-//         </ul>
-//       </div>
-
-//       <div style={{ flex: 1, padding: '10px' }}>
-//         <h4>Chat: {selectedGuestId || '---'}</h4>
-//         <div style={{ height: '300px', overflowY: 'auto', border: '1px solid #ccc', padding: '10px' }}>
-//           {messages.map((msg, i) => (
-//             <div key={i} style={{ textAlign: msg.from === 'admin' ? 'right' : 'left', marginBottom: '5px' }}>
-//               <b>{msg.from}:</b> {msg.text}
-//             </div>
-//           ))}
-//           <div ref={messagesEndRef} />
-//         </div>
-
-//         <div style={{ marginTop: '10px' }}>
-//           <input
-//             value={message}
-//             onChange={e => setMessage(e.target.value)}
-//             placeholder="Mesaj yaz..."
-//             style={{ width: '80%', padding: '5px' }}
-//           />
-//           <button onClick={sendMessage} style={{ marginLeft: '10px' }}>Göndər</button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default AdminChat;
 
 import React, { useEffect, useState, useRef } from 'react';
 import * as signalR from "@microsoft/signalr";
-import "./AdminChat.css"; 
+import "./AdminChat.css";
 
 const AdminChat = () => {
   const [connection, setConnection] = useState(null);
   const [selectedGuestId, setSelectedGuestId] = useState('');
   const [message, setMessage] = useState('');
-  const [messages, setMessages] = useState([]);
-  const [guests, setGuests] = useState([]);
-
+  const [messagesByGuest, setMessagesByGuest] = useState({});
+  const [guestLabels, setGuestLabels] = useState({});
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
@@ -143,75 +19,91 @@ const AdminChat = () => {
       .withAutomaticReconnect()
       .build();
 
-    newConnection.start()
-      .then(() => {
-        console.log("Admin connected to SignalR");
-      })
-      .catch(err => {
-        console.error("SignalR connection error:", err);
-        alert("Xəta: SignalR bağlantısı qurulmadı.");
-      });
-
-    newConnection.on("NewGuestConnected", (guestId) => {
-      setGuests(prev => [...new Set([...prev, guestId])]); 
-    });
+    newConnection
+      .start()
+      .then(() => console.log("Admin connected"))
+      .catch(err => console.error("Connection error:", err));
 
     newConnection.on("ReceiveMessage", (message, fromUserId) => {
-      if (fromUserId !== 'admin') {
-        setMessages(prev => [...prev, { from: fromUserId, text: message }]);
-      }
-    });
-    
-    setConnection(newConnection);
+      if (fromUserId === 'admin') return;
 
-    return () => {
-      newConnection.stop();
-    };
+      setMessagesByGuest(prev => {
+        const updated = { ...prev };
+
+        // Admin mesajlarını oxunmuş kimi işarələ
+        if (updated[fromUserId]) {
+          updated[fromUserId] = updated[fromUserId].map(msg =>
+            msg.from === 'admin' ? { ...msg, read: true } : msg
+          );
+        } else {
+          updated[fromUserId] = [];
+        }
+
+        // Yeni qonaq mesajını əlavə et
+        updated[fromUserId].push({ from: fromUserId, text: message });
+        return updated;
+      });
+
+      setGuestLabels(prev => {
+        if (prev[fromUserId]) return prev;
+        const count = Object.keys(prev).length + 1;
+        return { ...prev, [fromUserId]: `Guest #${count}` };
+      });
+    });
+
+    setConnection(newConnection);
+    return () => newConnection.stop();
   }, []);
 
   const handleGuestSelect = (guestId) => {
     setSelectedGuestId(guestId);
     if (connection) {
       connection.invoke("JoinGroup", guestId, guestId)
-        .then(() => {
-          console.log(`${guestId} qrupuna qoşulub.`);
-        })
-        .catch(err => {
-          console.error("JoinGroup metodunda xəta:", err);
-          alert("Xəta: Qrupa qoşularkən problem yarandı.");
-        });
+        .catch(err => console.error("JoinGroup error:", err));
     }
   };
 
   const sendMessage = async () => {
-    if (connection && selectedGuestId && message) {
+    if (connection && selectedGuestId && message.trim()) {
       try {
         await connection.invoke("SendMessage", selectedGuestId, message);
-        setMessages(prev => [...prev, { from: 'admin', text: message }]); 
+        setMessagesByGuest(prev => {
+          const updated = { ...prev };
+          if (!updated[selectedGuestId]) {
+            updated[selectedGuestId] = [];
+          }
+          updated[selectedGuestId].push({
+            from: 'admin',
+            text: message,
+            read: false // Mesaj oxunmamış kimi işarələnir
+          });
+          return updated;
+        });
         setMessage('');
       } catch (err) {
-        console.error("Mesaj göndərilmədi:", err);
-        alert("Mesaj göndərilmədi!");
+        console.error("Send error:", err);
       }
     }
   };
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+  }, [messagesByGuest, selectedGuestId]);
+
+  const guestList = Object.keys(messagesByGuest);
 
   return (
     <div className="admin-chat-container">
       <div className="user-list">
-        <h4>Guests</h4>
+        <h4>Chat</h4>
         <ul className="guest-list">
-          {guests.map((guest, index) => (
+          {guestList.map((guestId, index) => (
             <li
               key={index}
-              className={`guest-item ${guest === selectedGuestId ? 'active' : ''}`}
-              onClick={() => handleGuestSelect(guest)}
+              className={`guest-item ${guestId === selectedGuestId ? 'active' : ''}`}
+              onClick={() => handleGuestSelect(guestId)}
             >
-              {guest}
+              {guestLabels[guestId] || guestId}
             </li>
           ))}
         </ul>
@@ -219,13 +111,18 @@ const AdminChat = () => {
 
       <div className="chat-section">
         <div className="chat-header">
-          <h4>Chat: {selectedGuestId || '---'}</h4>
+          {guestLabels[selectedGuestId] || 'Qonaq seçilməyib'}
         </div>
 
         <div className="chat-messages">
-          {messages.map((msg, i) => (
+          {(messagesByGuest[selectedGuestId] || []).map((msg, i) => (
             <div key={i} className={`message ${msg.from === 'admin' ? 'admin-message' : 'guest-message'}`}>
-              <b>{msg.from}:</b> {msg.text}
+              <strong>{msg.from === 'admin' ? 'Admin' : guestLabels[msg.from] || msg.from}:</strong> {msg.text}
+              {msg.from === 'admin' && (
+                <div style={{ fontSize: '12px', color: '#666', marginTop: '4px' }}>
+                  {msg.read ? 'Read' : 'Unread'}
+                </div>
+              )}
             </div>
           ))}
           <div ref={messagesEndRef} />
@@ -237,7 +134,7 @@ const AdminChat = () => {
             onChange={e => setMessage(e.target.value)}
             placeholder="Mesaj yaz..."
           />
-          <button onClick={sendMessage}>Göndər</button>
+          <button onClick={sendMessage}>Send</button>
         </div>
       </div>
     </div>
@@ -245,3 +142,5 @@ const AdminChat = () => {
 };
 
 export default AdminChat;
+
+

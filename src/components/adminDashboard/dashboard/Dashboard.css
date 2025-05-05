@@ -1,20 +1,22 @@
 
+.dashboard-container {
+  padding: 32px;
+  background-color: white; /* Arxa fon ağ oldu */
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: red; /* Əsas yazı rəngi qırmızı oldu */
+}
 
-   .dashboard-container {
-    padding: 32px;
-    background-color: #f0f4f8;
-    min-height: 100vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .dashboard-title {
-    font-size: 32px;
-    font-weight: bold;
-    color: #111827;
-    margin-bottom: 32px;
-    text-align: center;
-  }
-  
+.dashboard-title,
+.card-title,
+.table-title,
+.chart-title {
+  color: red !important; /* Yalnız başlıqlar qırmızı oldu */
+}
+
+
+
+
   .dashboard-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));

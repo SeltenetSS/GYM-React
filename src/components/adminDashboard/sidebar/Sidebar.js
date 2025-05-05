@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import logo from '../../../assets/logo.png';
@@ -6,6 +6,16 @@ import logoIcon from '../../../assets/logo-icon.png';
 import Logout from './Logout';
 
 const Sidebar = () => {
+  const [groupMenuOpen, setGroupMenuOpen] = useState(false);
+  const [productMenuOpen, setProductMenuOpen] = useState(false);
+  const toggleGroupMenu = () => {
+    setGroupMenuOpen(!groupMenuOpen);
+  };
+
+  const toggleProductMenu = () => {
+    setProductMenuOpen(!productMenuOpen);
+  };
+  
   return (
     <div className="sidebar">
       <div className="logo" id="logo-full">
@@ -18,7 +28,7 @@ const Sidebar = () => {
         <ul className="nav">
           <li className="nav-item">
             <NavLink to="/admin-dashboard" className="nav-link" activeClassName="active">
-            <Icon icon="material-symbols:stacked-line-chart" className="icon" />
+              <Icon icon="material-symbols:stacked-line-chart" className="icon" />
               <span>Dashboard</span>
             </NavLink>
           </li>
@@ -30,26 +40,82 @@ const Sidebar = () => {
           </li>
           <li className="nav-item">
             <NavLink to="/admin-dashboard/attendance" className="nav-link" activeClassName="active">
-            <Icon icon="mdi:clipboard-check-outline" className="icon" />
-
+              <Icon icon="mdi:clipboard-check-outline" className="icon" />
               <span>Attendance</span>
             </NavLink>
           </li>
           <li className="nav-item">
             <NavLink to="/admin-dashboard/package" className="nav-link" activeClassName="active">
-            <Icon icon="mdi:arm-flex" className="icon" />
-
+              <Icon icon="mdi:arm-flex" className="icon" />
               <span>Package</span>
             </NavLink>
           </li>
+          
+          {/* Group Dropdown */}
           <li className="nav-item">
-            <NavLink to="/admin-dashboard/group" className="nav-link" activeClassName="active">
-            <Icon icon="mdi:account-group-outline" className="icon" />
-
-
+            <a
+              href="#!"
+              className="nav-link"
+              onClick={toggleGroupMenu}
+              aria-expanded={groupMenuOpen ? 'true' : 'false'}
+            >
+              <Icon icon="mdi:account-group-outline" className="icon" />
               <span>Group</span>
-            </NavLink>
+            </a>
+            {groupMenuOpen && (
+              <ul className="nav-group-dropdown">
+                <li className="nav-item">
+                  <NavLink to="/admin-dashboard/group/create" className="nav-link" activeClassName="active">
+                    <span className="dot">•</span> Create Group
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink to="/admin-dashboard/group/view-group" className="nav-link" activeClassName="active">
+                    <span className="dot">•</span> View Group
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink to="/admin-dashboard/group/group-details" className="nav-link" activeClassName="active">
+                    <span className="dot">•</span> Group Details
+                  </NavLink>
+                </li>
+              </ul>
+            )}
           </li>
+          <li className="nav-item">
+  <div
+    className="nav-link"
+    onClick={toggleProductMenu}
+    aria-expanded={productMenuOpen ? 'true' : 'false'}
+    style={{ cursor: 'pointer' }}
+  >
+    <Icon icon="mdi:cart-outline" className="icon" />
+    <span>Product</span>
+  </div>
+  {productMenuOpen && (
+    <ul className="nav-group-dropdown">
+      <li className="nav-item">
+        <NavLink
+          to="/admin-dashboard/product/add"
+          className="nav-link"
+          activeClassName="active"
+        >
+          <span className="dot">•</span> Add Product
+        </NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink
+          to="/admin-dashboard/product/view"
+          className="nav-link"
+          activeClassName="active"
+        >
+          <span className="dot">•</span> View Product
+        </NavLink>
+      </li>
+    </ul>
+  )}
+</li>
+
           <li className="nav-item">
             <NavLink to="/admin-dashboard/trainer" className="nav-link" activeClassName="active">
               <Icon icon="map:gym" className="icon" />
@@ -58,27 +124,25 @@ const Sidebar = () => {
           </li>
           <li className="nav-item">
             <NavLink to="/admin-dashboard/equipment" className="nav-link" activeClassName="active">
-            <Icon icon="mdi:hammer-wrench" className="icon" />
+              <Icon icon="mdi:hammer-wrench" className="icon" />
               <span>Equipment</span>
             </NavLink>
           </li>
-          <div className="line" />
           <li className="nav-item">
             <NavLink to="/admin-dashboard/payment" className="nav-link" activeClassName="active">
-            <Icon icon="mdi:credit-card-outline" className="icon" />
+              <Icon icon="mdi:credit-card-outline" className="icon" />
               <span>Payments</span>
             </NavLink>
           </li>
           <li className="nav-item">
-  <NavLink to="/admin-dashboard/chat" className="nav-link" activeClassName="active">
-    <Icon icon="mdi:chat-processing-outline" className="icon" />
-    <span>Chat</span>
-  </NavLink>
-</li>
+            <NavLink to="/admin-dashboard/chat" className="nav-link" activeClassName="active">
+              <Icon icon="mdi:chat-processing-outline" className="icon" />
+              <span>Chat</span>
+            </NavLink>
+          </li>
           <li className="nav-item">
             <NavLink to="/admin-dashboard/profile" className="nav-link" activeClassName="active">
-            <Icon icon="mdi:account-circle-outline" className="icon" />
-
+              <Icon icon="mdi:account-circle-outline" className="icon" />
               <span>Profile</span>
             </NavLink>
           </li>

@@ -25,6 +25,12 @@ import ApproveTrainer from './trainer/ApproveTrainer';
 import TakeAttendance from './attendance/TakeAttendance';
 import ViewAttendance from './attendance/ViewAttendance';
 import adminChat from './chat/adminChat';
+import CreateGroup from './group/CreateGroup';
+import ViewGroup from './group/ViewGroup';
+import GroupDetails from './group/GroupDetails';
+import AddProduct from './product/AddProduct';
+import ViewProduct from './product/ViewProduct';
+
 const AdminDashboard = () => {
   return (
     <div className="rowContainer">
@@ -55,6 +61,11 @@ const AdminDashboard = () => {
           <Route exact path="/admin-dashboard/profile" component={Profile} />
           <Route exact path="/admin-dashboard/logout" component={Logout} />
           <Route exact path="/admin-dashboard/chat" component={adminChat}/>
+          <Route exact path="/admin-dashboard/group/create" component={CreateGroup}/>
+          <Route exact path="/admin-dashboard/group/view-group" component={ViewGroup}/>
+          <Route exact path="/admin-dashboard/group/group-details" component={GroupDetails}/>
+          <Route exact path="/admin-dashboard/product/add" component={AddProduct}/>
+          <Route exact path="/admin-dashboard/product/view" component={ViewProduct}/>
         </Switch>
       </div>
     </div>

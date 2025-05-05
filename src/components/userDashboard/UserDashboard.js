@@ -9,10 +9,11 @@ import UserAttendance from './attendance/Attendance';
 import Profile from './profile/Profile'; 
 import Logout from './sidebar/Logout';
 import Dashboard from './dashboard/Dashboard';
+import Shop from './shop/Shop'; 
 import axios from 'axios';
 
 const UserDashboard = () => {
-  const [profileImage, setProfileImage] = useState('/default-avatar.png'); // default şəkil
+  const [profileImage, setProfileImage] = useState('/default-avatar.png'); 
 
   useEffect(() => {
     axios.get("https://localhost:7054/api/User/user-profile", {
@@ -41,6 +42,7 @@ const UserDashboard = () => {
           <Route exact path="/user-dashboard/notfication" component={Notfication} />
           <Route exact path="/user-dashboard/package" component={Package} />
           <Route exact path="/user-dashboard/userattendance" component={UserAttendance} />
+          <Route exact path="/user-dashboard/shop" component={Shop} />
           <Route exact path="/user-dashboard/profile">
             <Profile setProfileImage={setProfileImage} />
           </Route>

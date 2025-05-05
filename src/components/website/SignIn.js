@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useHistory, useLocation } from 'react-router-dom';
-import "./SignIn.css"
+import "./SignIn.css";
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
@@ -15,6 +15,13 @@ export default function SignIn() {
 
   const roleFromURL = new URLSearchParams(location.search).get('role');
 
+  useEffect(() => {
+    document.body.classList.add('signin-body');
+    return () => {
+      document.body.classList.remove('signin-body');
+    };
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -27,27 +34,12 @@ export default function SignIn() {
 
       if (response.status === 200) {
         localStorage.setItem('token', response.data.token);
-        
         const role = response.data.role;
 
-        if (role.toLowerCase() === 'admin') {
-          if (roleFromURL === 'admin') {
-            history.push('/admin-dashboard');
-          } else {
-            setError("You do not have access to this page.");
-          }
-        } else if (role.toLowerCase() === 'trainer') {
-          if (roleFromURL === 'trainer') {
-            history.push('/trainer-dashboard');
-          } else {
-            setError("You do not have access to this page.");
-          }
-        } else if (role.toLowerCase() === 'user') {
-          if (roleFromURL === 'user') {
-            history.push('/user-dashboard');
-          } else {
-            setError("You do not have access to this page.");
-          }
+        if (role.toLowerCase() === roleFromURL) {
+          history.push(`/${role.toLowerCase()}-dashboard`);
+        } else {
+          setError("You do not have access to this page.");
         }
       }
     } catch (err) {
@@ -61,45 +53,48 @@ export default function SignIn() {
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   const handleSignUp = () => history.push('/sign-up');
-  const handleAdminSignUp = () => history.push('/admin-sign-up');
 
   return (
-    <div className="auth-form-wrapper">
-      <div className="auth-form-container">
-        <h2>Sign In</h2>
-        {error && <div className="error">{error}</div>}
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="email">Email:</label>
-          <input 
-            type="email" 
-            id="email" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
-            required 
-            className={emailError ? 'input-error' : ''}
-          />
+    <div className="signin-page">
+      <div className="signin-wrapper">
+        <div className="signin-container">
+          <h2>Sign In</h2>
+          {error && <div className="signin-error">{error}</div>}
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="email">Email:</label>
+            <input 
+              type="email" 
+              id="email" 
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
+              required 
+              className={emailError ? 'signin-input signin-input-error' : 'signin-input'}
+            />
 
-          <label htmlFor="password">Password:</label>
-          <input 
-            type="password" 
-            id="password" 
-            value={password} 
-            onChange={(e) => setPassword(e.target.value)} 
-            required 
-            minLength="6" 
-            className={passwordError ? 'input-error' : ''}
-          />
+            <label htmlFor="password">Password:</label>
+            <input 
+              type="password" 
+              id="password" 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+              required 
+              minLength="6" 
+              className={passwordError ? 'signin-input signin-input-error' : 'signin-input'}
+            />
 
-          <button type="submit" disabled={loading}>{loading ? 'Signing in...' : 'Sign In'}</button>
-        </form>
-
-        <div className="sign-up-links">
-          <p>Don't have an account?</p>
-          <button onClick={handleSignUp}>Sign Up</button>
-          <p>If you're an admin, <button onClick={handleAdminSignUp}>Sign up here</button></p>
+            <button type="submit" disabled={loading}>
+              {loading ? 'Signing in...' : 'Sign In'}
+            </button>
+          </form>
+          {roleFromURL !== 'admin' && (
+            <div className="signin-links">
+              <p>Don't have an account?</p>
+              <button onClick={handleSignUp}>Sign Up</button>
+            </div>
+          )}
         </div>
       </div>
     </div>
