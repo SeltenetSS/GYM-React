@@ -1,8 +1,9 @@
 
+
 // import React, { useEffect, useState } from "react";
 // import axios from "axios";
-// import styles from "./ApproveMember.module.css";
-// import { FaCheckCircle, FaTrash } from "react-icons/fa"; 
+// import { FaCheckCircle, FaTrash } from "react-icons/fa";
+// import './ApproveMember.css'; // Change to a regular CSS file
 
 // const ApproveMember = () => {
 //   const [pendingUsers, setPendingUsers] = useState([]);
@@ -13,7 +14,6 @@
 //     fetchPendingUsers();
 //   }, []);
 
- 
 //   const fetchPendingUsers = async () => {
 //     try {
 //       const response = await axios.get("https://localhost:7054/api/Admin/pending-users", {
@@ -25,13 +25,12 @@
 //       setMessage(""); 
 //     } catch (error) {
 //       console.error("Error fetching pending users:", error);
-//       setPendingUsers([]); 
+//       setPendingUsers([]);
 //       setMessage("No pending members found.");
 //     } finally {
 //       setLoading(false);
 //     }
 //   };
-  
 
 //   const handleApprove = async (userId) => {
 //     try {
@@ -47,9 +46,6 @@
 //     }
 //   };
 
-
-
-  
 //   const handleDelete = async (userId) => {
 //     if (userId) {
 //       try {
@@ -58,17 +54,14 @@
 //           setMessage("User is not authorized!");
 //           return;
 //         }
-  
-       
+
 //         const response = await axios.post(`https://localhost:7054/api/Admin/decline-user/${userId}`, {}, {
 //           headers: {
 //             Authorization: `Bearer ${token}`,
 //           },
 //         });
-  
-    
+
 //         if (response.status === 200) {
-    
 //           await fetchPendingUsers();
 //           setMessage("Member deleted successfully!");
 //         }
@@ -78,31 +71,30 @@
 //       }
 //     }
 //   };
-  
-  
+
 //   return (
-//     <div className={styles.approveContainer}>
-//       <h2 className={styles.approveTitle}>Approve or Reject New Gym-Gear Members</h2>
+//     <div className="approve-container">
+//       <h2 className="approve-title">Approve or Reject New Gym-Gear Members</h2>
 //       {loading ? (
-//         <p>Loading...</p>
+//         <p className="loading-text">Loading...</p>
 //       ) : pendingUsers.length === 0 ? (
-//         <p>No pending members to approve.</p>
+//         <p className="no-pending-text">No pending members to approve.</p>
 //       ) : (
-//         <ul className={styles.approveUserList}>
+//         <ul className="approve-user-list">
 //           {pendingUsers.map((user) => (
-//             <li key={user.id} className={styles.approveUserCard}>
-//               <div>
+//             <li key={user.id} className="approve-user-card">
+//               <div className="user-info">
 //                 <strong>{user.fullName}</strong> ({user.userName})
 //               </div>
-//               <div className={styles.buttonGroup}>
+//               <div className="button-group">
 //                 <button
-//                   className={styles.approveButton}
+//                   className="approve-button"
 //                   onClick={() => handleApprove(user.id)}
 //                 >
 //                   <FaCheckCircle /> Approve
 //                 </button>
 //                 <button
-//                   className={styles.deleteButton}
+//                   className="delete-button"
 //                   onClick={() => handleDelete(user.id)}
 //                 >
 //                   <FaTrash /> Delete
@@ -112,7 +104,7 @@
 //           ))}
 //         </ul>
 //       )}
-//       {message && <p className={styles.approveMessage}>{message}</p>}
+//       {message && <p className="approve-message">{message}</p>}
 //     </div>
 //   );
 // };
@@ -120,10 +112,11 @@
 // export default ApproveMember;
 
 
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaCheckCircle, FaTrash } from "react-icons/fa";
-import './ApproveMember.css'; // Change to a regular CSS file
+import './ApproveMember.css'; // Öz CSS-ni əlavə etdik
 
 const ApproveMember = () => {
   const [pendingUsers, setPendingUsers] = useState([]);
@@ -137,14 +130,11 @@ const ApproveMember = () => {
   const fetchPendingUsers = async () => {
     try {
       const response = await axios.get("https://localhost:7054/api/Admin/pending-users", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setPendingUsers(response.data || []);
-      setMessage(""); 
+      setMessage("");
     } catch (error) {
-      console.error("Error fetching pending users:", error);
       setPendingUsers([]);
       setMessage("No pending members found.");
     } finally {
@@ -155,77 +145,85 @@ const ApproveMember = () => {
   const handleApprove = async (userId) => {
     try {
       await axios.post(`https://localhost:7054/api/Admin/approve-user/${userId}`, null, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
-      setPendingUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
+      setPendingUsers(prev => prev.filter(user => user.id !== userId));
       setMessage("Member approved successfully!");
-    } catch (error) {
-      setMessage("An error occurred while approving the member.");
+    } catch {
+      setMessage("Error approving member.");
     }
   };
 
   const handleDelete = async (userId) => {
-    if (userId) {
-      try {
-        const token = localStorage.getItem("token");
-        if (!token) {
-          setMessage("User is not authorized!");
-          return;
-        }
+    if (!userId) return;
 
-        const response = await axios.post(`https://localhost:7054/api/Admin/decline-user/${userId}`, {}, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        if (response.status === 200) {
-          await fetchPendingUsers();
-          setMessage("Member deleted successfully!");
-        }
-      } catch (error) {
-        console.error(error);
-        setMessage("An error occurred while deleting the member.");
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        setMessage("User is not authorized!");
+        return;
       }
+
+      const res = await axios.post(`https://localhost:7054/api/Admin/decline-user/${userId}`, {}, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (res.status === 200) {
+        await fetchPendingUsers();
+        setMessage("Member deleted successfully!");
+      }
+    } catch {
+      setMessage("Error deleting member.");
     }
   };
 
   return (
-    <div className="approve-container">
-      <h2 className="approve-title">Approve or Reject New Gym-Gear Members</h2>
-      {loading ? (
-        <p className="loading-text">Loading...</p>
-      ) : pendingUsers.length === 0 ? (
-        <p className="no-pending-text">No pending members to approve.</p>
-      ) : (
-        <ul className="approve-user-list">
-          {pendingUsers.map((user) => (
-            <li key={user.id} className="approve-user-card">
-              <div className="user-info">
-                <strong>{user.fullName}</strong> ({user.userName})
-              </div>
-              <div className="button-group">
-                <button
-                  className="approve-button"
-                  onClick={() => handleApprove(user.id)}
-                >
-                  <FaCheckCircle /> Approve
-                </button>
-                <button
-                  className="delete-button"
-                  onClick={() => handleDelete(user.id)}
-                >
-                  <FaTrash /> Delete
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
-      {message && <p className="approve-message">{message}</p>}
-    </div>
+    <div className="approve-wrapper">
+  <h2>Approve or Reject New Gym-Gear Members</h2>
+
+  {loading ? (
+    <p className="approve-loading-text">Loading...</p>
+  ) : pendingUsers.length === 0 ? (
+    <p className="approve-message">No pending members to approve.</p>
+  ) : (
+    <table className="approve-table">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Username</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {pendingUsers.map(user => (
+          <tr key={user.id}>
+            <td>{user.fullName}</td>
+            <td>{user.userName}</td>
+            <td className="approve-action-buttons">
+              <button
+                className="approve-action-icon edit"
+                title="Approve"
+                onClick={() => handleApprove(user.id)}
+              >
+                <FaCheckCircle />
+              </button>
+              <button
+                className="approve-action-icon delete"
+                title="Delete"
+                onClick={() => handleDelete(user.id)}
+              >
+                <FaTrash />
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )}
+
+  {message && <p className="approve-message">{message}</p>}
+</div>
+
   );
 };
 

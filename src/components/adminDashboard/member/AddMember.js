@@ -169,7 +169,6 @@
 // export default AddMember;
 
 
-
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
@@ -210,50 +209,38 @@ const AddMember = () => {
     setFormData({ ...formData, imageUrl: e.target.files[0] });
   };
 
-  // Emailin düzgünlüyünü yoxlamaq üçün regex
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-  // Telefon nömrəsinin düzgünlüyünü yoxlamaq üçün regex (bu da əsasən bir formatda yoxlamağa yönəlib)
   const isValidPhone = (phone) => /^\+994\d{9}$/.test(phone);
-
-  // Şifrənin gücünü yoxlamaq (minimum 6 simvol)
   const isValidPassword = (password) => password.length >= 6;
 
   const validateForm = () => {
     const errors = {};
 
-    // Ad və soyad yoxlanması
     if (!formData.name) {
-      errors.name = "Ad və soyad boş ola bilməz.";
+      errors.name = "Name cannot be empty.";
     }
 
-    // Email yoxlanması
     if (!formData.email || !isValidEmail(formData.email)) {
-      errors.email = "Düzgün email ünvanı daxil edin.";
+      errors.email = "Please enter a valid email address.";
     }
 
-    // Şifrə yoxlanması
     if (!formData.password || !isValidPassword(formData.password)) {
-      errors.password = "Şifrə minimum 6 simvol olmalıdır.";
+      errors.password = "Password must be at least 6 characters long.";
     }
 
-    // Telefon nömrəsinin yoxlanması
     if (formData.phone && !isValidPhone(formData.phone)) {
-      errors.phone = "Düzgün telefon nömrəsi daxil edin (+994 XX XXX XX XX).";
+      errors.phone = "Please enter a valid phone number (+994 XX XXX XX XX).";
     }
 
-    // Təsdiqləmə qutusunun yoxlanması
     if (!formData.isApproved) {
-      errors.isApproved = "İstifadəçi təsdiqlənməlidir.";
+      errors.isApproved = "User must be approved.";
     }
 
-    // Profil şəkli yoxlanması
     if (formData.imageUrl && !formData.imageUrl.name.match(/\.(jpg|jpeg|png)$/)) {
-      errors.imageUrl = "Şəkil yalnız jpg, jpeg və ya png formatında olmalıdır.";
+      errors.imageUrl = "Image must be in jpg, jpeg, or png format.";
     }
 
     setErrorMessages(errors);
-
     return Object.keys(errors).length === 0;
   };
 
@@ -281,26 +268,26 @@ const AddMember = () => {
         },
       });
 
-      alert("İstifadəçi uğurla əlavə olundu!");
+      alert("User added successfully!");
       history.push("/admin-dashboard/member");
     } catch (error) {
-      console.error("İstifadəçi əlavə edilərkən xəta baş verdi:", error);
-      alert("İstifadəçi əlavə edilə bilmədi.");
+      console.error("Error while adding user:", error);
+      alert("User could not be added.");
     }
   };
 
   return (
     <div className="add-member-page">
       <div className="add-member-wrapper">
-        <h2 className="add-member-title">Yeni İstifadəçi Əlavə Et</h2>
+        <h2 className="add-member-title">Add New Member</h2>
         <form className="add-member-form" onSubmit={handleSubmit}>
           <div className="add-member-group">
-            <label htmlFor="name">Ad Soyad</label>
+            <label htmlFor="name">Full Name</label>
             <input
               id="name"
               name="name"
               type="text"
-              placeholder="Ad və soyad daxil edin"
+              placeholder="Enter full name"
               value={formData.name}
               onChange={handleChange}
               required
@@ -323,12 +310,12 @@ const AddMember = () => {
           </div>
 
           <div className="add-member-group">
-            <label htmlFor="password">Şifrə</label>
+            <label htmlFor="password">Password</label>
             <input
               id="password"
               name="password"
               type="password"
-              placeholder="Minimum 6 simvol"
+              placeholder="At least 6 characters"
               value={formData.password}
               onChange={handleChange}
               required
@@ -337,7 +324,7 @@ const AddMember = () => {
           </div>
 
           <div className="add-member-group">
-            <label htmlFor="phone">Telefon Nömrəsi</label>
+            <label htmlFor="phone">Phone Number</label>
             <input
               id="phone"
               name="phone"
@@ -350,7 +337,7 @@ const AddMember = () => {
           </div>
 
           <div className="add-member-group">
-            <label htmlFor="dateOfBirth">Doğum Tarixi</label>
+            <label htmlFor="dateOfBirth">Date of Birth</label>
             <input
               id="dateOfBirth"
               name="dateOfBirth"
@@ -368,7 +355,7 @@ const AddMember = () => {
               checked={formData.isActive}
               onChange={handleChange}
             />
-            <label htmlFor="isActive">Aktiv</label>
+            <label htmlFor="isActive">Active</label>
           </div>
 
           <div className="add-member-group checkbox-group">
@@ -379,12 +366,12 @@ const AddMember = () => {
               checked={formData.isApproved}
               onChange={handleChange}
             />
-            <label htmlFor="isApproved">Təsdiqlənib</label>
+            <label htmlFor="isApproved">Approved</label>
             {errorMessages.isApproved && <span className="error-message">{errorMessages.isApproved}</span>}
           </div>
 
           <div className="add-member-group">
-            <label htmlFor="imageUrl">Profil Şəkli</label>
+            <label htmlFor="imageUrl">Profile Picture</label>
             <input
               id="imageUrl"
               name="imageUrl"
@@ -396,7 +383,7 @@ const AddMember = () => {
           </div>
 
           <button type="submit" className="add-member-button">
-            Əlavə Et
+            Add Member
           </button>
         </form>
       </div>

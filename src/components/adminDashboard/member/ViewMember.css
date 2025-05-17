@@ -1,280 +1,195 @@
-/* .view-member-wrapper {
-    width: 100%;
-    max-width: 1800px;
-    margin: 40px auto;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white; 
+.view-member-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  position: relative;
+  z-index: 0;
 }
 
 .view-member-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 10px;
-    background-color: #020202;
-    margin: 0 auto;
-    box-sizing: border-box;
-    font-size: 15px;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  overflow: hidden;
 }
 
-.view-member-table thead tr {
-    background-color:  #D90429;
-    color: #ffffff; 
-    text-align: left;
-    font-size: 16px;
-    font-weight: 600;
+.view-member-table th,
+.view-member-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
 }
 
-.view-member-table th, .view-member-table td {
-    padding: 12px 15px;
-    color: #020202; 
+.view-member-table thead {
+  background-color: #989898;
+  color: #fff;
+  font-weight: 600;
 }
 
 .view-member-table tbody tr {
-    background-color: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.view-member-table tbody tr:hover {
-    transform: scale(1.01);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    background-color: #f1f1f1; 
+  transition: background-color 0.3s ease;
 }
 
 .view-member-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #eee;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid #ccc;
 }
 
-.view-member-btn {
-    padding: 6px 12px;
-    margin: 0 5px;
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    color: white; 
+.action-buttons {
+  display: flex;
+  gap: 8px;
 }
 
-.view-member-btn:hover {
-    opacity: 0.9;
-    color: white; 
+.action-icon {
+  width: 26px;
+  height: 26px;
+  border: none;
+  cursor: pointer;
+  background-size: 18px 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 4px;
+  opacity: 0.9;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
 }
 
-.view-member-btn.delete {
-    background-color:#c20020fc;
+.action-icon.edit {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%232980b9' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z'/%3E%3C/svg%3E");
+  background-color: transparent;
 }
 
-.view-member-btn.delete:hover {
-    background-color:#c20020fc;
+.action-icon.edit:hover {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%230056b3' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z'/%3E%3C/svg%3E");
+  background-color: transparent;
+  opacity: 1;
 }
 
-.view-member-btn.edit {
-    background-color: #4caf50;
+.action-icon.delete {
+  background-image: url("data:image/svg+xml,%3Csvg fill='red' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-4.5l-1-1z'/%3E%3C/svg%3E");
+  background-color: transparent;
 }
 
-.view-member-btn.edit:hover {
-    background-color: #3da743;
+.action-icon.delete:hover {
+  opacity: 1;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
 }
 
 .view-member-edit-modal {
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -20%);
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.25);
-    z-index: 1000;
-    color: #333; 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  max-width: 500px;
+  width: 90%;
+  padding: 30px 25px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow-y: auto;
+  max-height: 90vh;
 }
 
-.view-member-table td,
-.view-member-table th {
-    text-align: center;
-}
-.view-member-edit-modal input {
-    display: block;
-    margin: 10px 0;
-    padding: 8px;
-    width: 100%;
-    box-sizing: border-box;
-  } */
-
-/* 
-  GRID
-  .ag-theme-alpine {
-    background-color: #020202; 
-    color: white;
-    border-radius: 10px;
-    padding: 10px;
+.view-member-edit-modal h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #007BFF;
+  text-align: center;
+  font-size: 1.5rem;
 }
 
-.ag-theme-alpine .ag-header {
-    background-color: #D90429;
-    color: white;
-    font-weight: bold;
+.view-member-edit-modal label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #444;
+  font-size: 14px;
 }
 
-.ag-theme-alpine .ag-row {
-    background-color: white;
-    color: #020202;
+.view-member-edit-modal input[type="text"],
+.view-member-edit-modal input[type="email"],
+.view-member-edit-modal input[type="date"],
+.view-member-edit-modal input[type="password"],
+.view-member-edit-modal select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-top: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
 }
 
-.ag-theme-alpine .ag-row-hover {
-    background-color: #f1f1f1;
-} */
+.view-member-edit-modal input[type="checkbox"] {
+  margin-left: 0;
+  transform: scale(1.2);
+  margin-right: 8px;
+  vertical-align: middle;
+}
 
+.view-member-edit-modal input[type="text"]:focus,
+.view-member-edit-modal input[type="email"]:focus,
+.view-member-edit-modal input[type="date"]:focus,
+.view-member-edit-modal input[type="password"]:focus,
+.view-member-edit-modal select:focus {
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
 
+.view-member-edit-modal .edit-actions {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
 
+.view-member-edit-modal button {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 0;
+  transition: background-color 0.3s ease;
+}
 
-/*yeni*/
-.view-member-wrapper {
-    width: 100%;
-    max-width: 1800px;
-    margin: 40px auto;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-  }
-  
-  .view-member-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 10px;
-    background-color: #020202;
-    margin: 0 auto;
-    box-sizing: border-box;
-    font-size: 15px;
-  }
-  
-  .view-member-table thead tr {
-    background-color:  #D90429;
-    color: #ffffff;
-    text-align: left;
-    font-size: 16px;
-    font-weight: 600;
-  }
-  
-  .view-member-table th, .view-member-table td {
-    padding: 12px 15px;
-    color: #020202;
-  }
-  
-  .view-member-table tbody tr {
-    background-color: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .view-member-table tbody tr:hover {
-    transform: scale(1.01);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    background-color: #f1f1f1;
-  }
-  
-  .view-member-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #eee;
-  }
-  
-  .view-member-btn {
-    padding: 6px 12px;
-    margin: 0 5px;
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    color: white;
-  }
-  
-  .view-member-btn:hover {
-    opacity: 0.9;
-    color: white;
-  }
-  
-  .view-member-btn.delete {
-    background-color: #c20020fc;
-  }
-  
-  .view-member-btn.delete:hover {
-    background-color: #c20020fc;
-  }
-  
-  .view-member-btn.edit {
-    background-color: #4caf50;
-  }
-  
-  .view-member-btn.edit:hover {
-    background-color: #3da743;
-  }
-  
+.view-member-edit-modal button:hover {
+  background-color: #0056b3;
+}
+
+.view-member-edit-modal button:last-child {
+  background-color: #dc3545;
+}
+
+.view-member-edit-modal button:last-child:hover {
+  background-color: #c82333;
+}
+
+@media (max-width: 600px) {
   .view-member-edit-modal {
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -20%);
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
-    z-index: 1000;
-    color: #333;
-    max-width: 600px; /* Modalın maksimum genişliyi */
-    width: 100%; /* Genişliyi 100% edirik ki, kiçik ekranlarda da tam görünsün */
-    max-height: 80%; /* Modalın hündürlüyünü məhdudlaşdırır */
-    overflow-y: auto; /* Məzmun çox olduqda sürüşmə barı əlavə edilir */
+    max-width: 95%;
+    padding: 20px 15px;
   }
-  
-  .view-member-edit-modal input,
-  .view-member-edit-modal select {
-    display: block;
-    margin: 10px 0;
-    padding: 8px;
-    width: 100%; /* Input və select-lərin genişliyini 100% edirik */
-    box-sizing: border-box;
-  }
-  
-  .view-member-edit-modal h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-  }
-  
-  .view-member-edit-modal .edit-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  .view-member-table td,
-  .view-member-table th {
-    text-align: center;
-  }
-  
-  .view-member-edit-modal label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-  }
-  
-  .view-member-edit-modal input[type="checkbox"] {
-    width: auto;
-  }
-  
-  .view-member-edit-modal select {
-    width: 100%;
-    padding: 8px;
-    margin: 10px 0;
-    box-sizing: border-box;
-  }
-  
+}

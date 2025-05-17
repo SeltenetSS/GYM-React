@@ -1,4 +1,4 @@
-
+/* 
 .approve-container {
   padding: 20px;
   max-width: 100%;
@@ -94,4 +94,98 @@
     flex-direction: column;
     gap: 5px;
   }
+} */
+
+
+.approve-wrapper {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px 25px;
+  background-color: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+.approve-wrapper h2 {
+  font-size: 28px;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.approve-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 17px;
+}
+
+.approve-table th,
+.approve-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.approve-table th {
+  background-color: #989898;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.approve-table tr:hover {
+  background-color: #f0f8ff;
+}
+
+.approve-action-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.approve-action-icon {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  transition: transform 0.2s ease, color 0.3s ease;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.approve-action-icon.edit {
+  color: #27ae60;
+  background-color: #bfecce;
+}
+
+.approve-action-icon.edit:hover {
+  color: #2ecc71;
+  transform: scale(1.2);
+  background-color: #d1f2eb;
+}
+
+.approve-action-icon.delete {
+  color: #c0392b;
+  background-color: #f3e5e5;
+}
+
+.approve-action-icon.delete:hover {
+  color: #e74c3c; /* Daha açıq qırmızı rəng */
+  transform: scale(1.2);
+  background-color: #f9d6d5; /* Açıq və sadə qırmızı arxa fon */
+}
+
+.approve-message {
+  margin-top: 25px;
+  font-weight: 500;
+  text-align: center;
+  color: #34495e;
+}
+
+.approve-loading-text {
+  text-align: center;
+  font-size: 18px;
+  color: #7f8c8d;
+  margin-top: 40px;
 }
