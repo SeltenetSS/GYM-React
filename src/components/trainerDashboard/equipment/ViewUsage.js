@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import './ViewUsage.css';
@@ -10,8 +9,22 @@ const ViewUsage = () => {
   const handleSearch = async () => {
     if (!userId) return alert("Please enter a User ID!");
 
+    const token = localStorage.getItem('token'); // Tokeni localStorage-dan götür
+
+    if (!token) {
+      alert("Token tapılmadı! Zəhmət olmasa login olun.");
+      return;
+    }
+
     try {
-      const response = await axios.get(`https://localhost:7054/api/UserEquipmentUsage/user/${userId}`);
+      const response = await axios.get(
+        `https://localhost:7054/api/UserEquipmentUsage/user/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Tokeni başlığa əlavə et
+          },
+        }
+      );
       setUsages(response.data);
     } catch (error) {
       console.error(error);

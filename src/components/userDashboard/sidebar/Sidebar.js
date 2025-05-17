@@ -23,8 +23,8 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/user-dashboard/member" className="nav-link" activeClassName="active">
-            <Icon icon="map:gym" className="icon" />
+            <NavLink to="/user-dashboard/notfication" className="nav-link" activeClassName="active">
+              <Icon icon="map:gym" className="icon" />
               <span>Notfication</span>
             </NavLink>
           </li>
@@ -34,7 +34,7 @@ const Sidebar = () => {
               <span>Equipment</span>
             </NavLink>
           </li>
-        
+
           <li className="nav-item">
             <NavLink to="/user-dashboard/payment" className="nav-link" activeClassName="active">
               <Icon icon="material-symbols:calendar-month-outline-rounded" className="icon" />
@@ -43,16 +43,16 @@ const Sidebar = () => {
           </li>
           <li className="nav-item">
             <NavLink to="/user-dashboard/package" className="nav-link" activeClassName="active">
-                 <Icon icon="mdi:arm-flex" className="icon" />
+              <Icon icon="mdi:arm-flex" className="icon" />
               <span>Package</span>
             </NavLink>
           </li>
           <li className="nav-item">
-  <NavLink to="/user-dashboard/shop" className="nav-link" activeClassName="active">
-    <Icon icon="material-symbols:storefront-outline" className="icon" />
-    <span>Shop</span>
-  </NavLink>
-</li>
+            <NavLink to="/user-dashboard/shop" className="nav-link" activeClassName="active">
+              <Icon icon="material-symbols:storefront-outline" className="icon" />
+              <span>Shop</span>
+            </NavLink>
+          </li>
 
           <li className="nav-item">
             <NavLink to="/user-dashboard/profile" className="nav-link" activeClassName="active">
@@ -60,6 +60,15 @@ const Sidebar = () => {
               <span>Profile</span>
             </NavLink>
           </li>
+
+          {/* Review hissəsi burada əlavə olunur */}
+          <li className="nav-item">
+            <NavLink to="/user-dashboard/review" className="nav-link" activeClassName="active">
+              <Icon icon="mdi:comment-multiple-outline" className="icon" />
+              <span>Reviews</span>
+            </NavLink>
+          </li>
+
           <li className="nav-item">
             <NavLink
               to="/user-dashboard/logout"

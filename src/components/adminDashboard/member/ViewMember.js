@@ -52,6 +52,7 @@ const ViewMember = () => {
       const res = await axios.get("https://localhost:7054/api/Package/packages", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
       });
+      console.log("Fetched packages:", res.data);
       setPackages(res.data);
     } catch (err) {
       console.error("Error fetching packages:", err);
@@ -226,7 +227,8 @@ const ViewMember = () => {
             <select name="packageId" value={editedData.packageId} onChange={handleEditChange}>
               <option value="">Select Package</option>
               {packages.map((pkg) => (
-                <option key={pkg.id} value={pkg.id}>{pkg.name}</option>
+                <option key={pkg.id} value={pkg.id}>{pkg.packageName}</option>
+
               ))}
             </select>
           </label>

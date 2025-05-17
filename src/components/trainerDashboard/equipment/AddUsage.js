@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './AddUsage.css'; 
+import './AddUsage.css';
 
 const AddUsage = () => {
   const [formData, setFormData] = useState({
@@ -20,8 +20,24 @@ const AddUsage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const token = localStorage.getItem('token'); // JWT token burada saxlanılır
+
+    if (!token) {
+      alert('Token tapılmadı. Zəhmət olmasa login olun.');
+      return;
+    }
+
     try {
-      await axios.post('https://localhost:7054/api/UserEquipmentUsage', formData);
+      await axios.post(
+        'https://localhost:7054/api/UserEquipmentUsage',
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // token əlavə olunur
+          },
+        }
+      );
       alert('Usage data saved and points updated.');
       setFormData({
         userId: '',

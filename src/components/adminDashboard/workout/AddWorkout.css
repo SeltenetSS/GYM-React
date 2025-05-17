@@ -1,0 +1,135 @@
+.addworkout-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #222;
+}
+
+.addworkout-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #111;
+}
+
+.addworkout-form-group {
+  margin-bottom: 15px;
+}
+
+.addworkout-form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.addworkout-input,
+.addworkout-textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.addworkout-input:focus,
+.addworkout-textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.addworkout-day-block {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.addworkout-day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remove-day-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.addworkout-exercise {
+  margin-bottom: 15px;
+}
+
+.addworkout-exercise input {
+  width: calc(33.33% - 10px);
+  margin-right: 10px;
+}
+
+.addworkout-exercise select {
+  width: calc(33.33% - 10px);
+}
+
+.addworkout-day-header h3 {
+  font-size: 18px;
+  color: #333;
+}
+
+.addworkout-submit {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  width: auto;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.addworkout-submit:hover {
+  background-color: #0056b3;
+}
+
+.addworkout-container button[type="button"] {
+  background-color: #f39c12;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  width: auto;
+}
+
+.addworkout-container button[type="button"]:hover {
+  background-color: #e67e22;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .addworkout-container {
+    padding: 15px;
+  }
+
+  .addworkout-exercise input,
+  .addworkout-exercise select {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  button[type="button"] {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .addworkout-submit {
+    width: 100%;
+    margin-top: 20px;
+  }
+}

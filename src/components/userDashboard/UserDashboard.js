@@ -10,7 +10,10 @@ import Profile from './profile/Profile';
 import Logout from './sidebar/Logout';
 import Dashboard from './dashboard/Dashboard';
 import Shop from './shop/Shop'; 
+import Payments from './payment/Payments';
+import MyFeedbacks from './myfeedback/MyFeedBacks';
 import axios from 'axios';
+
 
 const UserDashboard = () => {
   const [profileImage, setProfileImage] = useState('/default-avatar.png'); 
@@ -41,6 +44,9 @@ const UserDashboard = () => {
           <Route exact path="/user-dashboard/equipment" component={Equipment} />
           <Route exact path="/user-dashboard/notfication" component={Notfication} />
           <Route exact path="/user-dashboard/package" component={Package} />
+          <Route exact path="/user-dashboard/payment" component={Payments} />
+          <Route exact path="/user-dashboard/review" component={MyFeedbacks} />
+         
           <Route exact path="/user-dashboard/userattendance" component={UserAttendance} />
           <Route exact path="/user-dashboard/shop" component={Shop} />
           <Route exact path="/user-dashboard/profile">

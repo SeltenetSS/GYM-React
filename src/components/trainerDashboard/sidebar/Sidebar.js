@@ -37,7 +37,7 @@ const Sidebar = () => {
           <li className="nav-item">
             <NavLink to="/trainer-dashboard/equipmentusage" className="nav-link" activeClassName="active">
               <Icon icon="map:gym" className="icon" />
-              <span>Equipment Usage</span>
+              <span>Equip Usage</span>
             </NavLink>
           </li>
           <li className="nav-item">
@@ -46,13 +46,22 @@ const Sidebar = () => {
               <span>My Schedule</span>
             </NavLink>
           </li>
-           <li className="nav-item">
+          <li className="nav-item">
             <NavLink to="/trainer-dashboard/MyGroup" className="nav-link" activeClassName="active">
               <Icon icon="ic:outline-payment" className="icon" />
               <span>My Group</span>
             </NavLink>
-          </li> 
-          <div className="line" />
+          </li>
+
+          {/* Burada yeni Feedbacks hissəsi əlavə edilir */}
+          <li className="nav-item">
+            <NavLink to="/trainer-dashboard/feedbacks" className="nav-link" activeClassName="active">
+              <Icon icon="mdi:message-text-outline" className="icon" />
+              <span>Feedbacks</span>
+            </NavLink>
+          </li>
+
+     
           <li className="nav-item">
             <NavLink to="/trainer-dashboard/attendance" className="nav-link" activeClassName="active">
               <Icon icon="material-symbols:settings-outline" className="icon" />

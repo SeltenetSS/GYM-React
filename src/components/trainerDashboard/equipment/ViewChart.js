@@ -10,8 +10,22 @@ const EquipmentUsageChart = () => {
   const handleSearch = async () => {
     if (!userId) return alert("Please enter a User ID!");
 
+    const token = localStorage.getItem('token'); // Tokeni localStorage-dan götür
+
+    if (!token) {
+      alert("Token tapılmadı! Zəhmət olmasa login olun.");
+      return;
+    }
+
     try {
-      const response = await axios.get(`https://localhost:7054/api/UserEquipmentUsage/stats/user/${userId}`);
+      const response = await axios.get(
+        `https://localhost:7054/api/UserEquipmentUsage/stats/user/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Authorization başlığı əlavə olunur
+          },
+        }
+      );
       setStats(response.data);
     } catch (error) {
       console.error(error);
@@ -30,7 +44,7 @@ const EquipmentUsageChart = () => {
           value={userId}
           onChange={(e) => setUserId(e.target.value)}
         />
-        <button  onClick={handleSearch}>Search</button>
+        <button onClick={handleSearch}>Search</button>
       </div>
 
       {stats.length > 0 && (
@@ -57,19 +71,17 @@ const EquipmentUsageChart = () => {
           </div>
 
           <div className="equipmentusagemain-chart-box">
-          <ResponsiveContainer width="100%" height={400}>
-  <BarChart data={stats} barSize={70}>
-    <CartesianGrid strokeDasharray="3 3" stroke="#444" />
-    <XAxis dataKey="equipmentName" stroke="#ccc" />
-    <YAxis stroke="#ccc" />
-    <Tooltip />
-    <Legend />
-    <Bar dataKey="durationInMinutes" fill="#00A8E8" name="Duration (min)" />
-    <Bar dataKey="repetition" fill="#F77F00" name="Repetition" />
-  </BarChart>
-</ResponsiveContainer>
-
-
+            <ResponsiveContainer width="100%" height={400}>
+              <BarChart data={stats} barSize={70}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+                <XAxis dataKey="equipmentName" stroke="#ccc" />
+                <YAxis stroke="#ccc" />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="durationInMinutes" fill="#00A8E8" name="Duration (min)" />
+                <Bar dataKey="repetition" fill="#F77F00" name="Repetition" />
+              </BarChart>
+            </ResponsiveContainer>
           </div>
         </>
       )}

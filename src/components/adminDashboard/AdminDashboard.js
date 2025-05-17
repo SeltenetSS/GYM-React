@@ -30,7 +30,11 @@ import ViewGroup from './group/ViewGroup';
 import GroupDetails from './group/GroupDetails';
 import AddProduct from './product/AddProduct';
 import ViewProduct from './product/ViewProduct';
-
+import PointOrdersPage from './product/PointOrdersPage';
+import AddWorkout from './workout/AddWorkout';
+import ViewWorkout from './workout/ViewWorkout';
+import TrainerScheduleCreate from './schedule/TrainerScheduleCreate';
+import ViewSchedule from './schedule/ViewSchedule';
 const AdminDashboard = () => {
   return (
     <div className="rowContainer">
@@ -66,6 +70,11 @@ const AdminDashboard = () => {
           <Route exact path="/admin-dashboard/group/group-details" component={GroupDetails}/>
           <Route exact path="/admin-dashboard/product/add" component={AddProduct}/>
           <Route exact path="/admin-dashboard/product/view" component={ViewProduct}/>
+          <Route exact path="/admin-dashboard/workout/add" component={AddWorkout}/>
+          <Route exact path="/admin-dashboard/workout/view" component={ViewWorkout}/>
+          <Route path="/admin-dashboard/product/orders" component={PointOrdersPage } />
+          <Route path="/admin-dashboard/schedule/create" component={TrainerScheduleCreate } />
+           <Route path="/admin-dashboard/schedule/view" component={ViewSchedule } />
         </Switch>
       </div>
     </div>

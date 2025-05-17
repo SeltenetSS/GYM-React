@@ -42,7 +42,7 @@ const AddProduct = () => {
       });
 
       alert("Product added successfully!");
-      history.push("/admin-dashboard/product"); // İstəyə uyğun yönləndirilə bilər
+      history.push("/admin-dashboard/product"); 
     } catch (error) {
       console.error("Error adding product:", error);
       alert("Failed to add product.");

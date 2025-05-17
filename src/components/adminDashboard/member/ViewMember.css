@@ -1,4 +1,4 @@
-.view-member-wrapper {
+/* .view-member-wrapper {
     width: 100%;
     max-width: 1800px;
     margin: 40px auto;
@@ -105,7 +105,7 @@
     padding: 8px;
     width: 100%;
     box-sizing: border-box;
-  }
+  } */
 
 /* 
   GRID
@@ -131,3 +131,150 @@
     background-color: #f1f1f1;
 } */
 
+
+
+
+/*yeni*/
+.view-member-wrapper {
+    width: 100%;
+    max-width: 1800px;
+    margin: 40px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+  }
+  
+  .view-member-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    background-color: #020202;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-size: 15px;
+  }
+  
+  .view-member-table thead tr {
+    background-color:  #D90429;
+    color: #ffffff;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .view-member-table th, .view-member-table td {
+    padding: 12px 15px;
+    color: #020202;
+  }
+  
+  .view-member-table tbody tr {
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .view-member-table tbody tr:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    background-color: #f1f1f1;
+  }
+  
+  .view-member-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #eee;
+  }
+  
+  .view-member-btn {
+    padding: 6px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    color: white;
+  }
+  
+  .view-member-btn:hover {
+    opacity: 0.9;
+    color: white;
+  }
+  
+  .view-member-btn.delete {
+    background-color: #c20020fc;
+  }
+  
+  .view-member-btn.delete:hover {
+    background-color: #c20020fc;
+  }
+  
+  .view-member-btn.edit {
+    background-color: #4caf50;
+  }
+  
+  .view-member-btn.edit:hover {
+    background-color: #3da743;
+  }
+  
+  .view-member-edit-modal {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    color: #333;
+    max-width: 600px; /* Modalın maksimum genişliyi */
+    width: 100%; /* Genişliyi 100% edirik ki, kiçik ekranlarda da tam görünsün */
+    max-height: 80%; /* Modalın hündürlüyünü məhdudlaşdırır */
+    overflow-y: auto; /* Məzmun çox olduqda sürüşmə barı əlavə edilir */
+  }
+  
+  .view-member-edit-modal input,
+  .view-member-edit-modal select {
+    display: block;
+    margin: 10px 0;
+    padding: 8px;
+    width: 100%; /* Input və select-lərin genişliyini 100% edirik */
+    box-sizing: border-box;
+  }
+  
+  .view-member-edit-modal h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .view-member-edit-modal .edit-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .view-member-table td,
+  .view-member-table th {
+    text-align: center;
+  }
+  
+  .view-member-edit-modal label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  
+  .view-member-edit-modal input[type="checkbox"] {
+    width: auto;
+  }
+  
+  .view-member-edit-modal select {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    box-sizing: border-box;
+  }
+  

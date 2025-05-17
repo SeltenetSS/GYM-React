@@ -1,0 +1,171 @@
+/* 
+
+.trainer-form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
+}
+
+.trainer-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.trainer-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.trainer-form input,
+.trainer-form select,
+.trainer-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.trainer-form .time-select {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.trainer-form button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.trainer-form button:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.success {
+  color: green;
+  margin-top: 10px;
+  text-align: center;
+} */
+
+
+.createschedule-form {
+  background-color: #f9f9f9;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+}
+
+.createschedule-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.createschedule-label {
+  display: block;
+  margin-bottom: 15px;
+  color: #555;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.createschedule-input,
+.createschedule-select,
+.createschedule-textarea {
+  width: 100%;
+  padding: 8px 12px;
+  margin-top: 6px;
+  border: 1.8px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.createschedule-input:focus,
+.createschedule-select:focus,
+.createschedule-textarea:focus {
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 6px rgba(0,123,255,0.4);
+}
+
+.createschedule-textarea {
+  min-height: 70px;
+}
+
+.createschedule-input[disabled] {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+.createschedule-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.createschedule-button:hover {
+  background-color: #0056b3;
+}
+
+.createschedule-error,
+.createschedule-success {
+  margin-top: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.createschedule-error {
+  color: #d9534f;
+}
+
+.createschedule-success {
+  color: #28a745;
+}
+
+/* Time inputs inline */
+.createschedule-label > .createschedule-time-input {
+  width: 60px !important;
+  display: inline-block;
+  margin-top: 6px;
+  margin-right: 6px;
+}
+
+.createschedule-label > .createschedule-time-input:last-child {
+  margin-right: 0;
+}

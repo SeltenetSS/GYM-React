@@ -62,21 +62,24 @@ const ViewPackage = () => {
     }
   };
 
+
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this package?")) {
       try {
-        await axios.delete(`https://localhost:7054/api/Package/delete-package/${id}`, {
+        const response = await axios.delete(`https://localhost:7054/api/Package/delete-package/${id}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
-        setPackages(packages.filter(pkg => pkg.id !== id));
+        if (response.status === 200) {
+          setPackages(packages.filter(pkg => pkg.id !== id));
+        }
       } catch (error) {
         console.error("Error deleting package:", error);
       }
     }
   };
-
+  
   return (
     <div className="package-wrapper">
       <table className="package-table">
