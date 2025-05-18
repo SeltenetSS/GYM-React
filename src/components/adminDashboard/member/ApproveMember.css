@@ -152,11 +152,13 @@
   transition: transform 0.2s ease, color 0.3s ease;
   padding: 6px;
   border-radius: 6px;
+   width:auto;
 }
 
 .approve-action-icon.edit {
   color: #27ae60;
   background-color: #bfecce;
+  width:auto;
 }
 
 .approve-action-icon.edit:hover {
