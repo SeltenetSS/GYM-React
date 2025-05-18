@@ -505,12 +505,7 @@ const Package = () => {
             >
               Buy Now
             </button>
-            <button
-              onClick={() => handleWorkoutPlan(pkg.id)}
-              className="workout-button"
-            >
-              Workout Plan
-            </button>
+           
             {showWorkout === pkg.id && (
               <div className="workout-plan">
                 {loadingWorkout && <p>Yüklənir...</p>}

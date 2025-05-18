@@ -44,7 +44,7 @@ const Logout = () => {
 
    
     setTimeout(() => {
-      window.location.href = "/admin-sign-up";
+      window.location.href = "/login?role=admin";
     }, 1000);
   };
 

@@ -5,6 +5,8 @@ import "./ViewTrainer.css";
 const ViewTrainer = () => {
   const [trainers, setTrainers] = useState([]);
   const [editTrainer, setEditTrainer] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+
   const [editedData, setEditedData] = useState({
     name: "",
     email: "",
@@ -24,18 +26,22 @@ const ViewTrainer = () => {
     fetchTrainers();
   }, []);
 
-  const fetchTrainers = async () => {
-    try {
-      const response = await axios.get("https://localhost:7054/api/Admin/trainers", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      setTrainers(response.data);
-    } catch (error) {
-      console.error("Error fetching trainers:", error);
-    }
-  };
+const fetchTrainers = async () => {
+  try {
+    const response = await axios.get("https://localhost:7054/api/Admin/trainers", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      params: {
+        search: searchTerm
+      }
+    });
+    setTrainers(response.data);
+  } catch (error) {
+    console.error("Error fetching trainers:", error);
+  }
+};
+
 
   const handleDelete = async (id) => {
     try {
@@ -126,6 +132,20 @@ const ViewTrainer = () => {
 
   return (
     <div className="view-trainer-wrapper">
+  <div className="search-wrapper">
+  <input
+    type="text"
+    placeholder="Axtar..."
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    onKeyDown={(e) => {
+      if (e.key === 'Enter') fetchTrainers();
+    }}
+    className="search-input"
+  />
+  <span className="search-icon" onClick={fetchTrainers}>🔍</span>
+</div>
+
       <table className="view-trainer-table">
         <thead>
           <tr>

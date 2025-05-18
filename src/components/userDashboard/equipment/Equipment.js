@@ -48,9 +48,8 @@ const Equipment = () => {
                 <p className="description">
                   {equipment.description || "No description available"}
                 </p>
-                <p><strong>Price:</strong> {equipment.price} $</p>
-                <p><strong>Unit:</strong> {equipment.unit}</p>
-                <p><strong>Available:</strong> {equipment.isAvailable ? "Yes" : "No"}</p>
+                
+              
               </div>
             </div>
           ))

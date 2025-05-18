@@ -28,6 +28,12 @@ const Sidebar = () => {
               <span>Notfication</span>
             </NavLink>
           </li>
+             <li className="nav-item">
+            <NavLink to="/user-dashboard/workout" className="nav-link" activeClassName="active">
+              <Icon icon="map:gym" className="icon" />
+              <span>Workout</span>
+            </NavLink>
+          </li>
           <li className="nav-item">
             <NavLink to="/user-dashboard/equipment" className="nav-link" activeClassName="active">
               <Icon icon="material-symbols:calendar-month-outline-rounded" className="icon" />

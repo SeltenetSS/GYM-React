@@ -13,6 +13,7 @@ const ViewMember = () => {
   const [editMember, setEditMember] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
   const [editedFile, setEditedFile] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const [editedData, setEditedData] = useState({
     name: "",
@@ -54,6 +55,9 @@ const ViewMember = () => {
     }
   };
 
+  const filteredMembers = members.filter((member) =>
+    member.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
   const fetchPackages = async () => {
     try {
       const res = await axios.get("https://localhost:7054/api/Package/packages", {
@@ -170,6 +174,16 @@ const ViewMember = () => {
 
   return (
     <div className="view-member-wrapper">
+        <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search by name..."
+          value={searchTerm}
+           onChange={(e) => setSearchTerm(e.target.value)}
+           className="search-input"
+         />
+         <span className="search-icon">&#128269;</span> {/* Unicode icon (🔍) */}
+       </div>
       <table className="view-member-table">
         <thead>
           <tr>
@@ -186,7 +200,7 @@ const ViewMember = () => {
           </tr>
         </thead>
         <tbody>
-          {members.map((member) => (
+          {filteredMembers.map((member) => (
             <tr key={member.id}>
               <td>{member.id}</td>
               <td>{member.name}</td>
@@ -370,99 +384,3 @@ export default ViewMember;
 
 
 
-//  import React, { useEffect, useState } from "react";
-// import axios from "axios";
-// import "./ViewMember.css";
-// import "react-datepicker/dist/react-datepicker.css";
-
-// const ViewMember = () => {
-//   const [searchTerm, setSearchTerm] = useState("");
-//   const [members, setMembers] = useState([]);
-
-//   useEffect(() => {
-//     fetchMembers();
-//   }, []);
-
-//   const fetchMembers = async () => {
-//     try {
-//       const res = await axios.get("https://localhost:7054/api/Admin/users", {
-//         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-//       });
-//       setMembers(res.data);
-//     } catch (err) {
-//       console.error("Error fetching members:", err);
-//     }
-//   };
-
-//   // Search üçün filtrlenmiş memberlar
-//   const filteredMembers = members.filter((member) =>
-//     member.name.toLowerCase().includes(searchTerm.toLowerCase())
-//   );
-
-//   return (
-//     <div className="view-member-wrapper">
-//       <div className="search-container">
-//         <input
-//           type="text"
-//           placeholder="Search by name..."
-//           value={searchTerm}
-//           onChange={(e) => setSearchTerm(e.target.value)}
-//           className="search-input"
-//         />
-//         <span className="search-icon">&#128269;</span> {/* Unicode icon (🔍) */}
-//       </div>
-
-//       <table className="view-member-table">
-//         <thead>
-//           <tr>
-//             <th>Id</th>
-//             <th>Name</th>
-//             <th>Image</th>
-//             <th>Phone</th>
-//             <th>Date of Birth</th>
-//             <th>Email</th>
-//             <th>Trainer</th>
-//             <th>Package</th>
-//             <th>Joined</th>
-//             <th>Actions</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {filteredMembers.map((member) => (
-//             <tr key={member.id}>
-//               <td>{member.id}</td>
-//               <td>{member.name}</td>
-//               <td>
-//                 <img
-//                   src={member.imageUrl || "/default-avatar.png"}
-//                   alt={member.name}
-//                   className="view-member-img"
-//                 />
-//               </td>
-//               <td>{member.phone}</td>
-//               <td>
-//                 {member.dateOfBirth
-//                   ? new Date(member.dateOfBirth).toLocaleDateString()
-//                   : "N/A"}
-//               </td>
-//               <td>{member.email}</td>
-//               {/* trainer və package üçün ayrıca state varsa buraya əlavə etməlisiniz */}
-//               <td>{member.trainerId || "N/A"}</td>
-//               <td>{member.packageId || "N/A"}</td>
-//               <td>
-//                 {member.createdDate
-//                   ? new Date(member.createdDate).toLocaleDateString()
-//                   : "N/A"}
-//               </td>
-//               <td>
-//                 {/* Actions düymələri */}
-//               </td>
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// };
-
-// export default ViewMember;

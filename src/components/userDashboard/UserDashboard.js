@@ -13,6 +13,7 @@ import Shop from './shop/Shop';
 import Payments from './payment/Payments';
 import MyFeedbacks from './myfeedback/MyFeedBacks';
 import Notification from './notification/Notification';
+import WorkoutUser from './workout/WorkoutUser';
 import axios from 'axios';
 import NotificationListener from '../website/NotificationListener';
  
@@ -54,6 +55,7 @@ const UserDashboard = () => {
               <Route exact path="/user-dashboard/notification" component={Notification} />
           <Route exact path="/user-dashboard/userattendance" component={UserAttendance} />
           <Route exact path="/user-dashboard/shop" component={Shop} />
+           <Route exact path="/user-dashboard/workout" component={WorkoutUser} />
           <Route exact path="/user-dashboard/profile">
             <Profile setProfileImage={setProfileImage} />
           </Route>

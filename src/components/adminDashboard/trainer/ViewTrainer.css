@@ -179,3 +179,31 @@
 }
 
 
+.search-wrapper {
+  position: relative;
+  width: 250px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 35px 8px 12px; /* sağda boşluq yaratmaq üçün sağdan 35px */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  color: #888;
+  transition: color 0.2s ease;
+}
+
+.search-icon:hover {
+  color: #007bff;
+}

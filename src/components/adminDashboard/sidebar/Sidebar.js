@@ -249,15 +249,10 @@ const Sidebar = () => {
               <span>Attendance</span>
             </NavLink>
           </li>
-           <li className="nav-item">
-            <NavLink to="/admin-dashboard/blocked" className="nav-link" activeClassName="active">
-              <Icon icon="mdi:clipboard-check-outline" className="icon" />
-              <span>Blocked</span>
-            </NavLink>
-          </li>
+          
            <li className="nav-item">
             <NavLink to="/admin-dashboard/notification" className="nav-link" activeClassName="active">
-              <Icon icon="mdi:clipboard-check-outline" className="icon" />
+              <Icon icon="mdi:bell-ring-outline" className="icon" />
               <span>Notification</span>
             </NavLink>
           </li>
@@ -403,6 +398,12 @@ const Sidebar = () => {
             <NavLink to="/admin-dashboard/chat" className="nav-link" activeClassName="active">
               <Icon icon="mdi:chat-processing-outline" className="icon" />
               <span>Chat</span>
+            </NavLink>
+          </li>
+           <li className="nav-item">
+            <NavLink to="/admin-dashboard/blocked" className="nav-link" activeClassName="active">
+              <Icon icon="mdi:account-cancel-outline" className="icon" />
+              <span>Blocked</span>
             </NavLink>
           </li>
           <li className="nav-item">
