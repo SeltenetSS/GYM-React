@@ -542,7 +542,7 @@ const Shop = () => {
             <p>{product.description}</p>
             <p className="point-cost">Points: {product.pointCost}</p>
             <div className="card-buttons">
-              <button className="buy-now" onClick={() => buyNow(product)}>Buy Now</button>
+              {/* <button className="buy-now" onClick={() => buyNow(product)}>Buy Now</button> */}
               <button className="add-cart" onClick={() => addToCart(product)}>Add to Cart</button>
             </div>
           </div>
