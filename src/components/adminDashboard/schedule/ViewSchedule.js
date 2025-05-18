@@ -239,10 +239,10 @@
 // export default ViewSchedule;
 
 
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ViewSchedule.css";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const ViewSchedule = () => {
   const [schedules, setSchedules] = useState([]);
@@ -279,14 +279,13 @@ const ViewSchedule = () => {
 
   const handleDelete = async (id) => {
     if (!window.confirm("Silmək istədiyinizə əminsiniz?")) return;
-
     try {
       await axios.delete(`https://localhost:7054/api/TrainerSchedule/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      setSchedules(schedules.filter(s => s.id !== id));
+      setSchedules(schedules.filter((s) => s.id !== id));
     } catch (error) {
       console.error("Silinərkən xəta:", error);
     }
@@ -303,45 +302,40 @@ const ViewSchedule = () => {
       startMinute,
       endHour,
       endMinute,
-      description: schedule.description || ""
+      description: schedule.description || "",
     });
   };
 
- const handleUpdateSubmit = async (e) => {
-  e.preventDefault();
+  const handleUpdateSubmit = async (e) => {
+    e.preventDefault();
 
-  // Saat və dəqiqələri birləşdirib "HH:mm" formatına çeviririk
-  const formatTime = (hour, minute) => {
-    const h = hour.toString().padStart(2, '0');
-    const m = minute.toString().padStart(2, '0');
-    return `${h}:${m}`;
+    const formatTime = (hour, minute) => {
+      const h = hour.toString().padStart(2, "0");
+      const m = minute.toString().padStart(2, "0");
+      return `${h}:${m}`;
+    };
+
+    const dto = {
+      id: formData.id,
+      dayOfWeek: formData.dayOfWeek,
+      startTime: formatTime(formData.startHour, formData.startMinute),
+      endTime: formatTime(formData.endHour, formData.endMinute),
+      description: formData.description,
+    };
+
+    try {
+      await axios.put("https://localhost:7054/api/TrainerSchedule", dto, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      await fetchSchedules();
+      setEditingSchedule(null);
+    } catch (error) {
+      console.error("Yeniləmə zamanı xəta:", error.response?.data || error.message);
+      alert("Yeniləmə zamanı xəta baş verdi: " + JSON.stringify(error.response?.data || error.message));
+    }
   };
-
-  const dto = {
-    id: formData.id,
-    dayOfWeek: formData.dayOfWeek,
-    startTime: formatTime(formData.startHour, formData.startMinute),
-    endTime: formatTime(formData.endHour, formData.endMinute),
-    description: formData.description,
-  };
-
-  console.log("Göndərilən DTO:", dto);
-
-  try {
-    await axios.put("https://localhost:7054/api/TrainerSchedule", dto, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    });
-
-    await fetchSchedules();
-    setEditingSchedule(null);
-  } catch (error) {
-    console.error("Yeniləmə zamanı xəta:", error.response?.data || error.message);
-    alert("Yeniləmə zamanı xəta baş verdi: " + JSON.stringify(error.response?.data || error.message));
-  }
-};
-
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -350,9 +344,10 @@ const ViewSchedule = () => {
   if (loading) return <div className="loading">Yüklənir...</div>;
 
   return (
-    <div className="schedule-container">
-      <h2>Mövcud Cədvəllər</h2>
-      <table className="schedule-table">
+    <div className="view-schedule-container">
+      <h2 className="view-schedule-title">Schedules</h2>
+
+        <table className="view-schedule-table">
         <thead>
           <tr>
             <th>#</th>
@@ -377,102 +372,108 @@ const ViewSchedule = () => {
               <td>{s.startTime}</td>
               <td>{s.endTime}</td>
               <td>{s.description || "-"}</td>
-              <td>
-                <button onClick={() => handleEdit(s)}>Update</button>
-                <button onClick={() => handleDelete(s.id)} className="delete">Delete</button>
-              </td>
+            <td>
+ <div className="view-schedule-actions">
+    <FaEdit
+          className="view-schedule-icon edit"
+      onClick={() => handleEdit(s)}
+      title="Yenilə"
+    />
+    <FaTrash
+      className="view-schedule-icon delete"
+      onClick={() => handleDelete(s.id)}
+      title="Sil"
+    />
+  </div>
+</td>
+
             </tr>
           ))}
         </tbody>
       </table>
 
-      {editingSchedule && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <form className="update-form" onSubmit={handleUpdateSubmit}>
-              <h3>Cədvəli Yenilə</h3>
-              <label>
-                Gün:
-                {/* <select name="dayOfWeek" value={formData.dayOfWeek} onChange={handleChange}>
-                  {["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map(day => (
-                    <option key={day} value={day}>{day}</option>
-                  ))}
-                </select> */}
+{editingSchedule && (
+  <div className="modal-overlay">
+    <div className="view-member-edit-modal">
+      <form onSubmit={handleUpdateSubmit}>
+        <h3>Cədvəli Yenilə</h3>
 
-<select
-  name="dayOfWeek"
-  value={formData.dayOfWeek}
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      dayOfWeek: e.target.value,
-    })
-  }
->
-  {["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].map((day) => (
-    <option key={day} value={day}>{day}</option>
-  ))}
-</select>
+        <label>
+          Gün:
+          <select
+            name="dayOfWeek"
+            value={formData.dayOfWeek}
+            onChange={handleChange}
+          >
+            {["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].map((day) => (
+              <option key={day} value={day}>{day}</option>
+            ))}
+          </select>
+        </label>
 
-              </label>
-
-              <label>
-                Başlama Saatı:
-                <input
-                  name="startHour"
-                  type="number"
-                  min="0"
-                  max="23"
-                  value={formData.startHour}
-                  onChange={handleChange}
-                /> :
-                <input
-                  name="startMinute"
-                  type="number"
-                  min="0"
-                  max="59"
-                  value={formData.startMinute}
-                  onChange={handleChange}
-                />
-              </label>
-
-              <label>
-                Bitmə Saatı:
-                <input
-                  name="endHour"
-                  type="number"
-                  min="0"
-                  max="23"
-                  value={formData.endHour}
-                  onChange={handleChange}
-                /> :
-                <input
-                  name="endMinute"
-                  type="number"
-                  min="0"
-                  max="59"
-                  value={formData.endMinute}
-                  onChange={handleChange}
-                />
-              </label>
-
-              <label>
-                Açıqlama:
-                <input
-                  name="description"
-                  value={formData.description}
-                  onChange={handleChange}
-                />
-              </label>
-
-              <div className="modal-buttons">
-                <button type="submit">Yenilə</button>
-                <button type="button" onClick={() => setEditingSchedule(null)}>Bağla</button>
-              </div>
-            </form>
+        <label>
+          Başlama Saatı:
+          <div style={{ display: "flex", gap: "10px" }}>
+            <input
+              name="startHour"
+              type="number"
+              min="0"
+              max="23"
+              value={formData.startHour}
+              onChange={handleChange}
+            />
+            <input
+              name="startMinute"
+              type="number"
+              min="0"
+              max="59"
+              value={formData.startMinute}
+              onChange={handleChange}
+            />
           </div>
+        </label>
+
+        <label>
+          Bitmə Saatı:
+          <div style={{ display: "flex", gap: "10px" }}>
+            <input
+              name="endHour"
+              type="number"
+              min="0"
+              max="23"
+              value={formData.endHour}
+              onChange={handleChange}
+            />
+            <input
+              name="endMinute"
+              type="number"
+              min="0"
+              max="59"
+              value={formData.endMinute}
+              onChange={handleChange}
+            />
+          </div>
+        </label>
+
+        <label>
+          Açıqlama:
+          <input
+            name="description"
+            type="text"
+            value={formData.description}
+            onChange={handleChange}
+          />
+        </label>
+
+        <div className="edit-actions">
+          <button type="submit">Yenilə</button>
+          <button type="button" onClick={() => setEditingSchedule(null)}>Bağla</button>
         </div>
-      )}
+      </form>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };

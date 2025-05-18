@@ -249,6 +249,18 @@ const Sidebar = () => {
               <span>Attendance</span>
             </NavLink>
           </li>
+           <li className="nav-item">
+            <NavLink to="/admin-dashboard/blocked" className="nav-link" activeClassName="active">
+              <Icon icon="mdi:clipboard-check-outline" className="icon" />
+              <span>Blocked</span>
+            </NavLink>
+          </li>
+           <li className="nav-item">
+            <NavLink to="/admin-dashboard/notification" className="nav-link" activeClassName="active">
+              <Icon icon="mdi:clipboard-check-outline" className="icon" />
+              <span>Notification</span>
+            </NavLink>
+          </li>
           <li className="nav-item">
             <NavLink to="/admin-dashboard/package" className="nav-link" activeClassName="active">
               <Icon icon="mdi:arm-flex" className="icon" />

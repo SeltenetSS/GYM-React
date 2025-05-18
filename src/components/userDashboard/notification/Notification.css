@@ -1,0 +1,100 @@
+.notification-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff !important;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  body, html {
+    background-color: #ffffff;
+  }
+ 
+  .notification-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+ 
+  .section {
+    margin-bottom: 30px;
+  }
+  .section h3 {
+    color: #222;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+ 
+  .notification-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+ 
+  .notification-item {
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+    transition: background-color 0.3s;
+  }
+ 
+  .notification-item.unread {
+    font-weight: 700;
+    /* font-weight: bold; */
+    background-color: #c3d5ff;
+    color: #1a237e;
+  }
+ 
+  .notification-item.read {
+    color: #555;
+  }
+ 
+  .notification-item.global {
+    border-left: 4px solid #2196f3;
+  }
+ 
+  .notification-message {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+ 
+  .notification-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #333;
+  }
+ 
+  .button-group {
+    display: flex;
+    gap: 8px;
+  }
+ 
+  .btn {
+    padding: 4px 10px;
+    font-size: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+ 
+  .read-btn {
+    background-color: #4caf50;
+    color: white;
+  }
+ 
+  .delete-btn {
+    background-color: #f44336;
+    font-weight: 600;
+    color: white;
+  }
+ 
+  .empty-text {
+    color: #333;
+    font-style: italic;
+    margin-left: 10px;
+  }

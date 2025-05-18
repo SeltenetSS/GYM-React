@@ -35,6 +35,8 @@ import AddWorkout from './workout/AddWorkout';
 import ViewWorkout from './workout/ViewWorkout';
 import TrainerScheduleCreate from './schedule/TrainerScheduleCreate';
 import ViewSchedule from './schedule/ViewSchedule';
+import AdminNotification from './notification/AdminNotification';
+import Blocked from './blocked/Blocked';
 const AdminDashboard = () => {
   return (
     <div className="rowContainer">
@@ -75,6 +77,8 @@ const AdminDashboard = () => {
           <Route path="/admin-dashboard/product/orders" component={PointOrdersPage } />
           <Route path="/admin-dashboard/schedule/create" component={TrainerScheduleCreate } />
            <Route path="/admin-dashboard/schedule/view" component={ViewSchedule } />
+           <Route path="/admin-dashboard/notification" component={AdminNotification } />
+            <Route path="/admin-dashboard/blocked" component={Blocked} />
         </Switch>
       </div>
     </div>

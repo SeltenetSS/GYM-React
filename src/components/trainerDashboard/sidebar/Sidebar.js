@@ -34,6 +34,12 @@ const Sidebar = () => {
               <span>Equipment</span>
             </NavLink>
           </li>
+           <li className="nav-item">
+            <NavLink to="/trainer-dashboard/notification" className="nav-link" activeClassName="active">
+           <Icon icon="map:gym" className="icon" />
+              <span>Notification</span>
+            </NavLink>
+          </li>
           <li className="nav-item">
             <NavLink to="/trainer-dashboard/equipmentusage" className="nav-link" activeClassName="active">
               <Icon icon="map:gym" className="icon" />

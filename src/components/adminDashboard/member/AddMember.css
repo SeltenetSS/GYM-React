@@ -91,7 +91,7 @@
 }
 
 .add-member-button:hover {
-  background-color: rgba(41, 173, 47, 0.67);
+  background-color: #14d163;
 }
 
 @media (max-width: 600px) {

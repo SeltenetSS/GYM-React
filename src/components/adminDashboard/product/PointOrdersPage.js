@@ -12,12 +12,15 @@ const PointOrdersPage = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await axios.get("https://localhost:7054/api/Purchase");
+      const response = await axios.get("https://localhost:7054/api/Purchase",{
+         headers: { Authorization: `Bearer ${localStorage.getItem("token")}`}
+      });
       setOrders(response.data);
     } catch (error) {
       console.error("Sifarişləri yükləmək mümkün olmadı:", error);
     }
   };
+  
 
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm("Bu sifarişi silmək istədiyinizə əminsiniz?");

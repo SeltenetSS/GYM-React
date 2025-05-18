@@ -1,7 +1,7 @@
-.admin-chat-container {
+/* .admin-chat-container {
   display: flex;
   height: 100vh;
-  background-color: #2c2c2c; /* Tünd boz yazı rəngi */
+  background-color: #2c2c2c; 
   border: 1px solid #dce1e7;
   border-radius: 8px;
   overflow: hidden;
@@ -10,7 +10,7 @@
 
 .user-list {
   width: 250px;
-  background: #ffffff; /* Tam ağ */
+  background: #ffffff; 
   border-right: 1px solid #dce1e7;
   padding: 20px 10px;
   box-shadow: 2px 0 5px rgba(0,0,0,0.05);
@@ -46,12 +46,12 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  background-color: #f9fbfd; /* Açıq mavi fon */
+  background-color: #f9fbfd; 
 }
 
 .chat-header {
   padding: 15px;
-  background: #eef3fa; /* Açıq mavi başlıq fonu */
+  background: #eef3fa; 
   border-bottom: 1px solid #dce1e7;
   font-size: 18px;
   font-weight: 600;
@@ -62,7 +62,7 @@
   flex-grow: 1;
   padding: 20px;
   overflow-y: auto;
-  background: #ffffff; /* Tam ağ */
+  background: #ffffff; 
 }
 
 .message {
@@ -93,7 +93,7 @@
   display: flex;
   padding: 15px;
   border-top: 1px solid #dce1e7;
-  background: #f5f7fa; /* Açıq boz fon */
+  background: #f5f7fa; 
 }
 
 .chat-input input {
@@ -106,24 +106,24 @@
 
 .chat-input button {
   margin-left: 10px;
-  padding: 6px 20px; /* Adjusted for smaller width and longer length */
+  padding: 6px 20px; 
   border: none;
-  background-color: #ffffff; /* Tam ağ */
+  background-color: #ffffff; 
   color: white;
   font-weight: 600;
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s;
-  width: 120px; /* Set fixed width */
+  width: 120px;
 }
 
 .chat-input button:hover {
-  background-color: #f8f9fa; /* Azca tündləşdirilmiş ağ */
+  background-color: #f8f9fa; 
 }
 
 .chat-placeholder {
   padding: 20px;
-  color: #6c757d; /* Neytral boz */
+  color: #6c757d; 
   font-style: italic;
   text-align: center;
 }
@@ -135,6 +135,148 @@
 }
 
 .read-status {
+  color: green;
+  font-weight: bold;
+} */
+
+
+.adminchat-container {
+  display: flex;
+  height: 100vh;
+  background-color: #2c2c2c;
+  border: 1px solid #dce1e7;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+}
+
+.adminchat-user-list {
+  width: 250px;
+  background: #ffffff;
+  border-right: 1px solid #dce1e7;
+  padding: 20px 10px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+  overflow-y: auto;
+}
+
+.adminchat-guest-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+.adminchat-guest-item {
+  cursor: pointer;
+  padding: 12px 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  transition: background 0.3s;
+  font-weight: 500;
+  color: #333;
+}
+
+.adminchat-guest-item:hover {
+  background-color: #e6f0ff;
+}
+
+.adminchat-guest-item.active {
+  background-color: #cce0ff;
+  font-weight: bold;
+}
+
+.adminchat-chat-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9fbfd;
+}
+
+.adminchat-chat-header {
+  padding: 15px;
+  background: #eef3fa;
+  border-bottom: 1px solid #dce1e7;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1d3557;
+}
+
+.adminchat-chat-messages {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #ffffff;
+}
+
+.adminchat-message {
+  max-width: 70%;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.adminchat-admin-message {
+  background-color: #d0e8ff;
+  color: #003366;
+  margin-left: auto;
+  text-align: right;
+}
+
+.adminchat-guest-message {
+  background-color: #d2f8d2;
+  color: #064420;
+  margin-right: auto;
+  text-align: left;
+}
+
+.adminchat-chat-input {
+  display: flex;
+  padding: 15px;
+  border-top: 1px solid #dce1e7;
+  background: #f5f7fa;
+}
+
+.adminchat-chat-input input {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.adminchat-chat-input button {
+  margin-left: 10px;
+  padding: 6px 20px;
+  border: none;
+  background-color: #ffffff;
+  color: white;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 120px;
+}
+
+.adminchat-chat-input button:hover {
+  background-color: #f8f9fa;
+}
+
+.adminchat-chat-placeholder {
+  padding: 20px;
+  color: #6c757d;
+  font-style: italic;
+  text-align: center;
+}
+
+.adminchat-message-timestamp {
+  font-size: 0.8em;
+  color: #777;
+  margin-top: 5px;
+}
+
+.adminchat-read-status {
   color: green;
   font-weight: bold;
 }

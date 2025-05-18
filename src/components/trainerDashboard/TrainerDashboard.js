@@ -17,10 +17,14 @@ import MyGroup from './mygroup/MyGroup';
 import TakeAttendance from './attendance/TakeAttendance';
 import ViewAttendance from './attendance/ViewAttendance';
 import FeedBack from './feedback/FeedBack';
-
+import Notification from './notification/Notification';
+import NotificationListener from '../website/NotificationListener';
 const TrainerDashboard = () => {
+     const accessToken = localStorage.getItem("token");
+  console.log("LocalStorage'dan alınan accessToken:", accessToken);
   return (
     <div className="rowContainer">
+ {accessToken && <NotificationListener accessToken={accessToken} />}
        
       <Sidebar />
       <div className="body">
@@ -41,7 +45,7 @@ const TrainerDashboard = () => {
           <Route exact path="/trainer-dashboard/equipmentusage/view-usage" component={ViewUsage} />
           <Route exact path="/trainer-dashboard/equipmentusage/view-chart" component={ViewChart} />
           <Route exact path="/trainer-dashboard/feedbacks" component={FeedBack} />
-
+         <Route exact path="/trainer-dashboard/notification" component={Notification} />
         </Switch>
       </div>
     </div>

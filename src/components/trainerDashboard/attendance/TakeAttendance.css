@@ -1,4 +1,4 @@
-
+/* 
 
 :root {
     --primaryColor: #D90429;
@@ -148,4 +148,136 @@
     overflow: hidden;
     table-layout: fixed;
   }
-    
+     */
+
+
+     .takeAttendanceContainer {
+  width: 100%;
+  min-height: 100vh;
+  padding: 30px;
+  background-color: #e5e5e5; /* var(--darkColor2) */
+  color: #2c2c2c;            /* var(--lightColor) */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.takeAttendanceContainer h3 {
+  text-align: center;
+  color: #ffffff; /* var(--primaryColor) */
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+
+.formGroup {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  margin-right: 10px;
+  font-weight: 500;
+  color: #2c2c2c; /* var(--lightColor) */
+}
+
+input[type="date"] {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #6c757d;        /* var(--greyColor) */
+  background-color: #f0f0f0;        /* var(--darkColor1) */
+  color: #2c2c2c;                   /* var(--lightColor) */
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input[type="date"]:focus {
+  border-color: #ffffff; /* var(--primaryColor) */
+}
+
+.attendanceTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background-color: #f0f0f0; /* var(--darkColor1) */
+  border-radius: 12px;
+  overflow: hidden;
+  table-layout: fixed;
+}
+
+.attendanceTable th,
+.attendanceTable td {
+  padding: 14px 18px;
+  text-align: center;
+  border-bottom: 1px solid #6c757d; /* var(--greyColor) */
+}
+
+.attendanceTable th {
+  background-color: #f8f9fa; /* var(--secondaryColor) */
+  color: #2c2c2c;            /* var(--lightColor) */
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.attendanceTable td {
+  color: #2c2c2c; /* var(--lightColor) */
+}
+
+.tableUserImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff; /* var(--primaryColor) */
+}
+
+select {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #6c757d;     /* var(--greyColor) */
+  background-color: #e5e5e5;     /* var(--darkColor2) */
+  color: #2c2c2c;                /* var(--lightColor) */
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+select:focus {
+  border-color: #ffffff; /* var(--primaryColor) */
+}
+
+.submit-btn {
+  padding: 8px 18px;
+  background-color: #ffffff; /* var(--primaryColor) */
+  color: #2c2c2c;            /* var(--lightColor) */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #f8f9fa; /* var(--secondaryColor) */
+}
+
+.error {
+  color: #ff4d4d;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.customDatePicker {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #6c757d;     /* var(--greyColor) */
+  background-color: #f0f0f0;     /* var(--darkColor1) */
+  color: #2c2c2c;                /* var(--lightColor) */
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.customDatePicker:focus {
+  border-color: #ffffff; /* var(--primaryColor) */
+}

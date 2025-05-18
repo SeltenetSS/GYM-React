@@ -1,97 +1,99 @@
 .admin-add-package-page {
     min-height: 100vh;
-    background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
+    background-color: #f5f5f5; /* açıq, təmiz fon */
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
     box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .admin-add-package-wrapper {
     width: 100%;
-    max-width: 600px;
-    background: #000000;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 12px 30px rgba(255, 0, 0, 0.3);
+    max-width: 500px;
+    background-color: #ffffff; /* ağ, təmiz fon */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* yüngül kölgə */
     transition: 0.3s ease;
 }
 
 .admin-add-package-title {
     text-align: center;
-    color: #ff4d4d;
-    font-size: 28px;
+    color: #333; /* yumşaq tünd rəng */
+    font-size: 24px;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .admin-add-package-form {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 15px;
 }
 
 .admin-form-group {
+    margin-bottom: 15px;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
 }
 
 .admin-form-group label {
     font-size: 14px;
-    font-weight: 500;
-    color: #ccc;
+    font-weight: 600;
+    color: #444;
     margin-bottom: 6px;
 }
 
 .admin-form-group input,
 .admin-form-group textarea {
-    padding: 12px;
-    font-size: 15px;
-    background: #1a1a1a;
-    color: #fff;
-    border: 1px solid #ff4d4d;
-    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+    border-radius: 6px;
     transition: all 0.3s ease;
 }
 
 .admin-form-group input:focus,
 .admin-form-group textarea:focus {
-    border-color: #ff1a1a;
-    box-shadow: 0 0 6px rgba(255, 77, 77, 0.4);
+    border-color: #58d68d;
+    box-shadow: 0 0 5px rgba(88, 214, 141, 0.5);
     outline: none;
 }
 
 .admin-submit-button {
-    background: linear-gradient(to right, #ff4d4d, #b30000);
-    color: white;
-    padding: 14px;
-    font-size: 17px;
+    padding: 10px;
+    background-color: #58d68d;
+    color: #fff;
     font-weight: 600;
+    font-size: 15px;
     border: none;
-    border-radius: 10px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .admin-submit-button:hover {
-    background: linear-gradient(to right, #b30000, #800000);
-    transform: scale(1.05);
+    background-color: rgba(41, 173, 47, 0.67);
 }
 
 .admin-error-message {
-    color: #ff4d4d;
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
     text-align: center;
-    margin-bottom: 20px;
 }
 
 @media (max-width: 600px) {
     .admin-add-package-wrapper {
-        padding: 25px;
+        padding: 20px;
         margin: 10px;
     }
 
     .admin-submit-button {
-        font-size: 15px;
+        font-size: 14px;
     }
 }

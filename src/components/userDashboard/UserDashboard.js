@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Topbar from './sidebar/Topbar';
 import Sidebar from './sidebar/Sidebar'; 
 import Equipment from './equipment/Equipment'; 
-import Notfication from './notfication/Notfication';
+
 import Package from './package/Package';  
 import UserAttendance from './attendance/Attendance'; 
 import Profile from './profile/Profile'; 
@@ -12,10 +12,14 @@ import Dashboard from './dashboard/Dashboard';
 import Shop from './shop/Shop'; 
 import Payments from './payment/Payments';
 import MyFeedbacks from './myfeedback/MyFeedBacks';
+import Notification from './notification/Notification';
 import axios from 'axios';
-
+import NotificationListener from '../website/NotificationListener';
+ 
 
 const UserDashboard = () => {
+    const accessToken = localStorage.getItem("token");
+  console.log("LocalStorage'dan alınan accessToken:", accessToken);
   const [profileImage, setProfileImage] = useState('/default-avatar.png'); 
 
   useEffect(() => {
@@ -36,17 +40,18 @@ const UserDashboard = () => {
 
   return (
     <div className="rowContainer">
+       {accessToken && <NotificationListener accessToken={accessToken} />}
       <Sidebar />
       <div className="body">
         <Topbar profileImage={profileImage} />
         <Switch>
           <Route exact path="/user-dashboard" component={Dashboard} />
           <Route exact path="/user-dashboard/equipment" component={Equipment} />
-          <Route exact path="/user-dashboard/notfication" component={Notfication} />
+          
           <Route exact path="/user-dashboard/package" component={Package} />
           <Route exact path="/user-dashboard/payment" component={Payments} />
           <Route exact path="/user-dashboard/review" component={MyFeedbacks} />
-         
+              <Route exact path="/user-dashboard/notification" component={Notification} />
           <Route exact path="/user-dashboard/userattendance" component={UserAttendance} />
           <Route exact path="/user-dashboard/shop" component={Shop} />
           <Route exact path="/user-dashboard/profile">

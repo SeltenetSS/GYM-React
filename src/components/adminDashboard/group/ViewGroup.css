@@ -1,120 +1,132 @@
 .view-group-container {
-    padding: 20px;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .view-group-title {
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: #333;
-  }
-  
-  .view-group-table {
-    width: 100%;
-    border-collapse: collapse;
-    color: #333;
-  }
-  
-  .view-group-table th,
-  .view-group-table td {
-    border: 1px solid #ccc;
-    padding: 6px 10px;
-    text-align: left;
-    height: 25px;
-    line-height: 1.2;
-  }
-  
-  /* Icon buttons yan-yana və hover effektlərlə */
-  .view-group-actions {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .view-group-icon {
-    font-size: 18px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  
-  .view-group-icon.edit {
-    color: #007bff;
-  }
-  
-  .view-group-icon.edit:hover {
-    color: #0056b3;
-  }
-  
-  .view-group-icon.delete {
-    color: #dc3545;
-  }
-  
-  .view-group-icon.delete:hover {
-    color: red;
-  }
-  
-  .view-group-btn {
-    margin-right: 8px;
-    padding: 8px 12px;
-    border: 2px solid #a71d2a;
-    background-color: transparent;
-    color: #000;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .view-group-btn.save:hover {
-    background-color: #f99;
-    color: white;
-  }
-  
-  .view-group-btn.cancel:hover {
-    background-color: #e0e0e0;
-    color: black;
-  }
-  
-  .view-group-input {
-    padding: 6px;
-    margin: 6px 0;
-    width: 100%;
-    box-sizing: border-box;
-    height: 30px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-  }
-  
-  .view-group-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .view-group-modal-content {
-    background-color: white;
-    padding: 25px;
-    width: 350px;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  .view-group-modal-actions {
-    margin-top: 15px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .view-group-modal-content h3 {
-    font-size: 20px;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  position: relative;
+  z-index: 0;
+}
+
+.view-group-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #444;
+}
+
+.view-group-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.view-group-table th,
+.view-group-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.view-group-table thead {
+  background-color: #989898;
+  color: #fff;
+  font-weight: 600;
+}
+
+.view-group-table tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+.view-group-actions {
+  display: flex;
+  gap: 8px;
+}
+.view-group-icon {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: transform 0.2s;
+}
+
+.view-group-icon:hover {
+  transform: scale(1.1);
+}
+
+
+.view-group-icon.edit {
+  color: #2980b9;
+}
+
+.view-group-icon.delete {
+  color: red;
+}
+
+/* Modal */
+.view-group-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.view-group-modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.view-group-modal-content h3 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.view-group-input,
+.view-group-modal-content select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.view-group-modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.view-group-btn {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.view-group-btn.save {
+  background-color: #2980b9;
+  color: white;
+}
+
+.view-group-btn.cancel {
+  background-color: #ccc;
+  color: #333;
+}

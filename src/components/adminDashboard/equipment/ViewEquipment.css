@@ -208,3 +208,25 @@
   border-radius: 5px;
   margin-right: 10px;
 }
+.search-container {
+  position: relative;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-container .search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #555;
+  font-size: 18px;
+}

@@ -1,89 +1,145 @@
 .group-details-container {
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .group-details-card {
-    background-color: #f5f5f5;
-    color: #222; /* Yazılar tünd */
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .group-details-card h3 {
-    margin: 0 0 10px;
-  }
-  
-  .group-details-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-  }
-  
-  .group-details-table th,
-  .group-details-table td {
-    color: #222;
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .group-details-table th {
-    background-color: #dcdcdc;
-  }
-  
-  .group-details-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-  }
-  
-  .group-details-modal {
-    background: #fff;
-    color: #222; /* Modal içi yazı tünd */
-    padding: 30px;
-    border-radius: 12px;
-    width: 400px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  .group-details-modal h2 {
-    color: #111;
-  }
-  
-  .group-details-modal select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 20px;
-  }
-  
-  .group-details-modal-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-  
-  .group-details-modal-buttons button {
-    padding: 8px 16px;
-    background-color: #d60505;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .group-details-modal-buttons button:hover {
-    background-color: #790f0f;
-  }
-  
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.group-details-card {
+  background-color: #f5f5f5;
+  color: #222;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.group-details-card h3 {
+  margin: 0 0 10px;
+}
+
+.group-details-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.group-details-table th,
+.group-details-table td {
+  color: #222;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.group-details-table th {
+  background-color: #dcdcdc;
+}
+
+.group-details-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.group-details-modal {
+  background: #fff;
+  color: #222;
+  padding: 30px;
+  border-radius: 12px;
+  width: 400px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.group-details-modal h2 {
+  color: #111;
+}
+
+.group-details-modal select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.group-details-modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Add User Modal Buttons */
+.group-details-modal-buttons button.add-btn {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.group-details-modal-buttons button.add-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Cancel Button */
+.group-details-modal-buttons button.cancel-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.group-details-modal-buttons button.cancel-btn:hover {
+  background-color: #c82333;
+}
+
+/* Table Delete Button */
+.group-details-table button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Optional: Group Card Buttons */
+.group-details-card > button {
+  margin-right: 10px;
+  padding: 8px 14px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+/* Add User Button */
+.group-details-card > button:first-of-type {
+  background-color: #2980b9;
+}
+
+.group-details-card > button:first-of-type:hover {
+  background-color: #0056b3;
+}
+
+/* View Users Button */
+.group-details-card > button:last-of-type {
+  background-color: #dc3545;
+}
+
+.group-details-card > button:last-of-type:hover {
+  background-color: #c82333;
+}

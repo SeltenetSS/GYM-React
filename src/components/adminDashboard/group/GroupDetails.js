@@ -167,10 +167,11 @@ const GroupDetails = () => {
                 </option>
               ))}
             </select>
-            <div className="group-details-modal-buttons">
-              <button onClick={handleAddUser}>Add</button>
-              <button onClick={() => setShowModalGroupId(null)}>Cancel</button>
-            </div>
+<div className="group-details-modal-buttons">
+  <button className="add-btn" onClick={handleAddUser}>Add</button>
+  <button className="cancel-btn" onClick={() => setShowModalGroupId(null)}>Cancel</button>
+</div>
+
           </div>
         </div>
       )}

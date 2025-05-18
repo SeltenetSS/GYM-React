@@ -23,7 +23,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/user-dashboard/notfication" className="nav-link" activeClassName="active">
+            <NavLink to="/user-dashboard/notification" className="nav-link" activeClassName="active">
               <Icon icon="map:gym" className="icon" />
               <span>Notfication</span>
             </NavLink>

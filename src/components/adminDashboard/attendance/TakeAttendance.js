@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./TakeAttendance.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import "./TakeAttendance.css";
 
 const TakeAttendance = () => {
   const [users, setUsers] = useState([]);
-  const [attendanceDate, setAttendanceDate] = useState(new Date().toISOString().split("T")[0]);
+  const [attendanceDate, setAttendanceDate] = useState(
+    new Date().toISOString().split("T")[0]
+  );
   const [statusMap, setStatusMap] = useState({});
   const [error, setError] = useState("");
-
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -21,11 +22,14 @@ const TakeAttendance = () => {
       }
 
       try {
-        const response = await axios.get("https://localhost:7054/api/Attendance/get-attendance", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await axios.get(
+          "https://localhost:7054/api/Attendance/get-attendance",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setUsers(response.data);
       } catch (err) {
         if (err.response?.status === 401) {
@@ -54,36 +58,45 @@ const TakeAttendance = () => {
     };
 
     try {
-      await axios.post("https://localhost:7054/api/Attendance/take-attendance", attendanceData, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      await axios.post(
+        "https://localhost:7054/api/Attendance/take-attendance",
+        attendanceData,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       alert("Attendance submitted successfully!");
     } catch (error) {
       console.error("Error response:", error.response);
-      alert(`An error occurred: ${error.response?.data?.message || "No additional information available."}`);
+      alert(
+        `An error occurred: ${
+          error.response?.data?.message || "No additional information available."
+        }`
+      );
     }
   };
 
   return (
     <div className="takeAttendanceContainer">
-      <h3>Take Attendance</h3>
+      <h3 className="takeAttendanceHeader">Take Attendance</h3>
 
-      {error && <div className="error">{error}</div>}
+      {error && <div className="takeAttendanceError">{error}</div>}
 
-      <div className="formGroup">
+      <div className="takeAttendanceFormGroup">
         <label>Date:</label>
         <DatePicker
-  selected={new Date(attendanceDate)}
-  onChange={(date) => setAttendanceDate(date.toISOString().split("T")[0])}
-  dateFormat="yyyy-MM-dd"
-  className="customDatePicker"
-/>
-
+          selected={new Date(attendanceDate)}
+          onChange={(date) =>
+            setAttendanceDate(date.toISOString().split("T")[0])
+          }
+          dateFormat="yyyy-MM-dd"
+          className="takeAttendanceDatePicker"
+        />
       </div>
 
-      <table className="attendanceTable">
+      <table className="takeAttendanceTable">
         <thead>
           <tr>
             <th>Image</th>
@@ -99,9 +112,11 @@ const TakeAttendance = () => {
             <tr key={user.id}>
               <td>
                 <img
-                  src={user.imageUrl || "https://example.com/default-avatar.png"}
+                  src={
+                    user.imageUrl || "https://example.com/default-avatar.png"
+                  }
                   alt={user.name}
-                  className="tableUserImage"
+                  className="takeAttendanceImage"
                 />
               </td>
               <td>{user.name}</td>
@@ -111,6 +126,7 @@ const TakeAttendance = () => {
                 <select
                   onChange={(e) => handleStatusChange(user.id, e.target.value)}
                   defaultValue="Present"
+                  className="takeAttendanceSelect"
                 >
                   <option value="Present">Present</option>
                   <option value="Absent">Absent</option>
@@ -118,7 +134,7 @@ const TakeAttendance = () => {
               </td>
               <td>
                 <button
-                  className="submit-btn"
+                  className="takeAttendanceButton"
                   onClick={() => handleSubmit(user.id)}
                 >
                   Save

@@ -1,105 +1,250 @@
-.schedule-container {
-  padding: 20px;
+/* .view-schedule-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  position: relative;
+  z-index: 0;
 }
 
-.schedule-table {
+.view-schedule-table {
   width: 100%;
   border-collapse: collapse;
+  font-size: 14px;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
 }
 
-.schedule-table th,
-.schedule-table td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: center;
+.view-schedule-table th,
+.view-schedule-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
 }
 
-.schedule-table th {
-  background-color: #f5f5f5;
+.view-schedule-table thead {
+  background-color: #989898;
+  color: #fff;
+  font-weight: 600;
 }
 
-button {
-  margin: 2px;
-  padding: 5px 10px;
+.view-schedule-table tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+.schedule-action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.schedule-action-icon {
+  width: 26px;
+  height: 26px;
+  border: none;
   cursor: pointer;
+  background-size: 18px 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 4px;
+  opacity: 0.9;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
 }
 
-button.delete {
-  background-color: #e74c3c;
-  color: white;
+.schedule-action-icon.edit {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%232980b9' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z'/%3E%3C/svg%3E");
+  background-color: transparent;
 }
 
-.update-form {
-  margin-top: 20px;
-  padding: 15px;
-  border: 1px solid #aaa;
-  border-radius: 5px;
-  max-width: 400px;
-  background-color: #fafafa;
+.schedule-action-icon.edit:hover {
+  background-color: transparent;
+  opacity: 1;
 }
 
-.update-form h3 {
-  margin-bottom: 10px;
+.schedule-action-icon.delete {
+  background-image: url("data:image/svg+xml,%3Csvg fill='red' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-4.5l-1-1z'/%3E%3C/svg%3E");
+  background-color: transparent;
 }
 
-.update-form label {
-  display: block;
-  margin-bottom: 10px;
-}
+.schedule-action-icon.delete:hover {
+  opacity: 1;
+} */
 
-.update-form input,
-.update-form select {
+
+.view-schedule-container {
   width: 100%;
-  padding: 5px;
-  margin-top: 5px;
+  max-width: 1200px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
 }
-/* Modal örtüyü */
+
+.view-schedule-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #444;
+}
+
+.view-schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.view-schedule-table th,
+.view-schedule-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.view-schedule-table thead {
+  background-color: #989898;
+  color: #fff;
+  font-weight: 600;
+}
+
+.view-schedule-table tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+.view-schedule-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.view-schedule-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.view-schedule-icon {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: transform 0.2s;
+}
+
+.view-schedule-icon:hover {
+  transform: scale(1.1);
+}
+
+.view-schedule-icon.edit {
+  color: #2980b9;
+}
+
+.view-schedule-icon.delete {
+  color: red;
+}
+
+
+/* Mövcud modal üçün dizaynı dəyişdirmək üçün */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-/* Modal Overlay */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
   z-index: 999;
 }
 
-/* Modal Content */
-.modal-content {
+.view-member-edit-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 400px;
-  max-width: 90%;
+  max-width: 500px;
+  width: 90%;
+  padding: 30px 25px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow-y: auto;
+  max-height: 90vh;
 }
 
-.update-form label {
+.view-member-edit-modal h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #007BFF;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.view-member-edit-modal label {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #444;
+  font-size: 14px;
 }
 
-.modal-buttons {
-  margin-top: 15px;
+.view-member-edit-modal input[type="text"],
+.view-member-edit-modal input[type="email"],
+.view-member-edit-modal input[type="date"],
+.view-member-edit-modal input[type="password"],
+.view-member-edit-modal input[type="number"],
+.view-member-edit-modal select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-top: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.view-member-edit-modal input:focus,
+.view-member-edit-modal select:focus {
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.view-member-edit-modal .edit-actions {
+  margin-top: 25px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20px;
 }
 
-button {
+.view-member-edit-modal button {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  font-size: 14px;
+  border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-member-edit-modal button:hover {
+  background-color: #0056b3;
+}
+
+.view-member-edit-modal button:last-child {
+  background-color: #dc3545;
+}
+
+.view-member-edit-modal button:last-child:hover {
+  background-color: #c82333;
+}
+
+@media (max-width: 600px) {
+  .view-member-edit-modal {
+    max-width: 95%;
+    padding: 20px 15px;
+  }
 }
