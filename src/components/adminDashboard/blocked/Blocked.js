@@ -10,7 +10,7 @@ const Blocked = () => {
   useEffect(() => {
    const fetchBlockedUsers = async () => {
   try {
-    const token = localStorage.getItem('token'); // Tokenin harada saxlandığından asılı olaraq dəyiş
+    const token = localStorage.getItem('token');
     const response = await axios.get('https://localhost:7054/api/Payment/delayed-users', {
       headers: {
         Authorization: `Bearer ${token}`

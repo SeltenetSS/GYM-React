@@ -174,7 +174,7 @@ const Dashboard = () => {
   });
 
   const [topUsers, setTopUsers] = useState([]);
-  const [packageInfo, setPackageInfo] = useState(null); // YENI
+  const [packageInfo, setPackageInfo] = useState(null); 
 
   useEffect(() => {
     axios
@@ -195,7 +195,7 @@ const Dashboard = () => {
       .then((res) => setTopUsers(res.data))
       .catch((err) => console.error("Failed to load top users:", err));
 
-    // USER PACKAGE INFO
+ 
     axios
       .get("https://localhost:7054/api/User/package-info", {
         headers: {

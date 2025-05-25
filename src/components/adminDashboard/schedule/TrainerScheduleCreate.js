@@ -322,7 +322,7 @@ const TrainerScheduleCreate = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  // Məlumatları yüklə
+
   useEffect(() => {
     const fetchData = async () => {
       const token = localStorage.getItem("token");

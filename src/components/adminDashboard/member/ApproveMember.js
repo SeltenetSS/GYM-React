@@ -116,7 +116,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaCheckCircle, FaTrash } from "react-icons/fa";
-import './ApproveMember.css'; // Öz CSS-ni əlavə etdik
+import './ApproveMember.css'; 
 
 const ApproveMember = () => {
   const [pendingUsers, setPendingUsers] = useState([]);

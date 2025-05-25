@@ -9,7 +9,7 @@ const ViewUsage = () => {
   const handleSearch = async () => {
     if (!userId) return alert("Please enter a User ID!");
 
-    const token = localStorage.getItem('token'); // Tokeni localStorage-dan götür
+    const token = localStorage.getItem('token'); 
 
     if (!token) {
       alert("Token tapılmadı! Zəhmət olmasa login olun.");
@@ -21,7 +21,7 @@ const ViewUsage = () => {
         `https://localhost:7054/api/UserEquipmentUsage/user/${userId}`,
         {
           headers: {
-            Authorization: `Bearer ${token}`, // Tokeni başlığa əlavə et
+            Authorization: `Bearer ${token}`, 
           },
         }
       );

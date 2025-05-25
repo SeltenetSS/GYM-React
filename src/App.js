@@ -95,7 +95,7 @@ import './components/website/Contact.css';
 import './components/website/Auth.css';
 
 import './responsive.css';
-import './App.scss'; // burada theme dəyişkənlərini yazmışıq
+import './App.scss'; 
 
 import Navbar from './components/website/Navbar';
 import HomeNav from "./routes/HomeNav";
@@ -148,11 +148,9 @@ function App() {
           </Switch>
           <Footer />
 
-          {/* Chat düyməsi */}
           <button className="chat-toggle-button" onClick={toggleChat}>💬</button>
           {chatOpen && <GuestChat onClose={() => setChatOpen(false)} />}
 
-          {/* Theme düyməsi */}
        
         </Route>
       </Switch>

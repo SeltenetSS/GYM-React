@@ -29,7 +29,7 @@ const ViewProduct = () => {
 
   const handleUpdateClick = (product) => {
     setSelectedProduct(product);
-    setNewImage(null); // yeni şəkil daxil etməyi sıfırlayırıq
+    setNewImage(null); 
     setShowModal(true);
   };
 
@@ -58,7 +58,7 @@ const ViewProduct = () => {
     formData.append("pointCost", event.target.pointCost.value);
     formData.append("stock", event.target.stock.value);
 
-    // Yeni şəkil varsa, onu əlavə edirik
+    
     if (newImage) {
       formData.append("ImageUrl", newImage);
     }
@@ -77,7 +77,6 @@ const ViewProduct = () => {
 
       const updatedProduct = response.data;
 
-      // Yalnız dəyişdirilmiş məhsulun məlumatlarını yeniləyirik
       setProducts((prevProducts) =>
         prevProducts.map((product) =>
           product.id === selectedProduct.id
@@ -87,14 +86,14 @@ const ViewProduct = () => {
                 description: updatedProduct.description,
                 pointCost: updatedProduct.pointCost,
                 stock: updatedProduct.stock,
-                // Yeni şəkil varsa, onun URL-ni yeniləyirik
+       
                 imageUrl: newImage ? updatedProduct.imageUrl : product.imageUrl,
               }
             : product
         )
       );
 
-      // Seçilmiş məhsulu yeniləyirik
+ 
       setSelectedProduct((prevSelectedProduct) => ({
         ...prevSelectedProduct,
         name: updatedProduct.name,

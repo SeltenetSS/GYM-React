@@ -13,7 +13,7 @@
     color: var(--lightColor);
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Ortadan çıxarıldı, yuxarıya çəkildi */
+    align-items: flex-start; 
   }
   
   .equipmentusagemain-card-wrapper {

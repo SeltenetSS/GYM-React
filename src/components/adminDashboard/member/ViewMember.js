@@ -35,7 +35,7 @@ const ViewMember = () => {
     fetchAllData();
   }, []);
 
-  // Bütün məlumatları paralel fetch edən funksiya
+
   const fetchAllData = async () => {
     try {
       await Promise.all([fetchMembers(), fetchPackages(), fetchTrainers()]);
@@ -80,7 +80,7 @@ const ViewMember = () => {
     }
   };
 
-  // Delete funksiyası
+
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete?")) return;
     try {
@@ -93,7 +93,7 @@ const ViewMember = () => {
     }
   };
 
-  // Edit modal üçün məlumatları set edir
+
   const handleEdit = (member) => {
     setEditMember(member);
     setEditedData({
@@ -112,7 +112,7 @@ const ViewMember = () => {
     setPreviewImage(member.imageUrl || null);
   };
 
-  // Edit modal input dəyişiklikləri
+ 
   const handleEditChange = (e) => {
     const { name, value, type, checked } = e.target;
     setEditedData((prev) => ({
@@ -121,7 +121,7 @@ const ViewMember = () => {
     }));
   };
 
-  // Yeni şəkil seçimi və preview
+
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -130,12 +130,12 @@ const ViewMember = () => {
     }
   };
 
-  // Məlumatları backendə göndərib update edir
+
   const handleSave = async () => {
     try {
       const formData = new FormData();
 
-      // Object.entries istifadə olunub ona görə dateOfBirth kimi string gəlib formata düşəcək
+  
       Object.entries(editedData).forEach(([key, value]) => {
         if (value !== null && value !== undefined) {
           formData.append(key, value);
@@ -182,7 +182,7 @@ const ViewMember = () => {
            onChange={(e) => setSearchTerm(e.target.value)}
            className="search-input"
          />
-         <span className="search-icon">&#128269;</span> {/* Unicode icon (🔍) */}
+         <span className="search-icon">&#128269;</span> 
        </div>
       <table className="view-member-table">
         <thead>

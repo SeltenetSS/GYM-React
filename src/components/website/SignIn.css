@@ -1,4 +1,4 @@
-/* Qara fon və ağ yazı */
+
 .signin-body {
   background-color: #000 !important;
   color: #fff !important;
@@ -8,7 +8,7 @@
   padding: 0;
 }
 
-/* Əlavə stil üçün bütün səhifə konteyneri */
+
 .signin-page {
   display: flex;
   justify-content: center;
@@ -16,7 +16,7 @@
   height: 100vh;
 }
 
-/* Qutunun dizaynı */
+
 .signin-wrapper {
   background-color: #1a1a1a;
   padding: 30px;

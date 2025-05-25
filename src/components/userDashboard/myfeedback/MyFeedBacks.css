@@ -35,7 +35,7 @@
   font-size: 15px;
   line-height: 1.4;
   color: #444;
-  white-space: pre-wrap; /* yeni sətirlər üçün */
+  white-space: pre-wrap; 
 }
 
 .review-header {
@@ -57,5 +57,5 @@
   font-size: 15px;
   line-height: 1.4;
   color: #444;
-  white-space: pre-wrap; /* yeni sətirlər üçün */
+  white-space: pre-wrap; 
 }

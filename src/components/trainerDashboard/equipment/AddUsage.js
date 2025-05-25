@@ -21,7 +21,7 @@ const AddUsage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const token = localStorage.getItem('token'); // JWT token burada saxlanılır
+    const token = localStorage.getItem('token'); 
 
     if (!token) {
       alert('Token tapılmadı. Zəhmət olmasa login olun.');
@@ -34,7 +34,7 @@ const AddUsage = () => {
         formData,
         {
           headers: {
-            Authorization: `Bearer ${token}`, // token əlavə olunur
+            Authorization: `Bearer ${token}`, 
           },
         }
       );

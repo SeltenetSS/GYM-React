@@ -10,7 +10,7 @@ const EquipmentUsageChart = () => {
   const handleSearch = async () => {
     if (!userId) return alert("Please enter a User ID!");
 
-    const token = localStorage.getItem('token'); // Tokeni localStorage-dan götür
+    const token = localStorage.getItem('token'); 
 
     if (!token) {
       alert("Token tapılmadı! Zəhmət olmasa login olun.");
@@ -22,7 +22,7 @@ const EquipmentUsageChart = () => {
         `https://localhost:7054/api/UserEquipmentUsage/stats/user/${userId}`,
         {
           headers: {
-            Authorization: `Bearer ${token}`, // Authorization başlığı əlavə olunur
+            Authorization: `Bearer ${token}`, 
           },
         }
       );

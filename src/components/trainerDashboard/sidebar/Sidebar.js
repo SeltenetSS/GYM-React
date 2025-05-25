@@ -59,7 +59,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
 
-          {/* Burada yeni Feedbacks hissəsi əlavə edilir */}
+   
           <li className="nav-item">
             <NavLink to="/trainer-dashboard/feedbacks" className="nav-link" activeClassName="active">
               <Icon icon="mdi:message-text-outline" className="icon" />

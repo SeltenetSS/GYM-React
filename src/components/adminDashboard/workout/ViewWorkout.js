@@ -104,7 +104,7 @@ const ViewWorkout = () => {
                 </div>
 
                 <div className="action-buttons">
-                  {/* Edit düyməsi silindi */}
+                
                   <button
                     className="btn-delete"
                     onClick={() => handleDelete(plan.id)}

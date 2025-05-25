@@ -1,17 +1,17 @@
 
 .dashboard-container {
   padding: 32px;
-  background-color: white; /* Arxa fon ağ oldu */
+  background-color: white; 
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: red; /* Əsas yazı rəngi qırmızı oldu */
+  color: red; 
 }
 
 .dashboard-title,
 .card-title,
 .table-title,
 .chart-title {
-  color: red !important; /* Yalnız başlıqlar qırmızı oldu */
+  color: red !important;
 }
 
 

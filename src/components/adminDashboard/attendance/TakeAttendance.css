@@ -1,4 +1,4 @@
-/* Səhifədə heç bir container fonu və boşluq olmasın */
+
 .takeAttendanceContainer {
   padding: 0;
   margin: 0;
@@ -8,7 +8,7 @@
   width: 100%;
 }
 
-/* Başlıq da sadə, amma arxa fon yoxdur */
+
 .takeAttendanceHeader {
   margin: 10px 0;
   text-align: center;
@@ -17,7 +17,7 @@
   font-size: 1.4rem;
 }
 
-/* Error mesajı qırmızı, sadə */
+
 .takeAttendanceError {
   color: #d00;
   margin: 8px 0;
@@ -25,7 +25,7 @@
   font-size: 0.9rem;
 }
 
-/* Tarix seçimi üçün sadə görünüş */
+
 .takeAttendanceFormGroup {
   display: flex;
   justify-content: center;
@@ -41,37 +41,37 @@
   border-radius: 2px;
   padding: 3px 6px;
   font-size: 1rem;
-  background: white; /* burada ağ fon */
+  background: white; 
   color: #000;
 }
 
-/* Cədvəl ekranın tam eni ilə, ağ fon və sadə borderlar */
+
 .takeAttendanceTable {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.9rem;
   color: #000;
-  background: white; /* ağ fon */
+  background: white; 
 }
 
-/* Sərhədlər sadə, incə */
+
 .takeAttendanceTable th,
 .takeAttendanceTable td {
   border: 1px solid #ccc;
   padding: 6px 8px;
   text-align: left;
   vertical-align: middle;
-  background: white; /* ağ fon */
+  background: white; 
 }
 
-/* Başlıq sətiri sadə */
+
 .takeAttendanceTable th {
   font-weight: 600;
-  background: #f9f9f9; /* yüngül boz */
+  background: #f9f9f9; 
   color: #000;
 }
 
-/* Şəkil sadə, kiçik */
+
 .takeAttendanceImage {
   width: 36px;
   height: 36px;
@@ -79,7 +79,7 @@
   border-radius: 50%;
 }
 
-/* Sadə select */
+
 .takeAttendanceSelect {
   padding: 2px 4px;
   font-size: 0.85rem;
@@ -90,7 +90,7 @@
   cursor: pointer;
 }
 
-/* Sadə düymə */
+
 .takeAttendanceButton {
   padding: 5px 10px;
   font-size: 0.85rem;

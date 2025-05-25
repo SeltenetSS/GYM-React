@@ -2,8 +2,8 @@
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #0B0C10; /* Arxa fon ağ */
-    color: #f8f8f8; /* Tünd mətn */
+    background-color: #0B0C10; 
+    color: #f8f8f8; 
 }
 
 .user-auth-form-wrapper {
@@ -15,7 +15,7 @@
 }
 
 .user-auth-form-container {
-    background-color: #F5F5F5; /* Açıq boz forma fonu */
+    background-color: #F5F5F5; 
     padding: 30px;
     border-radius: 10px;
     width: 100%;

@@ -14,7 +14,7 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease;
-    color: #111; /* Yazilarin rengi tünd oldu */
+    color: #111; 
   }
   
   .user-dashboard-equipment-card:hover {
@@ -48,13 +48,13 @@
   
   .user-dashboard-equipment-info h3 {
     margin: 0 0 10px;
-    color: #222; /* Başlıq yazısına bir az daha tünd rəng */
+    color: #222; 
   }
   
   .user-dashboard-equipment-info p {
     margin: 5px 0;
     font-size: 14px;
-    color: #444; /* Normal mətnlər daha oxunaqlı oldu */
+    color: #444; 
   }
   
   .user-dashboard-error-message {

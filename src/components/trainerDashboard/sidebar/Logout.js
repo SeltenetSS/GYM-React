@@ -25,7 +25,7 @@ const Logout = () => {
   }, []);
 
   const handleLogout = () => {
-    // Modalları tam bağlayırıq
+
     const logoutModal = document.getElementById("logout-modal");
     const successModal = document.getElementById("success-modal");
 

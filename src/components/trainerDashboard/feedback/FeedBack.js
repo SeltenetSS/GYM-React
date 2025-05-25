@@ -19,7 +19,7 @@ useEffect(() => {
         }
       });
       console.log("Gelen telebeler:", response.data);
-      setUsers(response.data); // Əgər burda response.data.data lazımdırsa dəyiş
+      setUsers(response.data); 
     } catch (error) {
       console.error('Tələbələr yüklənə bilmədi:', error);
     }

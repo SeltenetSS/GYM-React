@@ -217,7 +217,7 @@ const Sidebar = () => {
     setWorkoutMenuOpen(!workoutMenuOpen);
   };
 
-    const toggleScheduleMenu = () => {  // Yeni əlavə
+    const toggleScheduleMenu = () => {  
     setScheduleMenuOpen(!scheduleMenuOpen);
   };
 

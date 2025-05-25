@@ -342,7 +342,7 @@ const Package = () => {
   };
 
   const handleWorkoutPlan = async (packageId) => {
-    // Əgər eyni paket klik olunubsa, workout plan gizlət
+
     if (showWorkout === packageId) {
       setShowWorkout(null);
       setWorkoutPlan(null);

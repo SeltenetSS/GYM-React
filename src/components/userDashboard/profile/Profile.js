@@ -14,11 +14,11 @@ const Profile = () => {
     email: "",
     phone: "",
     dateOfBirth: "",
-    imageUrl: null, // dəyişir
+    imageUrl: null, 
     currentPassword: "",
     newPassword: "",
   });
-  const [previewImage, setPreviewImage] = useState(""); // şəkil preview üçün
+  const [previewImage, setPreviewImage] = useState(""); 
   const history = useHistory();
 
   const formatDate = (date) => {

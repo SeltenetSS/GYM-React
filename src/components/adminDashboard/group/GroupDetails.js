@@ -9,10 +9,10 @@ const GroupDetails = () => {
   const [selectedGroupId, setSelectedGroupId] = useState(null);
   const [showModalGroupId, setShowModalGroupId] = useState(null);
   const [selectedUserId, setSelectedUserId] = useState("");
-  const [selectedUser, setSelectedUser] = useState(null);  // İstifadəçi məlumatı üçün state
-  const [warningMessage, setWarningMessage] = useState("");  // Yeni state to hold warning message
+  const [selectedUser, setSelectedUser] = useState(null);  
+  const [warningMessage, setWarningMessage] = useState("");  
 
-  // Fetch all groups from the API
+
   const fetchGroups = async () => {
     try {
       const response = await axios.get("https://localhost:7054/api/Group/all-groups", {
@@ -24,7 +24,7 @@ const GroupDetails = () => {
     }
   };
 
-  // Fetch all members from the API
+
   const fetchMembers = async () => {
     try {
       const res = await axios.get("https://localhost:7054/api/Admin/users", {
@@ -36,7 +36,6 @@ const GroupDetails = () => {
     }
   };
 
-  // Fetch users of a specific group from the API
   const fetchGroupUsers = async (groupId) => {
     try {
       const res = await axios.get(`https://localhost:7054/api/Group/${groupId}/users`, {
@@ -49,16 +48,16 @@ const GroupDetails = () => {
     }
   };
 
-  // Add a user to a specific group
+
   const handleAddUser = async () => {
-    // Check if the user is already in the group
+
     const isUserInGroup = users.some((user) => user.id === parseInt(selectedUserId));
     
     if (isUserInGroup) {
       setWarningMessage("This user is already a member of the group.");
-      return;  // Stop execution if user is already in the group
+      return; 
     } else {
-      setWarningMessage(""); // Clear warning if user is not in the group
+      setWarningMessage("");
     }
 
     try {
@@ -80,7 +79,7 @@ const GroupDetails = () => {
     }
   };
 
-  // Delete a user from a specific group
+
   const handleDeleteUser = async (groupId, userId) => {
     try {
       await axios.delete(`https://localhost:7054/api/Group/${groupId}/users/${userId}`, {
@@ -92,19 +91,18 @@ const GroupDetails = () => {
     }
   };
 
-  // Fetch and display the details of a specific user
+
   const handleUserClick = async (userId) => {
     try {
       const res = await axios.get(`https://localhost:7054/api/User/${userId}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
-      setSelectedUser(res.data);  // Seçilmiş istifadəçi məlumatını saxla
+      setSelectedUser(res.data); 
     } catch (error) {
       console.error("Error fetching user details:", error);
     }
   };
 
-  // Fetch groups and members when the component is mounted
   useEffect(() => {
     fetchGroups();
     fetchMembers();
@@ -153,7 +151,7 @@ const GroupDetails = () => {
         </div>
       ))}
 
-      {/* Add User Modal */}
+
       {showModalGroupId && (
         <div className="group-details-modal-overlay">
           <div className="group-details-modal">
@@ -176,7 +174,7 @@ const GroupDetails = () => {
         </div>
       )}
 
-      {/* User Detail Modal */}
+
       {selectedUser && (
         <div className="group-details-modal-overlay">
           <div className="group-details-modal">
